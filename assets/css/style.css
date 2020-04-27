@@ -1,0 +1,43 @@
+.col-md-offset-4 {
+  margin-left: 33%;
+}
+
+.alert {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.container {
+  padding: 20px;
+}
+
+.fs-header-title {
+  font-size: 30px;
+  font-family: 'Cookie', cursive;
+}
+
+.navbar-custom {
+  background-color: #d8d8d8 !important;
+}
+
+.fs-home-main-buttons {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.fs-food-page {
+  float: right;
+  margin-left: 5px;
+}
+
+.fs-home-main-button {
+  line-height: 35px !important;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.fs-home-logo {
+  font-family: 'Cookie', cursive;
+  font-size:80px;
+}
