@@ -1,3 +1,4 @@
+<?php echo $navbar; ?>
 <div class="jumbotron w3-container w3-center w3-animate-zoom" style="margin-top:100px; opacity:0.9">
   <h2 class="display-4 text-center"> Welcome to <span class="fs-home-logo">FoodShala</span> <br> Meals That Matter.</h2>
   <?php if (!$this->session->userdata('logged_in')) : ?>
@@ -7,3 +8,5 @@
   </div>
   <?php endif; ?>
 </div>
+
+<?php print_r($this->session->all_userdata()); ?>

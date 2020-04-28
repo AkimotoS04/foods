@@ -6,6 +6,13 @@ class Foods extends CI_Controller
      * Main foods page which containes all
      * all available foods.
      **/
+    public function __construct()
+	{
+		parent::__construct();
+        $this->load->library('session');
+        $this->load->model('food_model');
+	
+    }
     public function index()
     {
         $data['title'] = 'All Foods Available';
@@ -21,6 +28,7 @@ class Foods extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
+
     }
 
     /**

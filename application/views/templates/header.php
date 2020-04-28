@@ -55,8 +55,8 @@
       <div class="collapse navbar-collapse">
         <div class="navbar-nav">
           <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
-          <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>foods">Foods</a>
-          <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>about">About</a>
+          <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>foods/index">Foods</a>
+          <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>about/index">About</a>
 
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 0) : ?>

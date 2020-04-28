@@ -4,68 +4,22 @@
       /**
        * Register people.
        **/
-      public function register()
-      {
-          $data['title'] = 'Sign Up';
-
-          // Validation of form
-          $this->form_validation->set_rules('name', 'Name', 'required');
-          $this->form_validation->set_rules('Birth','Birth','required');
-          $this->form_validation->set_rules('email', 'Email', 'required');
-          $this->form_validation->set_rules('password', 'Password', 'required');
-          $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
-          $this->form_validation->set_rules('vegan', 'vegan', 'required');
-
-          if ($this->form_validation->run() === false) {
-              $this->load->view('templates/header');
-              $this->load->view('users/register', $data);
-              $this->load->view('templates/footer');
-          } else {
-              // Password encryption
-              $encrypt_password = md5($this->input->post('password'));
-
-              $this->user_model->register($encrypt_password);
-
-              // Flash message
-              $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
-
-              redirect('users/login');
-          }
-      }
-
-      /**
-       * Register restaurant.
-       **/
-      public function register_restaurant()
-      {
-          $data['title'] = 'Sign Up - Restaurant';
-
-          // Form validation
-          $this->form_validation->set_rules('name', 'Name', 'required');
-          $this->form_validation->set_rules('email', 'Email', 'required');
-          $this->form_validation->set_rules('password', 'Password', 'required');
-          $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
-
-          if ($this->form_validation->run() === false) {
-              $this->load->view('templates/header');
-              $this->load->view('users/register_restaurant', $data);
-              $this->load->view('templates/footer');
-          } else {
-              // Password Encryption
-              $encrypt_password = md5($this->input->post('password'));
-
-              $this->user_model->register_restaurant($encrypt_password);
-
-              // Flash Message
-              $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
-
-              redirect('users/login');
-          }
-      }
-
-      /**
-       * login functionality ;).
-       **/
+      public function __construct()
+	{
+		parent::__construct();
+        $this->load->library('session');
+        $this->load->model('user_model');
+	
+	
+    }
+    public function index()
+	{
+        $data['title'] = 'Home';
+		$data['navbar'] = $this->load->view('templates/header',NULL,TRUE);
+	
+		$this->load->view('pages/home.php',$data);
+	}
+     
       public function login()
       {
           $data['title'] = 'Log In';
@@ -77,6 +31,7 @@
               $this->load->view('templates/header');
               $this->load->view('users/login', $data);
               $this->load->view('templates/footer');
+        
           } else {
               // Logged In
               $email = $this->input->post('email');
@@ -106,7 +61,7 @@
 
                   $this->session->set_userdata($user_data);
 
-                  redirect('foods');
+                  redirect('foods/index');
               } else {
                   $this->session->set_flashdata('login_failed', 'Email/Password is wrong.');
 
@@ -130,5 +85,59 @@
           $this->session->unset_userdata('name');
 
           redirect('users/login');
+      }
+      public function register()
+      {
+          $data['title'] = 'Sign Up';
+
+          // Validation of form
+          $this->form_validation->set_rules('name', 'Name', 'required');
+          $this->form_validation->set_rules('Birth','Birth','required');
+          $this->form_validation->set_rules('email', 'Email', 'required');
+          $this->form_validation->set_rules('password', 'Password', 'required');
+          $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
+          $this->form_validation->set_rules('vegan', 'vegan', 'required');
+
+          if ($this->form_validation->run() === false) {
+              $this->load->view('templates/header');
+              $this->load->view('users/register', $data);
+              $this->load->view('templates/footer');
+          } else {
+              // Password encryption
+              $encrypt_password = md5($this->input->post('password'));
+
+              $this->user_model->register($encrypt_password);
+
+              // Flash message
+              $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
+
+              redirect('users/login');
+          }
+      }
+      public function register_restaurant()
+      {
+          $data['title'] = 'Sign Up - Restaurant';
+
+          // Form validation
+          $this->form_validation->set_rules('name', 'Name', 'required');
+          $this->form_validation->set_rules('email', 'Email', 'required');
+          $this->form_validation->set_rules('password', 'Password', 'required');
+          $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
+
+          if ($this->form_validation->run() === false) {
+              $this->load->view('templates/header');
+              $this->load->view('users/register_restaurant', $data);
+              $this->load->view('templates/footer');
+          } else {
+              // Password Encryption
+              $encrypt_password = md5($this->input->post('password'));
+
+              $this->user_model->register_restaurant($encrypt_password);
+
+              // Flash Message
+              $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
+
+              redirect('users/login');
+          }
       }
   }
