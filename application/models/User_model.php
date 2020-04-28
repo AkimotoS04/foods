@@ -66,6 +66,7 @@
           // User data in form of array
           $data = [
         'name'     => $this->input->post('name'),
+        'Birth'    => $this->input->post('Birth'),
         'email'    => $this->input->post('email'),
         'password' => $encrypt_password,
         'type'     => true,

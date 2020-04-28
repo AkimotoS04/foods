@@ -9,6 +9,10 @@
     <input name="name" type="text" class="form-control" placeholder="Enter name">
   </div>
   <div class="form-group">
+    <label>Birth Date</label>
+    <input name="Birth" type="date" class="form-control" placeholder="Enter Birthdate">
+  </div>
+  <div class="form-group">
     <label>Email address</label>
     <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
     <small class="form-text text-muted">We'll never share your email with anyone else.</small>

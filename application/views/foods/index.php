@@ -11,7 +11,7 @@
             ?>
 			<div class="card-body p-3">
 				<h4 class="card-title" style="padding-top:15px;"> <?php echo $food['name']; ?> </h4>
-				<span ><?php echo $food['price']; ?> </span> -
+				<span ><?php echo ("Rp. ").$food['price']; ?> </span> -
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 				<hr>
 				<a class="btn btn-dark fs-food-page" role="button" href="/foods/foods/order_food/<?php echo $food['id']  ?>"> Order </a>
