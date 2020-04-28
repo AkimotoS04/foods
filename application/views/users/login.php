@@ -1,7 +1,7 @@
 
 <?php echo form_open('users/login'); ?>
 
-<div class="row" style="margin-top:120px; color:white">
+<div class="row  w3-container w3-animate-zoom" style="margin-top:120px; color:white">
   <div class="col-md-4 col-md-offset-4">
     <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">FoodShala</span></h2>
 

@@ -1,7 +1,7 @@
 
 
 <?php echo form_open('users/register'); ?>
-<div class="row" style="color:white">
+<div class="row w3-container w3-animate-zoom" style="color:white">
   <div class="col-md-4 col-md-offset-4">
     <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">FoodShala</span></h2>
   <div class="form-group">

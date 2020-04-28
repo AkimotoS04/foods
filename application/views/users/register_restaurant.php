@@ -1,7 +1,7 @@
 
 
 <?php echo form_open('users/register_restaurant'); ?>
-<div class="row" style="color:white; margin-top:40px">
+<div class="row w3-container w3-animate-zoom" style="color:white; margin-top:40px">
   <div class="col-md-4 col-md-offset-4">
     <h2 class="text-center"> Sign Up - Admin     <span class="fs-home-logo">FoodShala</span></h2>
   <div class="form-group">
