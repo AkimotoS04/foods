@@ -1,9 +1,9 @@
-<?php echo validation_errors(); ?>
+
 
 <?php echo form_open('users/register_restaurant'); ?>
-<div class="row">
+<div class="row" style="color:white; margin-top:40px">
   <div class="col-md-4 col-md-offset-4">
-    <h2 class="text-center"> <?= $title; ?> </h2>
+    <h2 class="text-center"> Sign Up - Admin     <span class="fs-home-logo">FoodShala</span></h2>
   <div class="form-group">
     <label>Name</label>
     <input name="name" type="text" class="form-control" placeholder="Enter name">
@@ -21,6 +21,7 @@
     <label>Confirm Password</label>
     <input name="password2" type="password" class="form-control" placeholder="Comfirm Password">
   </div>
+  <?php echo validation_errors(); ?>
   <button type="submit" class="btn btn-primary btn-block">Register</button>
 </div>
 </div>

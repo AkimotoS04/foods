@@ -17,8 +17,35 @@
     <!-- Imported Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
 
+  <style>
+    .banner{
+	background:url(/foods/images/banner.jpg) no-repeat center top;
+	background-size:cover;
+	min-height:100%;
+  }
+
+  .bannerlogin{
+	background:url(./foods/images/banner.jpg) no-repeat center top;
+	background-attachment:fixed;
+	background-size:cover;
+	min-height:100%;
+  }
+
+  .kepala {
+  color: white;
+  }
+
+  .transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+    </style>
+
   </head>
   <body>
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
       <span class="navbar-brand fs-header-title" >FoodShala</span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,6 +84,7 @@
       </div>
     </nav>
 
+    <div class="banner">
     <div class="container">
       <!-- Flash Messages -->
       <?php if ($this->session->flashdata('user_registered')): ?>

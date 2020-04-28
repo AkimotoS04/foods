@@ -1,9 +1,9 @@
-<?php echo validation_errors(); ?>
+
 
 <?php echo form_open('users/register'); ?>
-<div class="row">
+<div class="row" style="color:white">
   <div class="col-md-4 col-md-offset-4">
-    <h2 class="text-center"> <?= $title; ?> </h2>
+    <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">FoodShala</span></h2>
   <div class="form-group">
     <label>Name</label>
     <input name="name" type="text" class="form-control" placeholder="Enter name">
@@ -32,6 +32,7 @@
     <label>Confirm Password</label>
     <input name="password2" type="password" class="form-control" placeholder="Comfirm Password">
   </div>
+  <?php echo validation_errors(); ?>
   <button type="submit" class="btn btn-primary btn-block">Register</button>
   <a class="btn btn-success btn-block" href="register_restaurant" role="button" > Sell Food With Us </a>
 </div>

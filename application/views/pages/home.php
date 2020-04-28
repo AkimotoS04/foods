@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" style="margin-top:100px">
   <h2 class="display-4 text-center"> Welcome to <span class="fs-home-logo">FoodShala</span> <br> Meals That Matter.</h2>
   <?php if (!$this->session->userdata('logged_in')) : ?>
   <div class= "fs-home-main-buttons">

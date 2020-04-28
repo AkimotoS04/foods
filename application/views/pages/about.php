@@ -1,4 +1,8 @@
+<div class="jumbotron">
 <h2><?= $title ?></h2>
-<p> Use this web app for educational purpose or like whatever you want. This web app is build using CodeIgnitor (3.1.10) and Bootstrap (4.3.1).</p>
-<p> Regards,
-<h5> Rahul Gurung </h5>
+<br>
+<h5><span class="fs-home-logo" style="font-size:40px">Agnesia</span>  </h5>
+<h5><span class="fs-home-logo" style="font-size:40px">Louis Jonathan</span>  </h5>
+<h5><span class="fs-home-logo" style="font-size:40px">Martin Wongso</span>  </h5>
+<h5><span class="fs-home-logo" style="font-size:40px">Yonathan Christian</span>  </h5>
+</div>

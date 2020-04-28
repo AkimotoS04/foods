@@ -1,3 +1,4 @@
+<div class="jumbotron">
 <h2><?= $title ?></h2>
 <?php foreach ($foods as $key => $food) : ?>
   <h4> <?php echo $fname[$key]; ?> -
@@ -6,3 +7,4 @@
   <br><hr>
 </h4>
 <?php endforeach; ?>
+</div>

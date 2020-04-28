@@ -1,4 +1,7 @@
+<div class="kepala">
 <h2><?= $title ?></h2>
+</div>
+
 <div class="row">
 	<?php foreach ($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
