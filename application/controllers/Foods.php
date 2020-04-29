@@ -52,7 +52,7 @@ class Foods extends CI_Controller
                 } else {
                     $this->food_model->add_menu();
 
-                    redirect('foods');
+                    redirect('foods/index');
                 }
             } else {
                 print_r('Sorry a user cannot add food, :(');

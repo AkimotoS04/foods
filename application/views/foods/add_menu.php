@@ -21,7 +21,7 @@
   </div>
   <div class="form-group">
     <label>Image</label>
-    <input type="file" name="image" />
+    <input type="file" name="image">
   </div>
   <button type="submit" class="btn btn-primary btn-block">Add</button>
 </div>
