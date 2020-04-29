@@ -1,4 +1,4 @@
-<div class="jumbotron w3-container w3-center w3-animate-zoom">
+<div class=" w3-container w3-center w3-animate-zoom" style="margin-top:140px;color:white">
 <h2><?= $title ?></h2>
 <br>
 <h5><span class="fs-home-logo" style="font-size:40px">Agnesia</span>  </h5>
