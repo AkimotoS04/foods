@@ -11,6 +11,18 @@ class Foods extends CI_Controller
 		parent::__construct();
         $this->load->library('session');
         $this->load->model('food_model');
+        $this->load->library('form_validation');
+        $config = array(
+			array(
+				'field' => 'name',
+				'label' => 'name',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => '*You must provide a string !',
+				),
+			),
+		);
+		$this->form_validation->set_rules($config);
 	
     }
     public function index()
@@ -31,9 +43,64 @@ class Foods extends CI_Controller
 
     }
 
-    /**
-     * Add a new food as a restaurant.
-     **/
+    public function restaurant_menu()
+    {
+        $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
+        $data['foods'] = $this->food_model->get_foods_restaurant($this->session->userdata('user_id'));
+
+        // Extracting name of restaurants for corresponding foods
+        $data['rnames'] = [];
+        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
+                array_push($data['rnames'], $name);        
+        }
+
+        $this->load->view('templates/header');
+        $this->load->view('foods/restaurant_menu', $data);
+        $this->load->view('templates/footer');
+
+    }
+    public function delete_menu(){
+        $id   = $_GET['id'];
+        $this->food_model->delete_menu($id);
+        $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
+        $data['foods'] = $this->food_model->get_foods_restaurant($this->session->userdata('user_id'));
+
+        // Extracting name of restaurants for corresponding foods
+        $data['rnames'] = [];
+        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
+                array_push($data['rnames'], $name);        
+        }
+        $this->load->view('templates/header');
+        $this->load->view('foods/restaurant_menu', $data);
+        $this->load->view('templates/footer');
+    }
+    public function update_menu(){
+     
+        $id   = $_GET['id'];
+        $data['foods'] = $this->food_model->get_food_name($id);
+        $data['title'] = 'Update Menu';
+        if($this->form_validation->run() != FALSE){
+            $where = array(
+				'id' => $this->input->post('id'),
+			);
+            $values = array(
+                
+                'name' => $this->input->post('name'),
+                'veg' => $this->input->post('veg'),
+                'price' => $this->input->post('price')
+        
+
+            );
+            $this->food_model->update_menu($where,$values);
+            redirect('foods/index');
+        }
+      
+        $this->load->view('templates/header');
+        $this->load->view('foods/update_menu', $data);
+        $this->load->view('templates/footer');
+    }
     public function add_menu()
     {
         $data['title'] = 'Add Menu';
@@ -81,7 +148,7 @@ class Foods extends CI_Controller
                 // Flash message
                 $this->session->set_flashdata('added_to_cart', 'Your food is added to cart.');
 
-                redirect('foods');
+                redirect('foods/index');
             } else {
                 print_r('Sorry a restaurant can\'t add food to cart. :(');
             }
@@ -110,7 +177,7 @@ class Foods extends CI_Controller
                 // Flash message
                 $this->session->set_flashdata('food_ordered', 'Your food is ordered.');
 
-                redirect('foods');
+                redirect('foods/index');
             } else {
                 print_r('Sorry a restaurant can\'t order food. :(');
             }
@@ -137,7 +204,7 @@ class Foods extends CI_Controller
                 // Flash message
                 $this->session->set_flashdata('food_ordered', 'Your food is ordered.');
 
-                redirect('foods');
+                redirect('foods/index');
             } else {
                 print_r('Sorry a restaurant can\'t order food. :(');
             }

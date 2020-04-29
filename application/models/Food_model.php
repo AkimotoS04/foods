@@ -55,10 +55,20 @@ class Food_model extends CI_Model
         $this->db->limit(1);
         $this->db->delete('cart');
     }
+    public function delete_menu($food_id){
+        $this->db->where('id', $food_id);
+        $this->db->delete('foods');
+    }
+    public function update_menu($food_id,$values){
+        $this->db->where('id',$food_id['id']);
+		$this->db->update('foods',$values);
+    }
+    public function get_food_name($food_id)
+    {
+        $query = $this->db->query("SELECT * FROM foods WHERE id = "."'"."$food_id"."'");
+        return $query->result_array();
+    }
 
-    /**
-     * See the cart for users.
-     **/
     public function get_cart_foods($user_id)
     {
         $query = $this->db->where('people_id', $user_id);
@@ -89,6 +99,12 @@ class Food_model extends CI_Model
         $query = $this->db->get('foods');
 
         return $query->result_array();
+    }
+    public function get_foods_restaurant($restaurant_id)
+    {
+        $query = $this->db->query("SELECT * FROM foods WHERE user_id = "."'"."$restaurant_id"."'");
+ 			return $query->result_array();
+  
     }
 
     /**
@@ -133,23 +149,7 @@ class Food_model extends CI_Model
         }
     }
 
-    /**
-     * Extracting name.
-     **/
-    public function get_food_name($food_id)
-    {
-        $query = $this->db->where('id', $food_id);
-        $result = $this->db->get('foods');
-        if ($result->num_rows() == 1) {
-            return $result->row(0)->name;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * See all orders for restaurants.
-     **/
+    
     public function get_orders($user_id)
     {
         $query = $this->db->where('restaurant_id', $user_id);

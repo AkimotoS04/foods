@@ -311,7 +311,12 @@
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="btn btn-warning" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
+              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
+            <?php endif; ?>
+          <?php endif; ?>
+          <?php if ($this->session->userdata('user_type') != null) : ?>
+            <?php if ($this->session->userdata('user_type') == 0) : ?>
+              <a class="btn btn-warning" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
