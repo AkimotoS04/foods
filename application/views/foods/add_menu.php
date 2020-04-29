@@ -20,6 +20,10 @@
     <input name="price" type="number" class="form-control" placeholder="Enter price.">
   </div>
   <div class="form-group">
+    <label>Stock</label>
+    <input name="stock" type="number" class="form-control" placeholder="Enter stock.">
+  </div>
+  <div class="form-group">
     <label>Image</label>
     <input type="file" name="image">
   </div>

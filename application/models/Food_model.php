@@ -17,6 +17,7 @@ class Food_model extends CI_Model
     {
         $data = [
       'name'    => $this->input->post('name'),
+      'stock'   => $this->input->post('stock'),
       'price'   => $this->input->post('price'),
       'user_id' => $this->session->userdata('user_id'),
       'veg'     => $this->input->post('veg'),

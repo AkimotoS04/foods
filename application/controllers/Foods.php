@@ -43,6 +43,7 @@ class Foods extends CI_Controller
 
         // Form validation
                 $this->form_validation->set_rules('name', 'Name', 'required');
+                $this->form_validation->set_rules('stock','Stock','required');
                 $this->form_validation->set_rules('price', 'Price', 'required');
 
                 if ($this->form_validation->run() === false) {
