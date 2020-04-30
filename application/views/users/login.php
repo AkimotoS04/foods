@@ -5,13 +5,15 @@
   <div class="col-md-4 col-md-offset-4">
     <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">FoodShala</span></h2>
 
-  <div class="form-group">
+  <div class="form-group <?=form_error("email") ? "has-error" : null?>">
     <label>Email address</label>
-    <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+    <input name="email" type="email" value="<?php echo set_value('email'); ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+    <span class='help-block' style='color:red'><?php echo form_error('email'); ?></span>
   </div>
-  <div class="form-group">
+  <div class="form-group <?=form_error("password") ? "has-error" : null?>">
     <label>Password</label>
-    <input name="password" type="password" class="form-control" placeholder="Password">
+    <input name="password" value="<?php echo set_value('password'); ?>" type="password" class="form-control" placeholder="Password">
+    <span class='help-block' style='color:red'><?php echo form_error('password'); ?></span>
   </div>
   <button type="submit" class="btn btn-primary btn-block">Submit</button>
 </div>

@@ -236,7 +236,9 @@ class Foods extends CI_Controller
 
                 redirect('foods/index');
             } else {
-                print_r('Sorry a restaurant can\'t order food. :(');
+                $this->session->set_flashdata('order_failed', 'Sorry, only user may order.');
+
+                redirect('foods/index');
             }
         } else {
             redirect('users/login');

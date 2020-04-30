@@ -4,9 +4,10 @@
 <div class="row" style="color:white; margin-top:60px">
   <div class="col-md-4 col-md-offset-4">
     <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">FoodShala</span></h2>
-  <div class="form-group">
+  <div class="form-group <?=form_error("name") ? "has-error" : null?>">
     <label>Name</label>
-    <input name="name" type="text" class="form-control" placeholder="Enter name of food.">
+    <input name="name" value="<?php echo set_value('name'); ?>" type="text" class="form-control" placeholder="Enter name of food.">
+    <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
   </div>
   <div class="form-group">
   <label>Food Type</label>
@@ -15,13 +16,15 @@
     <option value="0">Non- Veg</option>
   </select>
   </div>
-  <div class="form-group">
+  <div class="form-group <?=form_error("price") ? "has-error" : null?>">
     <label>Price</label>
-    <input name="price" type="number" class="form-control" placeholder="Enter price.">
+    <input name="price" value="<?php echo set_value('price'); ?>" type="number" class="form-control" placeholder="Enter price.">
+    <span class='help-block' style='color:red'><?php echo form_error('price'); ?></span>
   </div>
-  <div class="form-group">
+  <div class="form-group <?=form_error("stock") ? "has-error" : null?>">
     <label>Stock</label>
-    <input name="stock" type="number" class="form-control" placeholder="Enter stock.">
+    <input name="stock"  value="<?php echo set_value('stock'); ?>" type="number" class="form-control" placeholder="Enter stock.">
+    <span class='help-block' style='color:red'><?php echo form_error('stock'); ?></span>
   </div>
   <div class="form-group">
     <label>Image</label>
