@@ -61,6 +61,7 @@ class Foods extends CI_Controller
 
     }
     public function delete_menu(){
+        if($this->session->userdata('user_id')){
         $id   = $_GET['id'];
         $this->food_model->delete_menu($id);
         $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
@@ -75,9 +76,18 @@ class Foods extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('foods/restaurant_menu', $data);
         $this->load->view('templates/footer');
+
+        }
+
+        else{
+            redirect(base_url());
+        }
+
+
+
     }
     public function update_menu(){
-     
+        if($this->session->userdata('user_id')){
         $id   = $_GET['id'];
         $data['foods'] = $this->food_model->get_food_name_1($id);
         $data['title'] = 'Update Menu';
@@ -100,7 +110,13 @@ class Foods extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('foods/update_menu', $data);
         $this->load->view('templates/footer');
+
+    }else{
+        redirect(base_url());
     }
+
+    }
+
     public function add_menu()
     {
         $data['title'] = 'Add Menu';
