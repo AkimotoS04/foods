@@ -288,6 +288,14 @@
   }
 }
 
+.imgzoom {
+  transition: transform .2s; /* Animation */
+}
+
+.imgzoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
     </style>
 
   </head>
@@ -358,4 +366,3 @@
       <?php if ($this->session->flashdata('add_cart_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('add_cart_failed').'</p>'; ?>
       <?php endif; ?>
-      add_cart_failed

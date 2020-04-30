@@ -7,7 +7,7 @@
     <?php $id = $food['id'];?>
 	<div class="col-12 col-sm-6 col-md-4">
 		<div class="card mb-4 w3-container w3-animate-zoom">
-		<div style="padding-top:15px">
+		<div class="imgzoom" style="padding-top:15px">
 			<?php
                 if ($food['image'] !== null) {
                     // please! config size and position of this one!
