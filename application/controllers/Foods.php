@@ -79,7 +79,7 @@ class Foods extends CI_Controller
     public function update_menu(){
      
         $id   = $_GET['id'];
-        $data['foods'] = $this->food_model->get_food_name($id);
+        $data['foods'] = $this->food_model->get_food_name_1($id);
         $data['title'] = 'Update Menu';
         if($this->form_validation->run() != FALSE){
             $where = array(

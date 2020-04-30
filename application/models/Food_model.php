@@ -63,10 +63,20 @@ class Food_model extends CI_Model
         $this->db->where('id',$food_id['id']);
 		$this->db->update('foods',$values);
     }
-    public function get_food_name($food_id)
+    public function get_food_name_1($food_id)
     {
         $query = $this->db->query("SELECT * FROM foods WHERE id = "."'"."$food_id"."'");
         return $query->result_array();
+    }
+    public function get_food_name($food_id)
+    {
+        $query = $this->db->where('id', $food_id);
+        $result = $this->db->get('foods');
+        if ($result->num_rows() == 1) {
+            return $result->row(0)->name;
+        } else {
+            return false;
+        }
     }
 
     public function get_cart_foods($user_id)
