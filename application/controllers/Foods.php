@@ -45,6 +45,7 @@ class Foods extends CI_Controller
 
     public function restaurant_menu()
     {
+        if($this->session->userdata('user_type')==0){
         $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
         $data['foods'] = $this->food_model->get_foods_restaurant($this->session->userdata('user_id'));
 
@@ -54,6 +55,9 @@ class Foods extends CI_Controller
                 $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
                 array_push($data['rnames'], $name);        
         }
+    }else{
+        redirect(base_url());
+    }
 
         $this->load->view('templates/header');
         $this->load->view('foods/restaurant_menu', $data);
@@ -62,6 +66,7 @@ class Foods extends CI_Controller
     }
     public function delete_menu(){
         if($this->session->userdata('user_id')){
+            if($this->session->userdata('user_type')==0){
         $id   = $_GET['id'];
         $this->food_model->delete_menu($id);
         $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
@@ -78,7 +83,10 @@ class Foods extends CI_Controller
         $this->load->view('templates/footer');
 
         }
-
+        else{
+            redirect(base_url());
+        }
+    }
         else{
             redirect(base_url());
         }
@@ -88,6 +96,7 @@ class Foods extends CI_Controller
     }
     public function update_menu(){
         if($this->session->userdata('user_id')){
+            if($this->session->userdata('user_type')==0){
         $id   = $_GET['id'];
         $data['foods'] = $this->food_model->get_food_name_1($id);
         $data['title'] = 'Update Menu';
@@ -110,6 +119,9 @@ class Foods extends CI_Controller
         $this->load->view('templates/header');
         $this->load->view('foods/update_menu', $data);
         $this->load->view('templates/footer');
+    }else{
+        redirect(base_url());
+    }
 
     }else{
         redirect(base_url());
@@ -166,7 +178,9 @@ class Foods extends CI_Controller
 
                 redirect('foods/index');
             } else {
-                print_r('Sorry a restaurant can\'t add food to cart. :(');
+                $this->session->set_flashdata('add_cart_failed', 'Sorry, only user may add to cart.');
+
+                redirect('foods/index');
             }
         } else {
             redirect('users/login');

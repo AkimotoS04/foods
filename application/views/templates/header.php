@@ -354,3 +354,8 @@
       <?php if ($this->session->flashdata('added_to_cart')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('added_to_cart').'</p>'; ?>
       <?php endif; ?>
+
+      <?php if ($this->session->flashdata('add_cart_failed')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('add_cart_failed').'</p>'; ?>
+      <?php endif; ?>
+      add_cart_failed
