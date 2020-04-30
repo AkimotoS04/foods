@@ -84,7 +84,7 @@
           $this->session->unset_userdata('user_vegan');
           $this->session->unset_userdata('name');
 
-          redirect('users/login');
+          redirect(base_url());
       }
       public function register()
       {
