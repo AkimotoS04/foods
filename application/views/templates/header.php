@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
     
   </head>
-  <body>
+  <body class="scrollbar-dusty-grass thin square">
 
     <nav class="navbar navbar-expand-lg w3-bar w3-black navbar-custom">
       <span class="navbar-brand fs-header-title" >FoodShala</span>
