@@ -5,9 +5,6 @@
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Imported stylesheet -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-
     <!-- Imported Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -294,6 +291,51 @@
 
 .imgzoom:hover {
   transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.col-md-offset-4 {
+  margin-left: 33%;
+}
+
+.alert {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.container {
+  padding: 20px;
+}
+
+.fs-header-title {
+  font-size: 30px;
+  font-family: 'Cookie', cursive;
+}
+
+.navbar-custom {
+  background-color: black !important;
+  color:white;
+}
+
+.fs-home-main-buttons {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.fs-food-page {
+  float: right;
+  margin-left: 5px;
+}
+
+.fs-home-main-button {
+  line-height: 35px !important;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.fs-home-logo {
+  font-family: 'Cookie', cursive;
+  font-size:80px;
 }
 
     </style>
