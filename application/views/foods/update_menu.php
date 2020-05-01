@@ -30,7 +30,7 @@
   </div>
   <div class="form-group <?=form_error("stock") ? "has-error" : null?>">
     <label>Stock</label>
-    <input name="stock"  value="<?php echo set_value('stock'); ?>" type="number" class="form-control" placeholder="Enter stock.">
+    <input name="stock"  value="<?php echo $upd['stock']; ?>" type="number" class="form-control" placeholder="Enter stock.">
     <span class='help-block' style='color:red'><?php echo form_error('stock'); ?></span>
   </div>
   <div class="form-group">

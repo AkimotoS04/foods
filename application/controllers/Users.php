@@ -120,6 +120,7 @@
 
           // Form validation
           $this->form_validation->set_rules('name', 'Name', 'required');
+          $this->form_validation->set_rules('Birth','Birth','required');
           $this->form_validation->set_rules('email', 'Email', 'required');
           $this->form_validation->set_rules('password', 'Password', 'required');
           $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');

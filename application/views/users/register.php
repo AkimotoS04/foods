@@ -35,7 +35,7 @@
   </div>
   <div class="form-group <?=form_error("password2") ? "has-error" : null?>">
     <label>Confirm Password</label>
-    <input name="password2" value="<?php echo set_value('password2'); ?>"  type="password" class="form-control" placeholder="Comfirm Password">
+    <input name="password2" value="<?php echo set_value('password2'); ?>"  type="password" class="form-control" placeholder="Confirm Password">
     <span class='help-block' style='color:red'><?php echo form_error('password2'); ?></span>
   </div>
   <button type="submit" class="btn btn-primary btn-block">Register</button>
