@@ -11,9 +11,10 @@
     <label>Food ID</label>
     <input name="id" type="text" class="form-control" value="<?php echo $upd['id'];?>" readonly>
   </div>
-  <div class="form-group">
+  <div class="form-group <?=form_error("name") ? "has-error" : null?>">
     <label>Name</label>
     <input name="name" type="text" class="form-control" value="<?php echo $upd['name']; ?>" placeholder="Enter name of food.">
+    <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
   </div>
   <div class="form-group">
   <label>Food Type</label>
@@ -22,9 +23,15 @@
     <option value="0">Non- Veg</option>
   </select>
   </div>
-  <div class="form-group">
+  <div class="form-group <?=form_error("price") ? "has-error" : null?>">
     <label>Price</label>
     <input name="price" type="number" value="<?php echo $upd['price']; ?>" class="form-control" placeholder="Enter price.">
+    <span class='help-block' style='color:red'><?php echo form_error('price'); ?></span>
+  </div>
+  <div class="form-group <?=form_error("stock") ? "has-error" : null?>">
+    <label>Stock</label>
+    <input name="stock"  value="<?php echo set_value('stock'); ?>" type="number" class="form-control" placeholder="Enter stock.">
+    <span class='help-block' style='color:red'><?php echo form_error('stock'); ?></span>
   </div>
   <div class="form-group">
     <label>Image</label>

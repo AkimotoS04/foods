@@ -103,7 +103,7 @@ class Foods extends CI_Controller
 
         //Form Validation
         $this->form_validation->set_rules('name', 'Name', 'required');
-        
+        $this->form_validation->set_rules('price', 'Price', 'required');
 
         if($this->form_validation->run() != FALSE){
             $where = array(
@@ -113,10 +113,14 @@ class Foods extends CI_Controller
                 
                 'name' => $this->input->post('name'),
                 'veg' => $this->input->post('veg'),
-                'price' => $this->input->post('price')
-        
+                'price' => $this->input->post('price'),
+                'stock' => $this->input->post('stock'),
+                'image'   => "assets/images/".$_FILES['image']['name']
 
             );
+
+            $ket = move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/".$_FILES['image']['name']);
+
             $this->food_model->update_menu($where,$values);
             redirect('foods/index');
         }
