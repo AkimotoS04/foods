@@ -100,6 +100,11 @@ class Foods extends CI_Controller
         $id   = $_GET['id'];
         $data['foods'] = $this->food_model->get_food_name_1($id);
         $data['title'] = 'Update Menu';
+
+        //Form Validation
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        
+
         if($this->form_validation->run() != FALSE){
             $where = array(
 				'id' => $this->input->post('id'),
@@ -151,7 +156,7 @@ class Foods extends CI_Controller
                     redirect('foods/index');
                 }
             } else {
-                print_r('Sorry a user cannot add food, :(');
+                redirect('foods/index');
             }
         } else {
             redirect('users/login');
@@ -209,7 +214,7 @@ class Foods extends CI_Controller
 
                 redirect('foods/index');
             } else {
-                print_r('Sorry a restaurant can\'t order food. :(');
+                redirect('foods/index');
             }
         } else {
             redirect('users/login');
@@ -276,7 +281,7 @@ class Foods extends CI_Controller
                 $this->load->view('foods/view_cart', $data);
                 $this->load->view('templates/footer');
             } else {
-                print_r('Sorry, a user cannot view orders, :(');
+                redirect('foods/index');
             }
         } else {
             redirect('users/login');
@@ -314,7 +319,7 @@ class Foods extends CI_Controller
                 $this->load->view('foods/view_orders', $data);
                 $this->load->view('templates/footer');
             } else {
-                print_r('Sorry a user cannot view orders, :(');
+                redirect('foods/index');
             }
         } else {
             redirect('users/login');

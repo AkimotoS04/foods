@@ -3,8 +3,6 @@
     foreach($foods as $upd){
       
 ?>
-<?php echo validation_errors(); ?>
-
 <?php echo form_open_multipart("foods/update_menu?id=".$upd['id']); ?>
 <div class="row" style="color:white; margin-top:60px">
   <div class="col-md-4 col-md-offset-4">
@@ -15,7 +13,7 @@
   </div>
   <div class="form-group">
     <label>Name</label>
-    <input name="name" type="text" class="form-control" placeholder="Enter name of food.">
+    <input name="name" type="text" class="form-control" value="<?php echo $upd['name']; ?>" placeholder="Enter name of food.">
   </div>
   <div class="form-group">
   <label>Food Type</label>
@@ -26,7 +24,7 @@
   </div>
   <div class="form-group">
     <label>Price</label>
-    <input name="price" type="number" class="form-control" placeholder="Enter price.">
+    <input name="price" type="number" value="<?php echo $upd['price']; ?>" class="form-control" placeholder="Enter price.">
   </div>
   <div class="form-group">
     <label>Image</label>
