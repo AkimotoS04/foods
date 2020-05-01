@@ -1,0 +1,343 @@
+.monospace {
+    font-family: "Lucida Console", Courier, monospace;
+  }
+  
+  .banner{
+  background:url(/foods/images/banner.jpg) no-repeat center top;
+  background-size:cover;
+  min-height:100%;
+}
+
+.bannerlogin{
+  background:url(./foods/images/banner.jpg) no-repeat center top;
+  background-attachment:fixed;
+  background-size:cover;
+  min-height:100%;
+}
+
+.kepala {
+color: white;
+}
+
+.transbox {
+margin: 30px;
+background-color: #ffffff;
+border: 1px solid black;
+opacity: 0.6;
+}
+
+.my-super-cool-btn{
+position:relative;
+text-decoration:none;
+color:#fff;
+letter-spacing:1px;
+font-size:2rem;
+box-sizing:border-box;
+}
+.my-super-cool-btn span{
+position:relative;
+box-sizing:border-box;
+display:flex;
+align-items:center;
+justify-content:center;
+width:200px;
+height:200px;
+}
+.my-super-cool-btn span:before{
+content:'';
+width:100%;
+height:100%;
+display:block;
+position:absolute;
+border-radius:100%;
+border:7px solid #F3CF14;
+box-sizing:border-box;
+transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+box-shadow: 0 30px 85px rgba(0,0,0,0.14), 0 15px 35px rgba(0,0,0,0.14);
+}
+.my-super-cool-btn:hover span:before{
+transform:scale(0.8);
+box-shadow: 0 20px 55px rgba(0,0,0,0.14), 0 15px 35px rgba(0,0,0,0.14);
+}
+.my-super-cool-btn .dots-container{
+opacity:0;
+animation: intro 1.6s;
+animation-fill-mode: forwards;
+}
+.my-super-cool-btn .dot{
+width:8px;
+height:8px;
+display:block;
+background-color:#F3CF14;
+border-radius:100%;
+position:absolute;
+transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+}
+.my-super-cool-btn .dot:nth-child(1){
+top:50px;
+left:50px;
+transform:rotate(-140deg);
+animation: swag1-out 0.3s;
+animation-fill-mode: forwards;
+opacity:0;
+}
+.my-super-cool-btn .dot:nth-child(2){
+top:50px;
+right:50px;
+transform:rotate(140deg);
+animation: swag2-out 0.3s;
+animation-fill-mode: forwards;
+opacity:0;
+}
+.my-super-cool-btn .dot:nth-child(3){
+bottom:50px;
+left:50px;
+transform:rotate(140deg);
+animation: swag3-out 0.3s;
+animation-fill-mode: forwards;
+opacity:0;
+}
+.my-super-cool-btn .dot:nth-child(4){
+bottom:50px;
+right:50px;
+transform:rotate(-140deg);
+animation: swag4-out 0.3s;
+animation-fill-mode: forwards;
+opacity:0;
+}
+.my-super-cool-btn:hover .dot:nth-child(1){
+animation: swag1 0.3s;
+animation-fill-mode: forwards;
+}
+.my-super-cool-btn:hover .dot:nth-child(2){
+animation: swag2 0.3s;
+animation-fill-mode: forwards;
+}
+.my-super-cool-btn:hover .dot:nth-child(3){
+animation: swag3 0.3s;
+animation-fill-mode: forwards;
+}
+.my-super-cool-btn:hover .dot:nth-child(4){
+animation: swag4 0.3s;
+animation-fill-mode: forwards;
+}
+@keyframes intro {
+ 0% {
+   opacity:0;
+}
+100% {
+   opacity:1;
+}
+}
+@keyframes swag1 {
+ 0% {
+   top:50px;
+   left:50px;
+   width:8px;
+}
+50% {
+  width:30px;
+  opacity:1;
+}
+100% {
+   top:20px;
+   left:20px;
+   width:8px;
+   opacity:1;
+}
+}
+@keyframes swag1-out {
+ 0% {
+   top:20px;
+   left:20px;
+   width:8px;
+}
+50% {
+   width:30px;
+  opacity:1;
+}
+100% {
+   top:50px;
+   left:50px;
+   width:8px;
+  opacity:0;
+}
+}
+@keyframes swag2 {
+ 0% {
+   top:50px;
+   right:50px;
+   width:8px;
+}
+50% {
+  width:30px;
+  opacity:1;
+}
+100% {
+   top:20px;
+   right:20px;
+   width:8px;
+   opacity:1;
+}
+}
+@keyframes swag2-out {
+ 0% {
+   top:20px;
+   right:20px;
+   width:8px;
+}
+50% {
+   width:30px;
+  opacity:1;
+}
+100% {
+   top:50px;
+   right:50px;
+   width:8px;
+  opacity:0;
+}
+}
+@keyframes swag3 {
+ 0% {
+   bottom:50px;
+   left:50px;
+   width:8px;
+}
+50% {
+  width:30px;
+  opacity:1;
+}
+100% {
+   bottom:20px;
+   left:20px;
+   width:8px;
+   opacity:1;
+}
+}
+@keyframes swag3-out {
+ 0% {
+   bottom:20px;
+   left:20px;
+   width:8px;
+}
+50% {
+   width:30px;
+  opacity:1;
+}
+100% {
+   bottom:50px;
+   left:50px;
+   width:8px;
+  opacity:0;
+}
+}
+@keyframes swag4 {
+ 0% {
+   bottom:50px;
+   right:50px;
+   width:8px;
+}
+50% {
+  width:30px;
+  opacity:1;
+}
+100% {
+   bottom:20px;
+   right:20px;
+   width:8px;
+   opacity:1;
+}
+}
+@keyframes swag4-out {
+ 0% {
+   bottom:20px;
+   right:20px;
+   width:8px;
+}
+50% {
+   width:30px;
+  opacity:1;
+}
+100% {
+   bottom:50px;
+   right:50px;
+   width:8px;
+  opacity:0;
+}
+}
+
+.imgzoom {
+transition: transform .2s; /* Animation */
+}
+
+.imgzoom:hover {
+transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.col-md-offset-4 {
+margin-left: 33%;
+}
+
+.alert {
+width: 50%;
+margin-left: 25%;
+}
+
+.container {
+padding: 20px;
+}
+
+.fs-header-title {
+font-size: 30px;
+font-family: 'Cookie', cursive;
+}
+
+.navbar-custom {
+background-color: black !important;
+color:white;
+}
+
+.fs-home-main-buttons {
+margin-top: 30px;
+text-align: center;
+}
+
+.fs-food-page {
+float: right;
+margin-left: 5px;
+}
+
+.fs-home-main-button {
+line-height: 35px !important;
+width: 200px;
+margin-top: 10px;
+margin-left: 10px;
+}
+
+.fs-home-logo {
+font-family: 'Cookie', cursive;
+font-size:80px;
+}
+
+/* Scroll Bar */
+
+.custom-scrollbar-css {
+  overflow-y: scroll;
+}
+
+/* scrollbar width */
+.custom-scrollbar-css::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* scrollbar track */
+.custom-scrollbar-css::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* scrollbar handle */
+.custom-scrollbar-css::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #00d2ff;
+  background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+}
