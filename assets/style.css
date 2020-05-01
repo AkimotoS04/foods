@@ -343,3 +343,37 @@ font-size:80px;
   
   .thin::-webkit-scrollbar {
   width: 6px; }
+  
+  //Image Sizing
+  .about-main{
+	background:#E6E6E6;
+	}
+	
+	.about-images {
+    text-align: center;
+    position: relative;
+}
+
+.about-main h3{
+	font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+	font-size:20px;
+}
+
+.about-images img {
+    border: 10px solid #f1f1f1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+	max-width: 100%;
+}
+
+.about-inset {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
