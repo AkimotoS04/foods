@@ -141,4 +141,106 @@
               redirect('users/login');
           }
       }
+      public function profile()
+      {
+        $data['title'] = "Profile's";
+        $data['profile'] = $this->user_model->get_username($this->session->userdata('user_id'));
+
+        $this->load->view('templates/header');
+        $this->load->view('pages/profile', $data);
+        $this->load->view('templates/footer');
+      }
+      public function profile_u()
+      {
+        $data['title'] = "Profile's";
+        $data['profile'] = $this->user_model->get_username($this->session->userdata('user_id'));
+
+        $this->load->view('templates/header');
+        $this->load->view('pages/profile_u', $data);
+        $this->load->view('templates/footer');
+      }
+      public function update_user()
+      {
+        if($this->session->userdata('user_id')){
+            if($this->session->userdata('user_type')==0){
+        $id   = $_GET['id'];
+      
+        //Form Validation
+        $this->form_validation->set_rules('name', 'Name', 'required');
+  
+        $this->form_validation->set_rules('email', 'Email', 'required');
+
+        if($this->form_validation->run() != FALSE){
+            $where = array(
+                'id' => $this->input->post('id'),
+            );
+            $values = array(
+                
+                'name' => $this->input->post('name'),
+                'email' => $this->input->post('email'),
+           
+                'image'   => "assets/images/profile".$_FILES['image']['name']
+
+            );
+
+            move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/profile".$_FILES['image']['name']);
+
+            $this->user_model->update_user($where,$values);
+            redirect('users/profile');
+        }
+    
+            $this->load->view('templates/header');
+            $this->load->view('pages/profile', $data);
+            $this->load->view('templates/footer');
+        }else{
+            redirect(base_url());
+        }
+
+        }else{
+            redirect(base_url());
+        }
+
+    }
+    public function update_user_u()
+    {
+      if($this->session->userdata('user_id')){
+          if($this->session->userdata('user_type')==1){
+      $id   = $_GET['id'];
+    
+      //Form Validation
+      $this->form_validation->set_rules('name', 'Name', 'required');
+
+      $this->form_validation->set_rules('email', 'Email', 'required');
+
+      if($this->form_validation->run() != FALSE){
+          $where = array(
+              'id' => $this->input->post('id'),
+          );
+          $values = array(
+              
+              'name' => $this->input->post('name'),
+              'email' => $this->input->post('email'),
+         
+              'image'   => "assets/images/profile".$_FILES['image']['name']
+
+          );
+
+          move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/profile".$_FILES['image']['name']);
+
+          $this->user_model->update_user($where,$values);
+          redirect('users/profile_u');
+      }
+  
+          $this->load->view('templates/header');
+          $this->load->view('pages/profile_u', $data);
+          $this->load->view('templates/footer');
+      }else{
+          redirect(base_url());
+      }
+
+      }else{
+          redirect(base_url());
+      }
+
+  }
   }

@@ -28,6 +28,15 @@
               return false;
           }
       }
+      public function get_username($user_id)
+      {
+        $query = $this->db->query("SELECT * FROM users WHERE id = "."'"."$user_id"."'");
+        return $query->result_array();
+      }
+      public function update_user($user_id,$values){
+        $this->db->where('id',$user_id['id']);
+		$this->db->update('users',$values);
+    }
 
       /**
        * Extracting user nature.( veg or non-veg ).
