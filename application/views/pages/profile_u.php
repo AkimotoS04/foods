@@ -40,7 +40,7 @@
                         <hr>
                             <?php echo form_open_multipart("users/update_user_u?id=".$pro['id']); ?>
                             <div class="row">
-                                <div class="col-md-4 col-md-offset-4">
+                                <div class="col-md-4">
                                   
                                 <div class="form-group">
                                     <h5 class="col-lg-3 col-form-label form-control-label">ID</h5>
