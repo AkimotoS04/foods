@@ -81,9 +81,10 @@
         'type'     => true,
         'vegan'    => $this->input->post('vegan'),
       ];
-
           //Insert User
           return $this->db->insert('users', $data);
+
+
       }
 
       /**

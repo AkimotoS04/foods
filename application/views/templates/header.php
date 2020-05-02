@@ -101,3 +101,9 @@
       <?php if ($this->session->flashdata('order_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('order_failed').'</p>'; ?>
       <?php endif; ?>
+
+      <?php if ($this->session->flashdata('double_email')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('double_email').'</p>'; ?>
+      <?php endif; ?>
+
+      

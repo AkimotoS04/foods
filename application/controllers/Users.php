@@ -104,14 +104,24 @@
               $this->load->view('templates/footer');
           } else {
               // Password encryption
+
               $encrypt_password = md5($this->input->post('password'));
 
+              $email = $this->input->post('email');
+              $sql_check = $this->db->query("SELECT email FROM users where email='$email'");
+              $check = $sql_check->num_rows();
+            if($check==0){
               $this->user_model->register($encrypt_password);
 
               // Flash message
               $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
 
               redirect('users/login');
+            }else{
+                $this->session->set_flashdata('double_email', 'Sorry email has already used');
+
+                redirect('users/register');
+            }
           }
       }
       public function register_restaurant()
@@ -133,12 +143,22 @@
               // Password Encryption
               $encrypt_password = md5($this->input->post('password'));
 
+              $email = $this->input->post('email');
+              $sql_check = $this->db->query("SELECT email FROM users where email='$email'");
+              $check = $sql_check->num_rows();
+            if($check==0){
+
               $this->user_model->register_restaurant($encrypt_password);
 
               // Flash Message
               $this->session->set_flashdata('user_registered', 'Yeah ! You are now registered.');
 
               redirect('users/login');
+            }else{
+                $this->session->set_flashdata('double_email', 'Sorry email has already used');
+
+                redirect('users/register_restaurant');
+            }
           }
       }
       public function profile()
@@ -167,23 +187,33 @@
       
         //Form Validation
         $this->form_validation->set_rules('name', 'Name', 'required');
-  
-        $this->form_validation->set_rules('email', 'Email', 'required');
 
         if($this->form_validation->run() != FALSE){
             $where = array(
                 'id' => $this->input->post('id'),
             );
+
+            if($_FILES['image']['name']!=null){
+
             $values = array(
                 
                 'name' => $this->input->post('name'),
-                'email' => $this->input->post('email'),
            
                 'image'   => "assets/images/profile".$_FILES['image']['name']
 
             );
 
             move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/profile".$_FILES['image']['name']);
+        }else{
+                $values = array(
+                  
+                    'name' => $this->input->post('name'),
+               
+                    'image'   => "assets/images/user.png"
+      
+                );
+            }
+    
 
             $this->user_model->update_user($where,$values);
             redirect('users/profile');
@@ -210,22 +240,32 @@
       //Form Validation
       $this->form_validation->set_rules('name', 'Name', 'required');
 
-      $this->form_validation->set_rules('email', 'Email', 'required');
-
       if($this->form_validation->run() != FALSE){
           $where = array(
               'id' => $this->input->post('id'),
           );
+
+          if($_FILES['image']['name']!=null){
+
           $values = array(
               
               'name' => $this->input->post('name'),
-              'email' => $this->input->post('email'),
          
               'image'   => "assets/images/profile".$_FILES['image']['name']
 
           );
 
           move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/profile".$_FILES['image']['name']);
+        }
+        else{
+            $values = array(
+              
+                'name' => $this->input->post('name'),
+           
+                'image'   => "assets/images/user.png"
+  
+            );
+        }
 
           $this->user_model->update_user($where,$values);
           redirect('users/profile_u');

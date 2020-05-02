@@ -51,12 +51,6 @@
                                     <input name="name" type="text" class="form-control monospace" value="<?php echo $pro['name']; ?>" placeholder="Enter name of food.">
                                     <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
                                 </div>
-                                
-                                <div class="form-group <?=form_error("price") ? "has-error" : null?>">
-                                    <h5 class="col-lg-3 col-form-label form-control-label monospace">Email</h5>
-                                    <input name="email" type="text" value="<?php echo $pro['email']; ?>" class="monospace form-control" placeholder="Enter price.">
-                                    <span class='help-block' style='color:red'><?php echo form_error('email'); ?></span>
-                                </div>
                            
                                 <div class="form-group">
                                     <h5 class="col-lg-3 col-form-label form-control-label monospace">Image</h5>
@@ -71,7 +65,13 @@
                 </div>
                 <div class="col-lg-4 order-lg-1 text-center">
                 <div class = "mx-auto img-fluid img-circle d-block" alt="avatar">
-                    <img width = 200 height = 200 src="../<?php echo $pro['image']; ?>">
+                <?php
+                if ($pro['image'] !== null) {
+                    echo "<img class='about-main' width = '200' height = '200' src='".base_url().$pro['image']."'>";
+                }else{
+                    echo "<img class='about-main' width = '200' height = '200' src='".base_url().'assets/images/user.png'."'>";
+                }
+                ?>
                 </div>
                 </div>
             </div>
