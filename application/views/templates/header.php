@@ -63,6 +63,11 @@
               <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile_u ">Profile's</a>
             <?php endif; ?>
           <?php endif; ?>
+          <?php if ($this->session->userdata('user_type') != null) : ?>
+            <?php if ($this->session->userdata('user_type') == 1) : ?>
+              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
+            <?php endif; ?>
+          <?php endif; ?>
 
         </div>
       </div>

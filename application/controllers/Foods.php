@@ -366,5 +366,40 @@ class Foods extends CI_Controller
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }
+
+    public function view_history()
+    {
+        $data['title'] = 'History';
+        // Validation to check only users should view cart.
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 1) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['foods'] = $this->food_model->get_history($user_id);
+
+                // Extracting name of foods
+                $data['fname'] = [];
+                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                    $name = $this->food_model->get_food_name($data['foods'][$x]['food_id']);
+                    array_push($data['fname'], $name);
+                }
+
+                // Extracting name of restaurants
+                $data['rname'] = [];
+                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                    $name = $this->food_model->get_restaurant_name($data['foods'][$x]['restaurant_id']);
+                    array_push($data['rname'], $name);
+                }
+
+                $this->load->view('templates/header');
+                $this->load->view('foods/view_history', $data);
+                $this->load->view('templates/footer');
+            } else {
+                redirect('foods/index');
+            }
+        } else {
+            redirect('users/login');
+        }
+    }
 }
 ?>
