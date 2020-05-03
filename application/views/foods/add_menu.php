@@ -30,6 +30,7 @@
     <label>Image</label>
     <input type="file" name="image">
   </div>
+  <input name="rating" type="hidden" value="5">
   <button type="submit" class="btn btn-primary btn-block">Add</button>
 </div>
 </div>

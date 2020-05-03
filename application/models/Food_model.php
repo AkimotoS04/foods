@@ -21,7 +21,8 @@ class Food_model extends CI_Model
       'price'   => $this->input->post('price'),
       'user_id' => $this->session->userdata('user_id'),
       'veg'     => $this->input->post('veg'),
-      'image'   => "assets/images/".$_FILES['image']['name']
+      'image'   => "assets/images/".$_FILES['image']['name'],
+      'rating'  => $this->input->post('rating')
     ];
 
     $ket = move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/".$_FILES['image']['name']);
