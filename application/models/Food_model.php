@@ -86,6 +86,13 @@ class Food_model extends CI_Model
 
         return $result->result_array();
     }
+    public function get_history($user_id)
+    {
+        $query = $this->db->where('people_id', $user_id);
+        $result = $this->db->get('orders');
+
+        return $result->result_array();
+    }
 
     /**
      * Extracting emails.
