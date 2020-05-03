@@ -401,5 +401,21 @@ class Foods extends CI_Controller
             redirect('users/login');
         }
     }
+
+    public function sort(){
+        $data['title'] = 'Cheapest Foods';
+        $data['foods'] = $this->food_model->sort_food();
+
+        // Extracting name of restaurants for corresponding foods
+        $data['rnames'] = [];
+        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+            $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
+            array_push($data['rnames'], $name);
+        }
+
+        $this->load->view('templates/header');
+        $this->load->view('foods/sort', $data);
+        $this->load->view('templates/footer');
+    }
 }
 ?>
