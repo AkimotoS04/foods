@@ -2,15 +2,10 @@
 <h2><?= $title ?></h2>
 <form action="<?php echo base_url().'foods/cari' ?>" method="get">
 	<input type="text" name="cari" placeholder="Search...">
-	<input class="btn btn-warning" type="submit" value="Cari">
+	<input class="btn btn-primary" type="submit" value="Cari">
 </form>
-<form action="<?php echo base_url().'foods/sort' ?>" method="post">
-	<h3>Cheap foods?</h3>
-	<button class="btn btn-success" role="button" href="/foods/foods/sort_price">Cheapest</button>
-</form>
-</div>
 
-<div class="row">
+<div class="row" style="color:black">
 	<?php foreach ($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
 		<div class="card mb-4 w3-container w3-animate-zoom">

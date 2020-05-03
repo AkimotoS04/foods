@@ -15,19 +15,31 @@ class Food_model extends CI_Model
      **/
     public function add_menu()
     {
+        if($_FILES['image']['name']!=null){
         $data = [
       'name'    => $this->input->post('name'),
       'stock'   => $this->input->post('stock'),
       'price'   => $this->input->post('price'),
       'user_id' => $this->session->userdata('user_id'),
       'veg'     => $this->input->post('veg'),
-      'image'   => "assets/images/".$_FILES['image']['name'],
-      'rating'  => $this->input->post('rating')
+      'image'   => "assets/images/".$_FILES['image']['name']
     ];
 
     $ket = move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/".$_FILES['image']['name']);
         
     return $this->db->insert('foods', $data);
+    }else{
+        $data = [
+            'name'    => $this->input->post('name'),
+            'stock'   => $this->input->post('stock'),
+            'price'   => $this->input->post('price'),
+            'user_id' => $this->session->userdata('user_id'),
+            'veg'     => $this->input->post('veg'),
+            'image'   => "assets/images/default.png"
+          ];
+          
+          return $this->db->insert('foods', $data);
+    }
 
     }
 
@@ -133,6 +145,13 @@ class Food_model extends CI_Model
         $query = $this->db->query("SELECT * FROM foods WHERE user_id = "."'"."$restaurant_id"."'");
  			return $query->result_array();
   
+    }
+    /**
+     * Sorting price..
+     */
+    public function sort_food(){
+        $query = $this->db->query("SELECT * FROM foods Order by price");
+ 		return $query->result_array();
     }
 
     /**
