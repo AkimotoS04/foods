@@ -109,7 +109,10 @@ class Foods extends CI_Controller
         if($this->form_validation->run() != FALSE){
             $where = array(
 				'id' => $this->input->post('id'),
-			);
+            );
+            
+            if($_FILES['image']['name']!=null){
+
             $values = array(
                 
                 'name' => $this->input->post('name'),
@@ -124,6 +127,20 @@ class Foods extends CI_Controller
 
             $this->food_model->update_menu($where,$values);
             redirect('foods/index');
+
+            }else{
+                $values = array(
+                
+                    'name' => $this->input->post('name'),
+                    'veg' => $this->input->post('veg'),
+                    'price' => $this->input->post('price'),
+                    'stock' => $this->input->post('stock')
+    
+                );
+
+                $this->food_model->update_menu($where,$values);
+                redirect('foods/index');
+            }
         }
       
         $this->load->view('templates/header');
@@ -330,4 +347,24 @@ class Foods extends CI_Controller
             redirect('users/login');
         }
     }
+
+    public function cari(){
+        $data['title'] = 'Search Result';
+        if(isset($_GET['cari'])){
+            $cari = $_GET['cari'];
+            $data['foods'] = $this->food_model->search_foods($cari);
+
+            // Extracting name of restaurants for corresponding foods
+            $data['rnames'] = [];
+            for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
+                array_push($data['rnames'], $name);
+            }
+            
+        }
+        $this->load->view('templates/header');
+        $this->load->view('foods/index', $data);
+        $this->load->view('templates/footer');
+    }
 }
+?>

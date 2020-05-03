@@ -1,5 +1,9 @@
 <div class="kepala">
 <h2><?= $title ?></h2>
+<form action="<?php echo base_url().'foods/cari' ?>" method="get">
+	<input type="text" name="cari" placeholder="Search...">
+	<input class="btn btn-primary" type="submit" value="Cari">
+</form>
 </div>
 
 <div class="row">

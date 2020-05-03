@@ -110,6 +110,16 @@ class Food_model extends CI_Model
 
         return $query->result_array();
     }
+
+    /**
+     * Extracting specified foods.
+     */
+    public function search_foods($cari)
+    {
+        $query = $this->db->query("SELECT * FROM foods WHERE name like "."'%"."$cari"."%'");
+ 		return $query->result_array();
+    }
+
     public function get_foods_restaurant($restaurant_id)
     {
         $query = $this->db->query("SELECT * FROM foods WHERE user_id = "."'"."$restaurant_id"."'");
