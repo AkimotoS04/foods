@@ -1,7 +1,7 @@
-<?php 
+<?php
 	foreach($profile as $pro){
 ?>
-    
+
 
 <div class="container pt-5 pr-5 pb-5 bg-light mt-3 mb-3 w3-animate-zoom">
     <div class="row content">
@@ -44,7 +44,7 @@
                                     <span class="monospace"><strong>Email</strong></span>
                                 </div>
                                 <div class="col-md-8">
-                                    <span class="monospace">: <?php  echo $pro['email']; ?></span>
+                                    <span class="monospace text-lowercase">: <?php  echo $pro['email']; ?></span>
                                 </div>
                             </div>
                             <div class="row">
@@ -59,7 +59,7 @@
                     </div>
                     <!--/row-->
                 </div>
-                
+
                 <div class="tab-pane" id="edit">
                 <h5 class="mb-3 fs-home-logo" style="font-size:50px">Edit Profile</h5>
                 <hr>
@@ -77,7 +77,7 @@
                                 <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
                             </div>
                         </div>
-                    
+
                         <div class="form-group row">
                             <h5 class="col-lg-3 col-form-label form-control-label monospace">Image</h5>
                             <div class="col-md-9">

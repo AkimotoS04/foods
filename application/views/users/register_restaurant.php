@@ -1,9 +1,9 @@
-
-
 <?php echo form_open('users/register_restaurant'); ?>
 <div class="row w3-container w3-animate-zoom" style="color:white; margin-top:40px">
-  <div class="col-md-4 col-md-offset-4">
-    <h2 class="text-center"> Sign Up - Admin     <span class="fs-home-logo">FoodShala</span></h2>
+  <div class="col-md-3 col-sm-offset-4">
+  </div>
+  <div class="col-md-6 col-sm-offset-4 ">
+    <h2 class="text-center"> Sign Up - Admin <p> <span class="fs-home-logo">FoodShala</span></p></h2>
   <div class="form-group <?=form_error("name") ? "has-error" : null?>">
     <label>Name</label>
     <input name="name"  value="<?php echo set_value('name'); ?>" type="text" class="form-control" placeholder="Enter name">
@@ -31,6 +31,8 @@
     <span class='help-block' style='color:red'><?php echo form_error('password2'); ?></span>
   </div>
   <button type="submit" class="btn btn-primary btn-block">Register</button>
+</div>
+<div class="col-md-2 col-sm-offset-4">
 </div>
 </div>
 <?php echo form_close(); ?>

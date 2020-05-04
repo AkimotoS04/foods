@@ -1,13 +1,18 @@
-<div class="kepala">
-<h2><?= $title ?></h2>
-<form action="<?php echo base_url().'foods/cari' ?>" method="get">
-	<input type="text" name="cari" placeholder="Search...">
-	<input class="btn btn-warning" type="submit" value="Cari">
-</form>
-<form action="<?php echo base_url().'foods/sort' ?>" method="post">
-	<h3>Cheap foods?</h3>
-	<button class="btn btn-success" role="button" href="/foods/foods/sort_price">Cheapest</button>
-</form>
+<div class="kepala row">
+	<h2 class="col-sm-12"><?= $title ?> :</h2>
+	<h3 class="col-sm-8">Sort By :</h3>
+	<h3 class="col-sm-4">Search :</h3>
+	<div class="col-sm-8">
+		<form action="<?php echo base_url().'foods/sort' ?>" method="post">
+			<button class="btn btn-success" role="button" href="/foods/foods/sort_price">Cheapest</button>
+		</form>
+	</div>
+	<div class="col-sm-4">
+		<form class="input-group mb-3 " action="<?php echo base_url().'foods/cari' ?>" method="get">
+			<input  class="form-control rounded mr-3" type="text" name="cari" placeholder="Search...">
+			<input class="btn btn-warning" type="submit" value="Cari"><br>
+		</form>
+	</div>
 </div>
 
 <div class="row">
