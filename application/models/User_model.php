@@ -96,6 +96,7 @@
           $data = [
         'name'     => $this->input->post('name'),
         'email'    => $this->input->post('email'),
+        'Birth'    => $this->input->post('Birth'),
         'password' => $encrypt_password,
         'type'     => false,
       ];
