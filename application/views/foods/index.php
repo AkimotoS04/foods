@@ -47,11 +47,11 @@
 				<span class="fa fa-star"></span>
 			</div>
 				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
-				<div>
-				<input type="button" value="-" class="qty-minus">
-				<input type="number" value="1" class="qty">
-				<input type="button" value="+" class="qty-plus">
-				</div>
+					<div class="qty">
+                        <span class="minus bg-dark qty-minus">-</span>
+                        <input class="count" type="number" value="1" class="qty" style="border: 0;width: 2%;">
+                        <span class="plus bg-dark qty-plus">+</span>
+                    </div>
 					<hr>
 					<input type='hidden' name='id' value="<?php echo $food['id'] ?>">
 					<button type='submit' name='submit' class='btn btn-success fs-food-page'>Add to Cart</button>
@@ -67,6 +67,6 @@
 		$(this).prev().val(+$(this).prev().val() + 1);
 	});
 	$(document).on('click', '.qty-minus', function () {
-		if ($(this).next().val() > 0) $(this).next().val(+$(this).next().val() - 1);
+		if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
 	});
 </script>
