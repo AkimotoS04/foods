@@ -4,6 +4,7 @@
 <?php foreach ($orders as $key => $order) : ?>
   <h4> <?php echo $uname[$key]; ?>
   <?php echo $email[$key]; ?>
+  <br>
   <?php echo $food[$key]; ?>
   <?php echo $jumlah[$key]; ?>
   
