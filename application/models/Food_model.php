@@ -126,6 +126,7 @@ class Food_model extends CI_Model
             return false;
         }
     }
+    
 
     /**
      * Extracting all foods.
