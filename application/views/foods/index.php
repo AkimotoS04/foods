@@ -49,7 +49,7 @@
 				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
 					<div class="qty">
               <span class="minus bg-dark qty-minus">-</span>
-              <input class="count" type="number" value="1" class="qty" style="border: 0;width: 2%;">
+              <input class="count" type="number" value="1" name="qty" style="border: 0;width: 2%;">
               <span class="plus bg-dark qty-plus">+</span>
           </div>
 					<hr>

@@ -324,6 +324,12 @@ class Foods extends CI_Controller
                     array_push($data['rname'], $name);
                 }
 
+                $data['jumlah'] = [];
+                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                    $name = $this->food_model->get_jumlah_cart($data['foods'][$x]['id']);
+                    array_push($data['jumlah'], $name);
+                }
+
                 $this->load->view('templates/header');
                 $this->load->view('foods/view_cart', $data);
                 $this->load->view('templates/footer');

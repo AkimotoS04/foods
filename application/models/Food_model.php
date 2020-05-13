@@ -139,6 +139,16 @@ class Food_model extends CI_Model
             return false;
         }
     }
+    public function get_jumlah_cart($order_id)
+    {
+        $query = $this->db->where('id', $order_id);
+        $result = $this->db->get('cart');
+        if ($result->num_rows() == 1) {
+            return $result->row(0)->jumlah;
+        } else {
+            return false;
+        }
+    }
 
     
 
