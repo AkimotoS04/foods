@@ -1,10 +1,17 @@
 <div class="kepala row">
-	<h2 class="col-sm-12"><?= $title ?> :</h2>
-	<h3 class="col-sm-8">Sort By :</h3>
+	<h2 class="col-sm-12"><?= $title ?></h2>
+	<h3 class="col-sm-4">Categories :</h3>
+	<h3 class="col-sm-4">Sort by:</h3>
 	<h3 class="col-sm-4">Search :</h3>
-	<div class="col-sm-8">
+	<div class="col-sm-4">
+		<button class="btn btn-warning m-1" role="button" href="">Appertizer</button>
+		<button class="btn btn-warning m-1" role="button" href="">Main Course</button>
+		<button class="btn btn-warning m-1" role="button" href="">Dessert</button>
+		<button class="btn btn-warning m-1" role="button" href="">Drinks</button>
+	</div>
+	<div class="col-sm-4">
 		<form action="<?php echo base_url().'foods/sort' ?>" method="post">
-			<button class="btn btn-success" role="button" href="/foods/foods/sort_price">Cheapest</button>
+			<button class="btn btn-warning" role="button" href="/foods/foods/sort_price">Cheapest</button>
 		</form>
 	</div>
 	<div class="col-sm-4">
@@ -15,7 +22,7 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="row mt-3">
 	<?php foreach ($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
 		<div class="card mb-4 w3-container w3-animate-zoom">
