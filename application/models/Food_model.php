@@ -81,17 +81,9 @@ class Food_model extends CI_Model
         $query = $this->db->query("SELECT * FROM foods WHERE id = "."'"."$food_id"."'");
         return $query->result_array();
     }
-    public function get_food_name($food_id)
-    {
-        $query = $this->db->where('id', $food_id);
-        $result = $this->db->get('foods');
-        if ($result->num_rows() == 1) {
-            return $result->row(0)->name;
-        } else {
-            return false;
-        }
-    }
 
+
+  
     public function get_stock($food_id)
     {
         $query = $this->db->query("SELECT * FROM foods WHERE id = "."'"."$food_id"."'");
@@ -126,6 +118,27 @@ class Food_model extends CI_Model
             return false;
         }
     }
+    public function get_food_name($food_id)
+    {
+        $query = $this->db->where('id', $food_id);
+        $result = $this->db->get('foods');
+        if ($result->num_rows() == 1) {
+            return $result->row(0)->name;
+        } else {
+            return false;
+        }
+    }
+    public function get_jumlah($order_id)
+    {
+        $query = $this->db->where('id', $order_id);
+        $result = $this->db->get('orders');
+        if ($result->num_rows() == 1) {
+            return $result->row(0)->jumlah;
+        } else {
+            return false;
+        }
+    }
+
     
 
     /**
