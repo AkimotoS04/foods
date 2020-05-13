@@ -6,7 +6,7 @@
 	<?php foreach ($foods as $key => $food) : ?>
     <?php $id = $food['id'];?>
 	<div class="col-12 col-sm-6 col-md-4">
-		<div class="card mb-4 w3-container w3-animate-zoom">
+		<div class="card mb-4 w3-container w3-animate-zoom" style="background-color:rgb(144,238,144);color:rgb(0,100,0)">
 		<div class="imgzoom" style="padding-top:15px">
 			<?php
                 if ($food['image'] !== null) {

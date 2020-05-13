@@ -194,6 +194,13 @@ class Foods extends CI_Controller
     // Validation to check only users should add food to cart.
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 1) {
+
+                //CEK STOK
+                $data['foods'] = $this->food_model->get_stock($food_id);
+                foreach($data['foods'] as $upd){
+
+                
+                if($upd['stock'] >= 0){
                 $people_id = $this->session->userdata('user_id');
 
                 $restaurant_id = $this->food_model->get_restaurant_id($food_id);
@@ -201,9 +208,16 @@ class Foods extends CI_Controller
                 $this->food_model->add_to_cart($restaurant_id, $people_id, $food_id);
 
                 // Flash message
-                $this->session->set_flashdata('added_to_cart', 'Your food is added to cart.');
+                $this->session->set_flashdata('added_to_cart', 'Food added to cart');
 
                 redirect('foods/index');
+                }
+                else{
+                    $this->session->set_flashdata('cart_failed','Sorry this food is unavailable at current moment');
+
+                    redirect('foods/index');
+                }
+            }
             } else {
                 $this->session->set_flashdata('add_cart_failed', 'Sorry, only user may add to cart.');
 
@@ -230,6 +244,13 @@ class Foods extends CI_Controller
                 $this->food_model->order_food($restaurant_id, $people_id, $food_id);
 
                 $this->food_model->delete_food_from_cart($restaurant_id, $people_id, $food_id);
+
+                $data['foods'] = $this->food_model->get_stock($food_id);
+                foreach($data['foods'] as $upd){
+                    $upd['stock'] = $upd['stock'] - 1;
+                }
+
+                $this->food_model->minus_stock($food_id,$upd);
 
                 // Flash message
                 $this->session->set_flashdata('food_ordered', 'Your food is ordered.');

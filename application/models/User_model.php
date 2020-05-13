@@ -28,6 +28,7 @@
               return false;
           }
       }
+      
       public function get_username($user_id)
       {
         $query = $this->db->query("SELECT * FROM users WHERE id = "."'"."$user_id"."'");
