@@ -1,11 +1,28 @@
-<div class="kepala">
-<h2><?= $title ?></h2>
-<form action="<?php echo base_url().'foods/cari' ?>" method="get">
-	<input type="text" name="cari" placeholder="Search...">
-	<input class="btn btn-primary" type="submit" value="Cari">
-</form>
+<div class="kepala row">
+	<h2 class="col-sm-12"><?= $title ?></h2>
+	<h3 class="col-sm-4">Categories :</h3>
+	<h3 class="col-sm-4">Sort by:</h3>
+	<h3 class="col-sm-4">Search :</h3>
+	<div class="col-sm-4">
+		<button class="btn btn-warning m-1" role="button" href="">Appertizer</button>
+		<button class="btn btn-warning m-1" role="button" href="">Main Course</button>
+		<button class="btn btn-warning m-1" role="button" href="">Dessert</button>
+		<button class="btn btn-warning m-1" role="button" href="">Drinks</button>
+	</div>
+	<div class="col-sm-4">
+		<form action="<?php echo base_url().'foods/sort' ?>" method="post">
+			<button class="btn btn-warning active" role="button" href="/foods/foods/sort_price">Cheapest</button>
+		</form>
+	</div>
+	<div class="col-sm-4">
+		<form class="input-group mb-3 " action="<?php echo base_url().'foods/cari' ?>" method="get">
+			<input  class="form-control rounded mr-3" type="text" name="cari" placeholder="Search...">
+			<input class="btn btn-warning" type="submit" value="Cari"><br>
+		</form>
+	</div>
+</div>
 
-<div class="row" style="color:black">
+<div class="row mt-3" style="color:black">
 	<?php foreach ($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
 		<div class="card mb-4 w3-container w3-animate-zoom">
