@@ -12,8 +12,8 @@
   <div class="form-group">
   <label>Food Type</label>
   <select class="form-control" name="veg">
-    <option value="1">Veg</option>
-    <option value="0">Non- Veg</option>
+    <option value="1">Foods</option>
+    <option value="0">Drinks</option>
   </select>
   </div>
   <div class="form-group <?=form_error("price") ? "has-error" : null?>">
