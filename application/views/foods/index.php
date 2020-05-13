@@ -16,8 +16,8 @@
 	</div>
 	<div class="col-sm-4">
 		<form class="input-group mb-3 " action="<?php echo base_url().'foods/cari' ?>" method="get">
-			<input  class="form-control rounded mr-3" type="text" name="cari" placeholder="Search...">
-			<input class="btn btn-warning" type="submit" value="Cari"><br>
+			<input class="form-control rounded mr-3" type="text" name="cari" placeholder="Search...">
+			<button class="btn btn-warning" type="submit" value="Cari">Cari</button><br>
 		</form>
 	</div>
 </div>
@@ -46,13 +46,16 @@
 				<span class="fa fa-star"></span>
 				<span class="fa fa-star"></span>
 			</div>
-				<hr>
-				<div id="input_div">
-					<input type="button" value="-" id="moins" onclick="minus()">
-					<input type="text" size="2" value="1" id="count">
-					<input type="button" value="+" id="plus" onclick="plus()">
-				</div>
-				<a class="btn btn-success fs-food-page" role="button" href="/foods/foods/add_to_cart/<?php echo $food['id']  ?>"> Add to Cart </a>
+				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
+					<div class="qty">
+                        <span class="minus bg-dark">-</span>
+                        <input type="number" class="count" name="qty" value="1">
+                        <span class="plus bg-dark">+</span>
+                    </div>
+					<hr>
+					<input type='hidden' name='id' value="<?php echo $food['id'] ?>">
+					<button type='submit' name='submit' class='btn btn-success fs-food-page'>Add to Cart</button>
+				</form>
 			</div>
     </div>
 	</div>
@@ -60,16 +63,16 @@
 </div>
 
 <script>
-    var count = 1;
-    var countEl = document.getElementById("count");
-    function plus(){
-        count++;
-        countEl.value = count;
-    }
-    function minus(){
-      if (count > 1) {
-        count--;
-        countEl.value = count;
-      }  
-    }
+    $(document).ready(function(){
+		$('.count').prop('disabled', true);
+		$(document).on('click','.plus',function(){
+			$('.count').val(parseInt($('.count').val()) + 1 );
+		});
+		$(document).on('click','.minus',function(){
+			$('.count').val(parseInt($('.count').val()) - 1 );
+				if ($('.count').val() == 0) {
+					$('.count').val(1);
+				}
+			});
+	});
 </script>
