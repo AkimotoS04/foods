@@ -46,12 +46,13 @@ class Food_model extends CI_Model
     /**
      * Add to cart for users.
      **/
-    public function add_to_cart($restaurant_id, $people_id, $food_id)
+    public function add_to_cart($restaurant_id, $people_id, $food_id, $jumlah)
     {
         $data = [
       'people_id'     => $people_id,
       'food_id'       => $food_id,
       'restaurant_id' => $restaurant_id,
+      'jumlah' => $jumlah,
     ];
 
         return $this->db->insert('cart', $data);

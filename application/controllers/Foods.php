@@ -188,12 +188,15 @@ class Foods extends CI_Controller
     /**
      * Order food as a user.
      **/
-    public function add_to_cart($food_id)
+    public function add_to_cart()
     {
 
     // Validation to check only users should add food to cart.
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 1) {
+
+                $food_id = $this->input->post('id');
+                $jumlah = $this->input->post('jumlah');
 
                 //CEK STOK
                 $data['foods'] = $this->food_model->get_stock($food_id);
@@ -205,10 +208,11 @@ class Foods extends CI_Controller
 
                 $restaurant_id = $this->food_model->get_restaurant_id($food_id);
 
-                $this->food_model->add_to_cart($restaurant_id, $people_id, $food_id);
+
+                $this->food_model->add_to_cart($restaurant_id, $people_id, $food_id, $jumlah);
 
                 // Flash message
-                $this->session->set_flashdata('added_to_cart', 'Food added to cart');
+                $this->session->set_flashdata('added_to_cart', 'Food added to cart' );
 
                 redirect('foods/index');
                 }
