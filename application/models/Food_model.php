@@ -119,6 +119,7 @@ class Food_model extends CI_Model
             return false;
         }
     }
+
     public function get_food_name($food_id)
     {
         $query = $this->db->where('id', $food_id);
@@ -129,6 +130,7 @@ class Food_model extends CI_Model
             return false;
         }
     }
+
     public function get_jumlah($order_id)
     {
         $query = $this->db->where('id', $order_id);
@@ -139,12 +141,24 @@ class Food_model extends CI_Model
             return false;
         }
     }
+
     public function get_jumlah_cart($order_id)
     {
         $query = $this->db->where('id', $order_id);
         $result = $this->db->get('cart');
         if ($result->num_rows() == 1) {
             return $result->row(0)->jumlah;
+        } else {
+            return false;
+        }
+    }
+
+    public function get_price_cart($food_id)
+    {
+        $query = $this->db->where('id', $food_id);
+        $result = $this->db->get('foods');
+        if ($result->num_rows() == 1) {
+            return $result->row(0)->price;
         } else {
             return false;
         }
