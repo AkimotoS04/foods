@@ -196,7 +196,7 @@ class Foods extends CI_Controller
             if ($this->session->userdata('user_type') == 1) {
 
                 $food_id = $this->input->post('id');
-                $jumlah = $this->input->post('jumlah');
+                $jumlah = $this->input->post('qty');
 
                 //CEK STOK
                 $data['foods'] = $this->food_model->get_stock($food_id);
