@@ -25,7 +25,7 @@
 <div class="row mt-3">
 	<?php foreach ($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
-		<div class="card mb-4 w3-container w3-animate-zoom" style="background-color:white;color:rgb(0,100,0)">
+		<div class="card mb-4 w3-container w3-animate-zoom" style="background-color:white;">
 			<div class="imgzoom" style="padding-top:15px">
 			<?php
                 if ($food['image'] !== null) {
@@ -47,9 +47,29 @@
 				<span class="fa fa-star"></span>
 			</div>
 				<hr>
+				<div id="input_div">
+					<input type="button" value="-" id="moins" onclick="minus()">
+					<input type="text" size="2" value="1" id="count">
+					<input type="button" value="+" id="plus" onclick="plus()">
+				</div>
 				<a class="btn btn-success fs-food-page" role="button" href="/foods/foods/add_to_cart/<?php echo $food['id']  ?>"> Add to Cart </a>
 			</div>
     </div>
 	</div>
 	<?php endforeach; ?>
 </div>
+
+<script>
+    var count = 1;
+    var countEl = document.getElementById("count");
+    function plus(){
+        count++;
+        countEl.value = count;
+    }
+    function minus(){
+      if (count > 1) {
+        count--;
+        countEl.value = count;
+      }  
+    }
+</script>
