@@ -200,7 +200,7 @@ class Foods extends CI_Controller
                 foreach($data['foods'] as $upd){
 
                 
-                if($upd['stock'] >= 0){
+                if($upd['stock'] > 0){
                 $people_id = $this->session->userdata('user_id');
 
                 $restaurant_id = $this->food_model->get_restaurant_id($food_id);
