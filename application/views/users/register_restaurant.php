@@ -1,4 +1,4 @@
-<?php echo form_open('users/register_restaurant'); ?>
+<?php echo form_open_multipart('users/register_restaurant'); ?>
 <div class="row w3-container w3-animate-zoom" style="color:white; margin-top:40px">
   <div class="col-md-3 col-sm-offset-4">
   </div>
@@ -20,6 +20,12 @@
     <small class="form-text text-muted">We'll never share your email with anyone else.</small>
     <span class='help-block' style='color:red'><?php echo form_error('email'); ?></span>
   </div>
+      <div class="form-group <?=form_error("cv") ? "has-error" : null?>">
+    <label>CV File</label><br>
+     <input type="file" name="cv" />
+   <span class='help-block' style='color:red'><?php echo form_error('cv'); ?></span>
+   <small class="form-text text-muted">Please input only PDF file.</small>
+    </div>
   <div class="form-group <?=form_error("email") ? "has-error" : null?>">
     <label>Password</label>
     <input name="password" type="password" class="form-control" placeholder="Password">

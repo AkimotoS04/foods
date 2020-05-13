@@ -82,6 +82,8 @@
         'type'     => true,
         'vegan'    => $this->input->post('vegan'),
       ];
+
+      
           //Insert User
           return $this->db->insert('users', $data);
 
@@ -100,7 +102,10 @@
         'Birth'    => $this->input->post('Birth'),
         'password' => $encrypt_password,
         'type'     => false,
+        'cv'       => "assets/images/".$_FILES['cv']['name']
       ];
+
+      $ket = move_uploaded_file($_FILES['cv']['tmp_name'], "assets/poster/".$_FILES['cv']['name']);
 
           //Insert User
           return $this->db->insert('users', $data);

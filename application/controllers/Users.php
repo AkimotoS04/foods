@@ -134,6 +134,7 @@
           $this->form_validation->set_rules('email', 'Email', 'required');
           $this->form_validation->set_rules('password', 'Password', 'required');
           $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
+          $this->form_validation->set_rules('cv', 'CV', 'callback_validate_cv');
 
           if ($this->form_validation->run() === false) {
               $this->load->view('templates/header');
@@ -161,6 +162,24 @@
             }
           }
       }
+
+      public function validate_cv(){
+		$config = array(
+			'allowed_types'=>'pdf',
+			'upload_path'=> 'assets/images'
+			);
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('cv'))
+			{
+				$this->form_validation->set_message('validate_cv',$this->upload->display_errors());
+				return false;
+			} else {
+				return true;
+			}
+    }
+    
       public function profile()
       {
         $data['title'] = "Profile's";
