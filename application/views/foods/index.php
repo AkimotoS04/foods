@@ -33,7 +33,6 @@
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 				<br>
 				<hr>
-				<a class="btn btn-dark fs-food-page" role="button" href="/foods/foods/order_food/<?php echo $food['id']  ?>"> Order </a>
 				<a class="btn btn-success fs-food-page" role="button" href="/foods/foods/add_to_cart/<?php echo $food['id']  ?>"> Add to Cart </a>
 			</div>
     </div>
