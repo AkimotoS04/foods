@@ -57,7 +57,7 @@
 					<button type='submit' name='submit' class='btn btn-success fs-food-page'>Add to Cart</button>
 				</form>
 			</div>
-    </div>
+    	</div>
 	</div>
 	<?php endforeach; ?>
 </div>
