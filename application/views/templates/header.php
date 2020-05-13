@@ -73,9 +73,6 @@
         -moz-user-select: none;
         -ms-user-select: none;
     }
-    input{  
-        border: 0;
-    }
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
