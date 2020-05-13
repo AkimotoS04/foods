@@ -25,7 +25,7 @@
 <div class="row mt-3">
 	<?php foreach ($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
-		<div class="card mb-4 w3-container w3-animate-zoom" style="background-color:rgb(144,238,144);color:rgb(0,100,0)">
+		<div class="card mb-4 w3-container w3-animate-zoom" style="background-color:white;color:rgb(0,100,0)">
 			<div class="imgzoom" style="padding-top:15px">
 			<?php
                 if ($food['image'] !== null) {
@@ -39,6 +39,13 @@
 				<span ><?php echo ("Rp. ").$food['price']; ?> </span> -
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 				<br>
+				<div style="font-size:25px">
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star checked"></span>
+				<span class="fa fa-star"></span>
+				<span class="fa fa-star"></span>
+			</div>
 				<hr>
 				<a class="btn btn-success fs-food-page" role="button" href="/foods/foods/add_to_cart/<?php echo $food['id']  ?>"> Add to Cart </a>
 			</div>
