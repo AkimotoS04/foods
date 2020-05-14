@@ -61,8 +61,7 @@
             'name'       => $name,
             'status'     => $status,
           ];
-
-
+          
           if($status == 0){
             $this->session->set_flashdata('not_accepted','This admin is not yet accepted');
             redirect('users/login');

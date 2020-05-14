@@ -249,9 +249,11 @@ class Foods extends CI_Controller
 
                 $this->food_model->delete_food_from_cart($restaurant_id, $people_id, $food_id);
 
+                $jumlah = $_GET['jumlah'];
+
                 $data['foods'] = $this->food_model->get_stock($food_id);
                 foreach($data['foods'] as $upd){
-                    $upd['stock'] = $upd['stock'] - 1;
+                    $upd['stock'] = $upd['stock'] - $jumlah;
                 }
 
                 $this->food_model->minus_stock($food_id,$upd);
