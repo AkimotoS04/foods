@@ -31,7 +31,9 @@
                 if ($food['image'] !== null) {
                     // please! config size and position of this one!
                     echo "<img class='card-img-top' src='".base_url().$food['image']."' height='150px'>";
-                }
+                }else{
+					echo "<img class='card-img-top' src='".base_url()."/assets/images/default.png' height='150px'>";
+				}
             ?>
 			</div>
 			<div class="card-body p-3">
