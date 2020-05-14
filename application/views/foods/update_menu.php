@@ -6,7 +6,7 @@
 <?php echo form_open_multipart("foods/update_menu?id=".$upd['id']); ?>
 <div class="row" style="color:white; margin-top:60px">
   <div class="col-md-4 col-md-offset-4">
-    <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">FoodShala</span></h2>
+    <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">Foodies</span></h2>
   <div class="form-group">
     <label>Food ID</label>
     <input name="id" type="text" class="form-control" value="<?php echo $upd['id'];?>" readonly>
