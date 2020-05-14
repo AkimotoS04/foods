@@ -272,6 +272,23 @@ class Foods extends CI_Controller
         }
     }
 
+    public function delete_cart()
+    {
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 1) {
+                $cart_id = $_GET['id'];
+
+                $this->food_model->delete_cart($cart_id);
+
+                redirect('foods/index');
+            }else{
+                redirect('foods/index');
+            }
+        }else{
+            redirect('users/login');
+        }
+    }
+
     /**
      * Order food as a user.
      **/

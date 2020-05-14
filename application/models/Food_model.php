@@ -270,4 +270,10 @@ class Food_model extends CI_Model
         $this->db->where('id',$food_id['id']);
 		$this->db->update('foods',$values);
     }
+
+    public function delete_cart($id)
+    {
+        $this->db->where('id',$id);
+        $this->db->delete('cart');
+    }
 }
