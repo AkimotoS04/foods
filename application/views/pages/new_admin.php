@@ -1,5 +1,5 @@
 <div class="jumbotron">
-<h2>New Admin</h2>
+<h1 class="text-center fs-home-logo"><?= $title ?></h1>
 <hr>
 <br>
     <?php 

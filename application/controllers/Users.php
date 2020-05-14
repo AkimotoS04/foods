@@ -350,10 +350,12 @@
 
                 $this->user_model->acc_user_req($id, $values);
 
-                $data['title'] = 'Home';
-		        $data['navbar'] = $this->load->view('templates/header',NULL,TRUE);
-	
-		        $this->load->view('pages/home.php',$data);
+                $data['users'] = $this->user_model->get_user_req();
+                $data['title'] = 'New Admin';
+
+                $this->load->view('templates/header');
+                $this->load->view('pages/new_admin', $data);
+                $this->load->view('templates/footer');
 
             }else{
                 redirect(base_url());
@@ -377,6 +379,7 @@
                 $this->user_model->delete($id);
 
                 $data['users'] = $this->user_model->get_user_req();
+                $data['title'] = 'New Admin';
 
                 $this->load->view('templates/header');
                 $this->load->view('pages/new_admin', $data);
