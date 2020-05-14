@@ -366,5 +366,32 @@
     }
   }
 
+  public function delete_user()
+  {
+    if($this->session->userdata('user_id')){
+        if($this->session->userdata('user_type') == 0){
+            if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0){
 
+                $id = $_GET['id'];
+
+                $this->user_model->delete($id);
+
+                $data['users'] = $this->user_model->get_user_req();
+
+                $this->load->view('templates/header');
+                $this->load->view('pages/new_admin', $data);
+                $this->load->view('templates/footer');
+
+            }else{
+                redirect(base_url());
+            }
+        }else{
+            redirect(base_url());
+        }
+    }else{
+        redirect(base_url());
+    }
   }
+
+
+}
