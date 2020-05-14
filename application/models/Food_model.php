@@ -250,6 +250,14 @@ class Food_model extends CI_Model
         return $result->result_array();
     }
 
+    public function get_cart($cart_id)
+    {
+        $query = $this->db->where('id', $cart_id);
+        $result = $this->db->get('cart');
+
+        return $result->result_array();
+    }
+
     /**
      * Order food functionality for users.
      **/

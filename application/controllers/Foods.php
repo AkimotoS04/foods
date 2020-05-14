@@ -235,23 +235,25 @@ class Foods extends CI_Controller
     /**
      * Order food from cart.
      **/
-    public function order_cart($food_id)
+    public function order_cart()
     {
 
     // Validation to check only users should order food from cart.
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 1) {
-                $restaurant_id = $this->food_model->get_restaurant_id($food_id);
 
-                $people_id = $this->session->userdata('user_id');
+                $cart_id = $_GET['id'];
+                $food_id = $_GET['food_id'];
 
+                $cart['cart'] = $this->food_model->get_cart($cart_id);
 
-                $this->food_model->delete_food_from_cart($restaurant_id, $people_id, $food_id);
-
-                $jumlah = $_GET['jumlah'];
-
+                $restaurant_id = $cart['cart'][0]['restaurant_id'];
+                $people_id = $cart['cart'][0]['people_id'];
+                $food_id = $cart['cart'][0]['food_id'];
+                $jumlah = $cart['cart'][0]['jumlah'];
                 
                 $this->food_model->order_food($restaurant_id, $people_id, $food_id, $jumlah);
+                $this->food_model->delete_cart($cart_id);
 
                 $data['foods'] = $this->food_model->get_stock($food_id);
                 foreach($data['foods'] as $upd){
@@ -327,6 +329,8 @@ class Foods extends CI_Controller
         // Validation to check only users should view cart.
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 1) {
+
+                
                 $user_id = $this->session->userdata('user_id');
 
                 $data['foods'] = $this->food_model->get_cart_foods($user_id);
