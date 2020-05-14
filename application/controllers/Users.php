@@ -320,6 +320,7 @@
             if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0){
 
                 $data['users'] = $this->user_model->get_user_req();
+                $data['title'] = 'New Admin';
 
                 $this->load->view('templates/header');
                 $this->load->view('pages/new_admin', $data);
