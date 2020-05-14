@@ -465,8 +465,56 @@ class Foods extends CI_Controller
                     array_push($data['rname'], $name);
                 }
 
+                $data['jumlah'] = [];
+                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                    $name = $this->food_model->get_jumlah($data['foods'][$x]['id']);
+                    array_push($data['jumlah'], $name);
+                }
+
+                $data['price'] = [];
+                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+                    $name = $this->food_model->get_price_cart($data['foods'][$x]['food_id']);
+                    array_push($data['price'], $name);
+                }
+
                 $this->load->view('templates/header');
                 $this->load->view('foods/view_history', $data);
+                $this->load->view('templates/footer');
+            } else {
+                redirect('foods/index');
+            }
+        } else {
+            redirect('users/login');
+        }
+    }
+
+    public function statistik()
+    {
+        $data['title'] = 'Statistik';
+        // Backend validation to check only restaurant should access view_orders section.
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['orders'] = $this->food_model->get_orders($user_id);
+
+                // Extracting name of users who ordered
+                $data['food'] = [];
+                for ($x = 0; $x <= count($data['orders']) - 1; $x++) {
+                    $name = $this->food_model->get_food_name($data['orders'][$x]['food_id']);
+                    array_push($data['food'], $name);
+                }
+
+               
+
+                $data['jumlah'] = [];
+                for ($x = 0; $x <= count($data['orders']) - 1; $x++) {
+                    $name = $this->food_model->get_jumlah($data['orders'][$x]['id']);
+                    array_push($data['jumlah'], $name);
+                }
+
+                $this->load->view('templates/header');
+                $this->load->view('foods/statistik', $data);
                 $this->load->view('templates/footer');
             } else {
                 redirect('foods/index');
