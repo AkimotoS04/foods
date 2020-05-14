@@ -34,10 +34,21 @@
         $query = $this->db->query("SELECT * FROM users WHERE id = "."'"."$user_id"."'");
         return $query->result_array();
       }
+
       public function update_user($user_id,$values){
         $this->db->where('id',$user_id['id']);
 		$this->db->update('users',$values);
-    }
+     }
+
+    public function get_status($user_id){
+        $this->db->where('id', $user_id);
+          $result = $this->db->get('users');
+          if ($result->num_rows() == 1) {
+              return $result->row(0)->status;
+          } else {
+              return false;
+          }
+      }
 
       /**
        * Extracting user nature.( veg or non-veg ).
@@ -81,6 +92,7 @@
         'password' => $encrypt_password,
         'type'     => true,
         'vegan'    => $this->input->post('vegan'),
+        'status'   => 1,
       ];
 
       
@@ -102,7 +114,8 @@
         'Birth'    => $this->input->post('Birth'),
         'password' => $encrypt_password,
         'type'     => false,
-        'cv'       => "assets/images/".$_FILES['cv']['name']
+        'cv'       => "assets/images/".$_FILES['cv']['name'],
+        'status'   => 0 
       ];
 
       $ket = move_uploaded_file($_FILES['cv']['tmp_name'], "assets/poster/".$_FILES['cv']['name']);
@@ -110,4 +123,17 @@
           //Insert User
           return $this->db->insert('users', $data);
       }
+
+      public function get_user_req(){
+        $query = $this->db->where('status', 0);
+        $result = $this->db->get('users');
+
+        return $result->result_array();
+      }
+
+      public function acc_user_req($id, $values){
+        $this->db->where('id', $id);
+        $this->db->update('users',$values);
+      }
+
   }

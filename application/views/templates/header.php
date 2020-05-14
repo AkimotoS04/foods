@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title> FoodShala: Meals That Matter </title>
+    <title> Foodies: Meals That Matter </title>
 
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,6 +133,13 @@
               <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
             <?php endif; ?>
           <?php endif; ?>
+          <?php if($this->session->userdata('user_type') != null) : ?>
+          <?php if($this->session->userdata('user_type') == 0) : ?>
+          <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) : ?>
+            <a class="btn btn-warning" style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
+          <?php endif; ?>
+          <?php endif; ?>
+          <?php endif; ?>
 
         </div>
       </div>
@@ -179,5 +186,10 @@
       <?php if ($this->session->flashdata('cart_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('cart_failed').'</p>'; ?>
       <?php endif; ?>
+
+      <?php if ($this->session->flashdata('not_accepted')): ?>
+        <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('not_accepted').'</p>'; ?>
+      <?php endif; ?>
+      
 
       

@@ -49,19 +49,27 @@
               // name
               $name = $this->user_model->get_user_name($user_id);
 
+              $status = $this->user_model->get_status($user_id);
+
               if ($user_id) {
-                  $user_data = [
+             $user_data = [
             'user_id'    => $user_id,
             'email'      => $email,
             'logged_in'  => true,
             'user_type'  => $user_type,
             'user_vegan' => $user_vegan,
             'name'       => $name,
+            'status'     => $status,
           ];
 
-                  $this->session->set_userdata($user_data);
 
-                  redirect('foods/index');
+          if($status == 0){
+            $this->session->set_flashdata('not_accepted','This admin is not yet accepted');
+            redirect('users/login');
+        }else{
+            $this->session->set_userdata($user_data);
+            redirect('foods/index');
+        }  
               } else {
                   $this->session->set_flashdata('login_failed', 'Email/Password is wrong.');
 
@@ -83,6 +91,7 @@
           $this->session->unset_userdata('user_type');
           $this->session->unset_userdata('user_vegan');
           $this->session->unset_userdata('name');
+          $this->session->unset_userdata('status');
 
           redirect(base_url());
       }
@@ -124,6 +133,7 @@
             }
           }
       }
+
       public function register_restaurant()
       {
           $data['title'] = 'Sign Up - Restaurant';
@@ -198,6 +208,7 @@
         $this->load->view('pages/profile_u', $data);
         $this->load->view('templates/footer');
       }
+
       public function update_user()
       {
         if($this->session->userdata('user_id')){
@@ -291,7 +302,7 @@
       }
   
           $this->load->view('templates/header');
-          $this->load->view('pages/profile_u', $data);
+          $this->load->view('pages/profile_u');
           $this->load->view('templates/footer');
       }else{
           redirect(base_url());
@@ -302,4 +313,59 @@
       }
 
   }
+
+  public function new_admin()
+  {
+      if($this->session->userdata('user_id')){
+        if($this->session->userdata('user_type') == 0){
+            if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0){
+
+                $data['users'] = $this->user_model->get_user_req();
+
+                $this->load->view('templates/header');
+                $this->load->view('pages/new_admin', $data);
+                $this->load->view('templates/footer');
+
+            }else{
+                redirect(base_url());
+            }
+        }else{
+            redirect(base_url());
+        }
+      }else{
+          redirect(base_url());
+      }
+  }
+
+  public function accept_admin()
+  {
+    if($this->session->userdata('user_id')){
+        if($this->session->userdata('user_type') == 0){
+            if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0){
+
+                $id = $_GET['id'];
+
+                $values = array(
+                    'status' => 1
+                );
+
+                $this->user_model->acc_user_req($id, $values);
+
+                $data['title'] = 'Home';
+		        $data['navbar'] = $this->load->view('templates/header',NULL,TRUE);
+	
+		        $this->load->view('pages/home.php',$data);
+
+            }else{
+                redirect(base_url());
+            }
+        }else{
+            redirect(base_url());
+        }
+    }else{
+        redirect(base_url());
+    }
+  }
+
+
   }

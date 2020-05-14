@@ -6,7 +6,7 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
-      <h2 class="text-center"> <?= $title; ?><p><span class="fs-home-logo">FoodShala</span><p></h2>
+      <h2 class="text-center"> <?= $title; ?><p><span class="fs-home-logo">Foodies</span><p></h2>
       <div class="form-group <?=form_error("email") ? "has-error" : null?>">
         <label>Email address</label>
         <input name="email" type="email" value="<?php echo set_value('email'); ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
