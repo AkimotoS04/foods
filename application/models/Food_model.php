@@ -253,12 +253,13 @@ class Food_model extends CI_Model
     /**
      * Order food functionality for users.
      **/
-    public function order_food($restaurant_id, $people_id, $food_id)
+    public function order_food($restaurant_id, $people_id, $food_id,$jumlah)
     {
         $data = [
       'people_id'     => $people_id,
       'restaurant_id' => $restaurant_id,
       'food_id'       => $food_id,
+      'jumlah' => $jumlah,
     ];
 
         return $this->db->insert('orders', $data);

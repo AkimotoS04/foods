@@ -245,11 +245,13 @@ class Foods extends CI_Controller
 
                 $people_id = $this->session->userdata('user_id');
 
-                $this->food_model->order_food($restaurant_id, $people_id, $food_id);
 
                 $this->food_model->delete_food_from_cart($restaurant_id, $people_id, $food_id);
 
                 $jumlah = $_GET['jumlah'];
+
+                
+                $this->food_model->order_food($restaurant_id, $people_id, $food_id, $jumlah);
 
                 $data['foods'] = $this->food_model->get_stock($food_id);
                 foreach($data['foods'] as $upd){
