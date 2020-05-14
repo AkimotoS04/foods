@@ -3,7 +3,7 @@
 <?php echo form_open_multipart('foods/add_menu'); ?>
 <div class="row" style="color:white; margin-top:60px">
   <div class="col-md-4 col-md-offset-4">
-    <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">FoodShala</span></h2>
+    <h2 class="text-center"> <?= $title; ?>     <span class="fs-home-logo">Foodies</span></h2>
   <div class="form-group <?=form_error("name") ? "has-error" : null?>">
     <label>Name</label>
     <input name="name" value="<?php echo set_value('name'); ?>" type="text" class="form-control" placeholder="Enter name of food.">
