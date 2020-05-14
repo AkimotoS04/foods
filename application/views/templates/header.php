@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title> FoodShala: Meals That Matter </title>
+    <title> Foodies: Meals That Matter </title>
 
     <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
