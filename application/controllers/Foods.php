@@ -484,7 +484,7 @@ class Foods extends CI_Controller
         }
 
         $this->load->view('templates/header');
-        $this->load->view('foods/sort', $data);
+        $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }
 }

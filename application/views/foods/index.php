@@ -4,9 +4,7 @@
 	<h3 class="col-sm-4">Sort by:</h3>
 	<h3 class="col-sm-4">Search :</h3>
 	<div class="col-sm-4">
-		<button class="btn btn-warning m-1" role="button" href="">Appertizer</button>
-		<button class="btn btn-warning m-1" role="button" href="">Main Course</button>
-		<button class="btn btn-warning m-1" role="button" href="">Dessert</button>
+		<button class="btn btn-warning m-1" role="button" href="">Foods</button>
 		<button class="btn btn-warning m-1" role="button" href="">Drinks</button>
 	</div>
 	<div class="col-sm-4">
