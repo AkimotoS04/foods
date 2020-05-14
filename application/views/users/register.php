@@ -3,7 +3,7 @@
   <div class="col-md-3">
   </div>
   <div class="col-md-6">
-    <h2 class="text-center"> <?= $title; ?><p><span class="fs-home-logo">FoodShala</span></p></h2>
+    <h2 class="text-center"> <?= $title; ?><p><span class="fs-home-logo">Foodies</span></p></h2>
     <div class="form-group <?=form_error("name") ? "has-error" : null?>">
       <label>Name</label>
       <input name="name" value="<?php echo set_value('name'); ?>" type="text" class="form-control" placeholder="Enter name">
