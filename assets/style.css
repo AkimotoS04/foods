@@ -12,13 +12,13 @@
 }
   
 .banner{
-  background:url(/assets/images/banner.jpg) no-repeat center top;
+  background:url(foods/assets/images/banner.jpg) no-repeat center top;
   background-size:cover;
   min-height:100%;
 }
 
 .bannerlogin{
-  background:url(./assets/images/banner.jpg) no-repeat center top;
+  background:url(foods/assets/images/banner.jpg) no-repeat center top;
   background-attachment:fixed;
   background-size:cover;
   min-height:100%;
