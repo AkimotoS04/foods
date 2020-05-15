@@ -119,6 +119,11 @@
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
+            <?php if ($this->session->userdata('user_type') == 0) : ?>
+              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/statistik ">Statistik Penjualan</a>
+            <?php endif; ?>
+          <?php endif; ?>
+          <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 1) : ?>
               <a class="btn btn-info" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
             <?php endif; ?>
