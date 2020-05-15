@@ -43,6 +43,41 @@ class Foods extends CI_Controller
 
     }
 
+    public function filter()
+    {
+        $data['title'] = 'All Foods';
+        $data['foods'] = $this->food_model->filter_food();
+
+        // Extracting name of restaurants for corresponding foods
+        $data['rnames'] = [];
+        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+            $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
+            array_push($data['rnames'], $name);
+        }
+
+        $this->load->view('templates/header');
+        $this->load->view('foods/index', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function filterdrink()
+    {
+        $data['title'] = 'All Foods';
+        $data['foods'] = $this->food_model->filter_drink();
+
+        // Extracting name of restaurants for corresponding foods
+        $data['rnames'] = [];
+        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+            $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
+            array_push($data['rnames'], $name);
+        }
+
+        $this->load->view('templates/header');
+        $this->load->view('foods/index', $data);
+        $this->load->view('templates/footer');
+    }
+    
+
     public function restaurant_menu()
     {
         if($this->session->userdata('user_type')==0){
@@ -56,7 +91,6 @@ class Foods extends CI_Controller
                 array_push($data['rnames'], $name);        
         }
 
-        $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
     }else{
         redirect(base_url());
     }
@@ -245,7 +279,6 @@ class Foods extends CI_Controller
             if ($this->session->userdata('user_type') == 1) {
 
                 $cart_id = $_GET['id'];
-                $food_id = $_GET['food_id'];
 
                 $cart['cart'] = $this->food_model->get_cart($cart_id);
 
@@ -492,28 +525,13 @@ class Foods extends CI_Controller
 
     public function statistik()
     {
-        $data['title'] = 'Statistik';
+        $data['title'] = 'Sales Statistic';
         // Backend validation to check only restaurant should access view_orders section.
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0) {
                 $user_id = $this->session->userdata('user_id');
 
-                $data['orders'] = $this->food_model->get_orders($user_id);
-
-                // Extracting name of users who ordered
-                $data['food'] = [];
-                for ($x = 0; $x <= count($data['orders']) - 1; $x++) {
-                    $name = $this->food_model->get_food_name($data['orders'][$x]['food_id']);
-                    array_push($data['food'], $name);
-                }
-
-               
-
-                $data['jumlah'] = [];
-                for ($x = 0; $x <= count($data['orders']) - 1; $x++) {
-                    $name = $this->food_model->get_jumlah($data['orders'][$x]['id']);
-                    array_push($data['jumlah'], $name);
-                }
+                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
 
                 $this->load->view('templates/header');
                 $this->load->view('foods/statistik', $data);

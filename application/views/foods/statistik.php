@@ -1,17 +1,35 @@
 <div class="jumbotron">
 <h1 class="text-center fs-home-logo"><?= $title ?></h1>
+
+<?php
+ 
+$dataPoints = array();
+foreach ($stat as $v){
+	array_push($dataPoints, array("label"=> $v['name'], "y"=> ($v['jumlah']*$v['price'])));
+};
+
+?>
+
 <hr>
-<?php foreach ($orders as $key => $order) : ?>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
-  <small><?php echo $food[$key]; ?> </small>
-  <br>
-  <br>
-  <?php foreach ($orders as $key => $order) : ?>
-    <small><?php echo  $jumlah[$key]; ?></small>
-    <?php endforeach; ?>
-
-
-  <br><hr>
-</h4>
-<?php endforeach; ?>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+	window.onload = function () {
+		var chart = new CanvasJS.Chart("chartContainer", {
+			animationEnabled: true,
+			exportEnabled: true,
+			data: [{
+				type: "pie",
+				showInLegend: "true",
+				legendText: "{label}",
+				indexLabelFontSize: 16,
+				indexLabel: "{label} - #percent%",
+				yValueFormatString: "Rp###,###.00",
+				dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+			}]
+		});
+		chart.render();
+	}
+</script>
 </div>

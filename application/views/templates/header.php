@@ -99,49 +99,49 @@
           <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>about/index">About</a>
 
           <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="btn btn-info" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
+            <?php if ($this->session->userdata('user_type') == 1) : ?>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile_u ">Profile's</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile ">Profile's</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile ">Profile's</a>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/statistik ">Statistik Penjualan</a>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
+            <?php endif; ?>
+          <?php endif; ?>
+          <?php if ($this->session->userdata('user_type') != null) : ?>
+            <?php if ($this->session->userdata('user_type') == 0) : ?>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/statistik ">Sales Statistic</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 1) : ?>
-              <a class="btn btn-info" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if ($this->session->userdata('user_type') != null) : ?>
             <?php if ($this->session->userdata('user_type') == 1) : ?>
-              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile_u ">Profile's</a>
-            <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 1) : ?>
-              <a class="btn btn-warning" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
+              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
             <?php endif; ?>
           <?php endif; ?>
           <?php if($this->session->userdata('user_type') != null) : ?>
           <?php if($this->session->userdata('user_type') == 0) : ?>
           <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) : ?>
-            <a class="btn btn-warning" style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
+            <a class="w3-bar-item w3-button" style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
           <?php endif; ?>
           <?php endif; ?>
           <?php endif; ?>

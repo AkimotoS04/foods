@@ -4,8 +4,8 @@
 	<h3 class="col-sm-4">Sort by:</h3>
 	<h3 class="col-sm-4">Search :</h3>
 	<div class="col-sm-4">
-		<button class="btn btn-warning m-1" role="button" href="">Foods</button>
-		<button class="btn btn-warning m-1" role="button" href="">Drinks</button>
+		<a class="btn btn-warning m-1 w3-button" role="button" href="/foods/foods/filter">Foods</a>
+		<a class="btn btn-warning m-1" role="button" href="/foods/foods/filterdrink">Drinks</a>
 	</div>
 	<div class="col-sm-4">
 		<form action="<?php echo base_url().'foods/sort' ?>" method="post">
