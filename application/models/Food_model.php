@@ -250,24 +250,15 @@ class Food_model extends CI_Model
         return $result->result_array();
     }
 
-    public function get_cart($cart_id)
-    {
-        $query = $this->db->where('id', $cart_id);
-        $result = $this->db->get('cart');
-
-        return $result->result_array();
-    }
-
     /**
      * Order food functionality for users.
      **/
-    public function order_food($restaurant_id, $people_id, $food_id,$jumlah)
+    public function order_food($restaurant_id, $people_id, $food_id)
     {
         $data = [
       'people_id'     => $people_id,
       'restaurant_id' => $restaurant_id,
       'food_id'       => $food_id,
-      'jumlah' => $jumlah,
     ];
 
         return $this->db->insert('orders', $data);
@@ -279,9 +270,16 @@ class Food_model extends CI_Model
 		$this->db->update('foods',$values);
     }
 
-    public function delete_cart($id)
+    /* Statistik */
+    public function get_stats($restaurant_id)
     {
-        $this->db->where('id',$id);
-        $this->db->delete('cart');
+        $this->db->select('name, price');
+        $this->db->select_sum('jumlah');
+        $this->db->where('restaurant_id', $restaurant_id);
+        $this->db->join('foods', 'foods.id = orders.food_id');
+        $this->db->group_by('food_id');
+        $out = $this->db->get('orders');
+        return $out->result_array();
     }
+    /* END Statistik */
 }

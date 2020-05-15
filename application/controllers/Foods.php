@@ -55,6 +55,8 @@ class Foods extends CI_Controller
                 $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
                 array_push($data['rnames'], $name);        
         }
+
+        $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
     }else{
         redirect(base_url());
     }
