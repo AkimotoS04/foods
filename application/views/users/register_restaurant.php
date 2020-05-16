@@ -10,7 +10,7 @@
     <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
   </div>
   <div class="form-group <?=form_error("Birth") ? "has-error" : null?>">
-    <label>Birth Date</label>
+    <label>Established in</label>
     <input name="Birth" value="<?php echo set_value('Birth'); ?>" type="date" class="form-control" placeholder="Enter Birthdate">
     <span class='help-block' style='color:red'><?php echo form_error('Birth'); ?></span>
   </div>
