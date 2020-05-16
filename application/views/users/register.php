@@ -1,5 +1,5 @@
 <?php echo form_open('users/register'); ?>
-<div class="row w3-container w3-animate-zoom" style="color:white">
+<div class="row container w3-animate-zoom" style="color:white">
   <div class="col-md-3">
   </div>
   <div class="col-md-6">

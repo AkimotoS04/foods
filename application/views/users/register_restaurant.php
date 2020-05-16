@@ -1,5 +1,5 @@
 <?php echo form_open_multipart('users/register_restaurant'); ?>
-<div class="row w3-container w3-animate-zoom" style="color:white; margin-top:40px">
+<div class="row container w3-animate-zoom" style="color:white; margin-top:40px">
   <div class="col-md-3 col-sm-offset-4">
   </div>
   <div class="col-md-6 col-sm-offset-4 ">

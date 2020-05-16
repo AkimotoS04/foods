@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" style="margin-top:5%;">
 <h1 class="text-center fs-home-logo"><?= $title ?></h1>
 <hr>
 <?php foreach ($orders as $key => $order) : ?>
