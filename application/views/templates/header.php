@@ -136,71 +136,119 @@
     input:disabled{
         background-color:white;
     }
-
+    .navbar ul li a {
+      color: #fff;
+      display: inline-block;
+      padding: 15px 20px;
+      position: relative;
+      text-decoration: none;
+    }
+    .navbar ul li a:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+      position: absolute;
+      background: #fff;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+    .navbar ul li a:hover:after {
+      width: 100%;
+      left: 0;
+    }
+    .f-big{
+      font-size: 24px;
+    }
     </style>
 
   </head>
   <body class="scrollbar-dusty-grass thin square">
-    <nav class="navbar navbar-expand-lg w3-bar navbar-dark navbar-custom">
-      <a class="navbar-brand fs-home-logo">Foodies</a>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand fs-home-logo">Foodies</a>
       </button>
-      <div class="collapse navbar-collapse">
-        <div class="navbar-nav">
-          <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
-          <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>foods/index">Foods</a>
-          <a class="w3-bar-item w3-button" href="<?php echo base_url(); ?>about/index">About</a>
-
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 1) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile_u ">Profile's</a>
+      <a class="navbar-brand fs-home-logo f-big">Foodies</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav text-left">
+          <li class="nav-item">
+            <a class="tes" href="<?php echo base_url(); ?>">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="tes" href="<?php echo base_url(); ?>foods/index">Foods</a>
+          </li>
+          <li class="nav-item">
+            <a class="tes" href="<?php echo base_url(); ?>about/index">About</a>
+          </li>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 1) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile_u ">Profile's</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile ">Profile's</a>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile ">Profile's</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 0) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/statistik ">Sales Statistic</a>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/statistik ">Sales Statistic</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 1) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 1) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if ($this->session->userdata('user_type') != null) : ?>
-            <?php if ($this->session->userdata('user_type') == 1) : ?>
-              <a class="w3-bar-item w3-button" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
+            <?php if ($this->session->userdata('user_type') != null) : ?>
+              <?php if ($this->session->userdata('user_type') == 1) : ?>
+                <li class="nav-item">
+                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
+                </li>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-          <?php if($this->session->userdata('user_type') != null) : ?>
-          <?php if($this->session->userdata('user_type') == 0) : ?>
-          <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) : ?>
-            <a class="w3-bar-item w3-button" style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
-          <?php endif; ?>
-          <?php endif; ?>
-          <?php endif; ?>
-
-        </div>
+            <?php if($this->session->userdata('user_type') != null) : ?>
+            <?php if($this->session->userdata('user_type') == 0) : ?>
+            <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) : ?>
+              <li class="nav-item">
+                <a class="tes" style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
+              </li>
+            <?php endif; ?>
+            <?php endif; ?>
+            <?php endif; ?>
+        </ul>
       </div>
       <div class="collapse navbar-collapse justify-content-end">
         <div class="navbar-nav">
