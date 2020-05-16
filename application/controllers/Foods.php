@@ -523,6 +523,16 @@ class Foods extends CI_Controller
         }
     }
 
+    public function rating(){
+        $rating =  $this->input->post('rating');
+        $order_id = $this->input->post('id');
+
+        
+
+        $this->food_model->give_rating($order_id, $rating);
+        redirect('foods/index');
+    }
+
     public function statistik()
     {
         $data['title'] = 'Sales Statistic';

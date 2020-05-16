@@ -301,10 +301,21 @@ class Food_model extends CI_Model
         return $query->result_array();
     }
 
+
     /*Cari drinks category */
     public function filter_drink()
     {
         $query = $this->db->query("SELECT * FROM foods WHERE veg = 0");
         return $query->result_array();
+    }
+
+    public function give_rating($order_id, $rating){
+        $this->db->query("UPDATE orders
+        SET rating=$rating
+        WHERE id=$order_id");
+        
+
+        
+   
     }
 }
