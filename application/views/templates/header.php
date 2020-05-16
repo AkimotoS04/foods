@@ -20,7 +20,7 @@
 
     <!-- Imported Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
@@ -136,16 +136,13 @@
     input:disabled{
         background-color:white;
     }
-         
+
     </style>
 
   </head>
   <body class="scrollbar-dusty-grass thin square">
-
-
-
-    <nav class="navbar navbar-expand-lg w3-bar w3-black navbar-custom">
-      <span class="navbar-brand fs-header-title" >Foodies</span>
+    <nav class="navbar navbar-expand-lg w3-bar navbar-dark navbar-custom">
+      <a class="navbar-brand fs-home-logo">Foodies</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -244,7 +241,7 @@
       <?php if ($this->session->flashdata('double_email')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('double_email').'</p>'; ?>
       <?php endif; ?>
-      
+
       <?php if ($this->session->flashdata('cart_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('cart_failed').'</p>'; ?>
       <?php endif; ?>
@@ -252,7 +249,7 @@
       <?php if ($this->session->flashdata('not_accepted')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('not_accepted').'</p>'; ?>
       <?php endif; ?>
-      
+
       <div class="loader-wrapper">
       <span class="loader"><span class="loader-inner"></span></span>
     </div>
@@ -261,5 +258,3 @@
           $(".loader-wrapper").fadeOut("slow");
         });
     </script>
-
-      

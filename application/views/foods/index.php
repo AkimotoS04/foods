@@ -1,19 +1,22 @@
 <div class="kepala row">
 	<h2 class="col-sm-12"><?= $title ?></h2>
-	<h3 class="col-sm-4">Categories :</h3>
-	<h3 class="col-sm-4">Sort by:</h3>
-	<h3 class="col-sm-4">Search :</h3>
+
+
+
 	<div class="col-sm-4">
+		<h3>Categories :</h3>
 		<a class="btn btn-warning m-1 w3-button" role="button" href="/foods/foods/filter">Foods</a>
 		<a class="btn btn-warning m-1" role="button" href="/foods/foods/filterdrink">Drinks</a>
 	</div>
 	<div class="col-sm-4">
+		<h3>Sort by:</h3>
 		<form action="<?php echo base_url().'foods/sort' ?>" method="post">
 			<button class="btn btn-warning" role="button" href="/foods/foods/sort_price">Cheapest</button>
 		</form>
 	</div>
 	<div class="col-sm-4">
-		<form class="input-group mb-3 " action="<?php echo base_url().'foods/cari' ?>" method="get">
+		<h3>Search :</h3>
+		<form class="input-group mb-3" action="<?php echo base_url().'foods/cari' ?>" method="get">
 			<input class="form-control rounded mr-3" type="text" name="cari" placeholder="Search...">
 			<button class="btn btn-warning" type="submit" value="Cari">Cari</button><br>
 		</form>
@@ -23,7 +26,7 @@
 <div class="row mt-3">
 	<?php foreach ($foods as $key => $food) : ?>
 	<div class="col-12 col-sm-6 col-md-4">
-		<div class="card mb-4 w3-container w3-animate-zoom" style="background-color:white;">
+		<div class="card mb-4 container w3-animate-zoom" style="background-color:white;">
 			<div class="imgzoom" style="padding-top:15px">
 			<?php
                 if ($food['image'] !== null) {
