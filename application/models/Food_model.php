@@ -312,10 +312,20 @@ class Food_model extends CI_Model
     public function give_rating($order_id, $rating){
         $this->db->query("UPDATE orders
         SET rating=$rating
-        WHERE id=$order_id");
-        
+        WHERE id=$order_id");        
+    }
 
-        
-   
+    public function get_rating($id)
+    {
+        $this->db->select_avg('rating');
+        $this->db->where('food_id', $id);  
+        $result = $this->db->get('orders');
+
+      //  return $result->result_array();
+        if ($result->num_rows() == 1) {
+            return $result->row(0)->rating;
+        } else {
+            return false;
+        }
     }
 }

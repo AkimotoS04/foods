@@ -43,11 +43,7 @@
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 				<br>
 				<div style="font-size:25px">
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star checked"></span>
-				<span class="fa fa-star"></span>
-				<span class="fa fa-star"></span>
+				<span class="font-weight-bold"><?php echo $rating[$key]; ?> </span>
 			</div>
 				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
 					<div class="qty">
