@@ -191,13 +191,18 @@
     
       public function profile()
       {
+        if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0)
+        {
         $data['title'] = "Profile's";
         $data['profile'] = $this->user_model->get_username($this->session->userdata('user_id'));
 
         $this->load->view('templates/header');
         $this->load->view('pages/profile', $data);
         $this->load->view('templates/footer');
+      }else{
+          redirect(base_url());
       }
+    }
       public function profile_u()
       {
         $data['title'] = "Profile's";
@@ -212,6 +217,7 @@
       {
         if($this->session->userdata('user_id')){
             if($this->session->userdata('user_type')==0){
+                
         $id   = $_GET['id'];
       
         //Form Validation

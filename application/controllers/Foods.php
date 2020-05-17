@@ -80,7 +80,7 @@ class Foods extends CI_Controller
 
     public function restaurant_menu()
     {
-        if($this->session->userdata('user_type')==0){
+        if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0){
         $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
         $data['foods'] = $this->food_model->get_foods_restaurant($this->session->userdata('user_id'));
 
@@ -102,7 +102,7 @@ class Foods extends CI_Controller
     }
     public function delete_menu(){
         if($this->session->userdata('user_id')){
-            if($this->session->userdata('user_type')==0){
+            if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0){
         $id   = $_GET['id'];
         $this->food_model->delete_menu($id);
         $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
@@ -132,7 +132,7 @@ class Foods extends CI_Controller
     }
     public function update_menu(){
         if($this->session->userdata('user_id')){
-            if($this->session->userdata('user_type')==0){
+            if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0){
         $id   = $_GET['id'];
         $data['foods'] = $this->food_model->get_food_name_1($id);
         $data['title'] = 'Update Menu';
@@ -197,7 +197,7 @@ class Foods extends CI_Controller
         $data['title'] = 'Add Menu';
         // Backend validation to check only restaurant should access add menu section.
         if ($this->session->userdata('user_type') != null) {
-            if ($this->session->userdata('user_type') == 0) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) {
 
         // Form validation
                 $this->form_validation->set_rules('name', 'Name', 'required');
@@ -415,7 +415,7 @@ class Foods extends CI_Controller
         $data['title'] = 'Orders';
         // Backend validation to check only restaurant should access view_orders section.
         if ($this->session->userdata('user_type') != null) {
-            if ($this->session->userdata('user_type') == 0) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) {
                 $user_id = $this->session->userdata('user_id');
 
                 $data['orders'] = $this->food_model->get_orders($user_id);

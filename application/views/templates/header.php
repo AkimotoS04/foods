@@ -192,30 +192,38 @@
             <?php endif; ?>
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
                   <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile ">Profile's</a>
                 </li>
+                <?php endif; ?>
               <?php endif; ?>
             <?php endif; ?>
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
                   <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
                 </li>
+                <?php endif; ?>
               <?php endif; ?>
             <?php endif; ?>
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
                   <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
                 </li>
+                <?php endif; ?>
               <?php endif; ?>
             <?php endif; ?>
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 0) : ?>
+                <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
                   <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
                 </li>
+                <?php endif; ?>
               <?php endif; ?>
             <?php endif; ?>
             <?php if ($this->session->userdata('user_type') != null) : ?>
@@ -227,16 +235,20 @@
             <?php endif; ?>
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 1) : ?>
+                <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
                   <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
                 </li>
+                <?php endif; ?>
               <?php endif; ?>
             <?php endif; ?>
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 1) : ?>
+                <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
                   <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
                 </li>
+                <?php endif; ?>
               <?php endif; ?>
             <?php endif; ?>
             <?php if($this->session->userdata('user_type') != null) : ?>
