@@ -175,18 +175,18 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav text-left">
           <li class="nav-item">
-            <a class="tes" href="<?php echo base_url(); ?>">Home<span class="sr-only">(current)</span></a>
+            <a href="<?php echo base_url(); ?>">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="tes" href="<?php echo base_url(); ?>foods/index">Foods</a>
+            <a href="<?php echo base_url(); ?>foods/index">Foods</a>
           </li>
           <li class="nav-item">
-            <a class="tes" href="<?php echo base_url(); ?>about/index">About</a>
+            <a href="<?php echo base_url(); ?>about/index">About</a>
           </li>
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 1) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile_u ">Profile's</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile_u ">Profile's</a>
                 </li>
               <?php endif; ?>
             <?php endif; ?>
@@ -194,7 +194,7 @@
               <?php if ($this->session->userdata('user_type') == 0) : ?>
                 <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile ">Profile's</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>users/profile ">Profile's</a>
                 </li>
                 <?php endif; ?>
               <?php endif; ?>
@@ -203,7 +203,7 @@
               <?php if ($this->session->userdata('user_type') == 0) : ?>
                 <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>foods/add_menu">Add Menu Items</a>
                 </li>
                 <?php endif; ?>
               <?php endif; ?>
@@ -212,7 +212,7 @@
               <?php if ($this->session->userdata('user_type') == 0) : ?>
                 <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_orders">View Orders</a>
                 </li>
                 <?php endif; ?>
               <?php endif; ?>
@@ -221,7 +221,7 @@
               <?php if ($this->session->userdata('user_type') == 0) : ?>
                 <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>foods/restaurant_menu ">Restaurant Menu</a>
                 </li>
                 <?php endif; ?>
               <?php endif; ?>
@@ -229,7 +229,7 @@
             <?php if ($this->session->userdata('user_type') != null) : ?>
               <?php if ($this->session->userdata('user_type') == 0) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/statistik ">Sales Statistic</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>foods/statistik ">Sales Statistic</a>
                 </li>
               <?php endif; ?>
             <?php endif; ?>
@@ -237,7 +237,7 @@
               <?php if ($this->session->userdata('user_type') == 1) : ?>
                 <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_cart">View Cart</a>
                 </li>
                 <?php endif; ?>
               <?php endif; ?>
@@ -246,7 +246,7 @@
               <?php if ($this->session->userdata('user_type') == 1) : ?>
                 <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) : ?>
                 <li class="nav-item">
-                  <a class="tes" style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
+                  <a style="margin-right:10px;" href="<?php echo base_url(); ?>foods/view_history ">Order History</a>
                 </li>
                 <?php endif; ?>
               <?php endif; ?>
@@ -255,20 +255,16 @@
             <?php if($this->session->userdata('user_type') == 0) : ?>
             <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) : ?>
               <li class="nav-item">
-                <a class="tes" style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
+                <a style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
               </li>
             <?php endif; ?>
             <?php endif; ?>
             <?php endif; ?>
         </ul>
       </div>
-      <div class="collapse navbar-collapse justify-content-end">
-        <div class="navbar-nav">
-          <?php if ($this->session->userdata('logged_in')) : ?>
-            <a class="btn btn-danger" href="<?php echo base_url(); ?>users/logout">Logout ( <?php echo ucwords($this->session->userdata('name')); ?> )</a>
-          <?php endif; ?>
-        </div>
-      </div>
+      <?php if ($this->session->userdata('logged_in')) : ?>
+        <a class="btn btn-danger" href="<?php echo base_url(); ?>users/logout">Logout ( <?php echo ucwords($this->session->userdata('name')); ?> )</a>
+      <?php endif; ?>
     </nav>
 
     <div class="banner">
