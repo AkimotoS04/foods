@@ -403,5 +403,26 @@
     }
   }
 
+  public function view_cv()
+  {
+      if($this->session->userdata('user_id')){
+        if(strcmp($this->session->userdata('email'),'superadmin@gmail.com')==0){
+            $id = $_GET['id'];
+            $data['admin'] = $this->user_model->user_info($id);
+            $data['title'] = "New CV ".$data['admin'][0]['name'];
+
+            $this->load->view('templates/header');
+            $this->load->view('pages/view_cv', $data);
+            $this->load->view('templates/footer');
+            
+            }
+        else{
+            redirect(base_url());
+            } 
+      }else{
+          redirect(base_url());
+      }
+  }
+
 
 }

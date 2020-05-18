@@ -141,4 +141,12 @@
           $this->db->delete('users');
       }
 
+      public function user_info($id)
+      {
+        $query = $this->db->where('id', $id);
+        $result = $this->db->get('users');
+
+        return $result->result_array();
+      }
+
   }
