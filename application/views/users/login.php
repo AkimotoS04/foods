@@ -9,7 +9,7 @@
       <h2 class="text-center"> <?= $title; ?><p><span class="fs-home-logo">Foodies</span><p></h2>
       <div class="form-group <?=form_error("email") ? "has-error" : null?>">
         <label>Email address</label>
-        <input name="email" type="email" value="<?php echo set_value('email'); ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+        <input name="email" type="email" value="<?php echo set_value('email'); ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" autofocus>
         <span class='help-block' style='color:red'><?php echo form_error('email'); ?></span>
       </div>
       <div class="form-group <?=form_error("password") ? "has-error" : null?>">
@@ -20,6 +20,6 @@
       <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </div>
   </div>
-  
+
 </div>
 <?php echo form_close(); ?>

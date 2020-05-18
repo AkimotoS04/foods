@@ -6,7 +6,7 @@
     <h2 class="text-center"> <?= $title; ?><p><span class="fs-home-logo">Foodies</span></p></h2>
     <div class="form-group <?=form_error("name") ? "has-error" : null?>">
       <label>Name</label>
-      <input name="name" value="<?php echo set_value('name'); ?>" type="text" class="form-control" placeholder="Enter name">
+      <input name="name" value="<?php echo set_value('name'); ?>" type="text" class="form-control" placeholder="Enter name" autofocus>
       <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
     </div>
     <div class="form-group <?=form_error("Birth") ? "has-error" : null?>">
