@@ -23,12 +23,13 @@ class Foods extends CI_Controller
 			),
 		);
 		$this->form_validation->set_rules($config);
-	
+
     }
     public function index()
     {
         $data['title'] = 'All Foods Available';
         $data['foods'] = $this->food_model->get_foods();
+        $data['stat'] = $this->food_model->get_stats_admin();
 
         // Extracting name of restaurants for corresponding foods
         $data['rnames'] = [];
@@ -81,7 +82,7 @@ class Foods extends CI_Controller
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }
-    
+
 
     public function restaurant_menu()
     {
@@ -93,7 +94,7 @@ class Foods extends CI_Controller
         $data['rnames'] = [];
         for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
                 $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
-                array_push($data['rnames'], $name);        
+                array_push($data['rnames'], $name);
         }
 
     }else{
@@ -117,7 +118,7 @@ class Foods extends CI_Controller
         $data['rnames'] = [];
         for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
                 $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
-                array_push($data['rnames'], $name);        
+                array_push($data['rnames'], $name);
         }
         $this->load->view('templates/header');
         $this->load->view('foods/restaurant_menu', $data);
@@ -151,11 +152,11 @@ class Foods extends CI_Controller
             $where = array(
 				'id' => $this->input->post('id'),
             );
-            
+
             if($_FILES['image']['name']!=null){
 
             $values = array(
-                
+
                 'name' => $this->input->post('name'),
                 'veg' => $this->input->post('veg'),
                 'price' => $this->input->post('price'),
@@ -171,19 +172,19 @@ class Foods extends CI_Controller
 
             }else{
                 $values = array(
-                
+
                     'name' => $this->input->post('name'),
                     'veg' => $this->input->post('veg'),
                     'price' => $this->input->post('price'),
                     'stock' => $this->input->post('stock')
-    
+
                 );
 
                 $this->food_model->update_menu($where,$values);
                 redirect('foods/index');
             }
         }
-      
+
         $this->load->view('templates/header');
         $this->load->view('foods/update_menu', $data);
         $this->load->view('templates/footer');
@@ -243,7 +244,7 @@ class Foods extends CI_Controller
                 $data['foods'] = $this->food_model->get_stock($food_id);
                 foreach($data['foods'] as $upd){
 
-                
+
                 if($upd['stock'] > 0){
                 $people_id = $this->session->userdata('user_id');
 
@@ -291,7 +292,7 @@ class Foods extends CI_Controller
                 $people_id = $cart['cart'][0]['people_id'];
                 $food_id = $cart['cart'][0]['food_id'];
                 $jumlah = $cart['cart'][0]['jumlah'];
-                
+
                 $this->food_model->order_food($restaurant_id, $people_id, $food_id, $jumlah);
                 $this->food_model->delete_cart($cart_id);
 
@@ -370,7 +371,7 @@ class Foods extends CI_Controller
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 1) {
 
-                
+
                 $user_id = $this->session->userdata('user_id');
 
                 $data['foods'] = $this->food_model->get_cart_foods($user_id);
@@ -474,7 +475,7 @@ class Foods extends CI_Controller
                 $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
                 array_push($data['rnames'], $name);
             }
-            
+
         }
         $this->load->view('templates/header');
         $this->load->view('foods/index', $data);
@@ -532,7 +533,7 @@ class Foods extends CI_Controller
         $rating =  $this->input->post('rating');
         $order_id = $this->input->post('id');
 
-        
+
 
         $this->food_model->give_rating($order_id, $rating);
         redirect('foods/index');
