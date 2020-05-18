@@ -44,6 +44,7 @@
 				<br>
 				<div style="font-size:25px">
 				<span class="font-weight-bold"><?php echo $rating[$key]; ?> </span>
+				<br>
 			</div>
 				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
 					<div class="qty">
