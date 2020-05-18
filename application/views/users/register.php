@@ -20,14 +20,6 @@
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
       <span class='help-block' style='color:red'><?php echo form_error('email'); ?></span>
     </div>
-    <div class="form-group <?=form_error("vegan") ? "has-error" : null?>">
-    <label>Are You Vegan ?</label>
-    <select class="form-control" name="vegan" value="<?php echo set_value('vegan'); ?>">
-      <option value="1">Yes</option>
-      <option value="0">No</option>
-    </select>
-    <span class='help-block' style='color:red'><?php echo form_error('vegan'); ?></span>
-    </div>
     <div class="form-group <?=form_error("password") ? "has-error" : null?>">
       <label>Password</label>
       <input name="password" value="<?php echo set_value('password'); ?>"  type="password" class="form-control" placeholder="Password">
