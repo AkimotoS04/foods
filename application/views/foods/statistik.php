@@ -2,11 +2,18 @@
 <h1 class="text-center fs-home-logo"><?= $title ?></h1>
 
 <?php
- 
+
 $dataPoints = array();
-foreach ($stat as $v){
-	array_push($dataPoints, array("label"=> $v['name'], "y"=> ($v['jumlah']*$v['price'])));
-};
+if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
+	foreach ($stat as $v){
+		array_push($dataPoints, array("label"=> $v['Resto'], "y"=> ($v['jumlah']*$v['price'])));
+	};
+}elseif ($this->session->userdata('user_type') == 0) {
+	foreach ($stat as $v){
+		array_push($dataPoints, array("label"=> $v['name'], "y"=> ($v['jumlah']*$v['price'])));
+	};
+}
+
 
 ?>
 

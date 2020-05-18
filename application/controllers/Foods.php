@@ -543,7 +543,15 @@ class Foods extends CI_Controller
         $data['title'] = 'Sales Statistic';
         // Backend validation to check only restaurant should access view_orders section.
         if ($this->session->userdata('user_type') != null) {
-            if ($this->session->userdata('user_type') == 0) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats_admin();
+
+                $this->load->view('templates/header');
+                $this->load->view('foods/statistik', $data);
+                $this->load->view('templates/footer');
+            }elseif ($this->session->userdata('user_type') == 0) {
                 $user_id = $this->session->userdata('user_id');
 
                 $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
@@ -551,7 +559,7 @@ class Foods extends CI_Controller
                 $this->load->view('templates/header');
                 $this->load->view('foods/statistik', $data);
                 $this->load->view('templates/footer');
-            } else {
+            }else {
                 redirect('foods/index');
             }
         } else {

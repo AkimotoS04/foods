@@ -292,6 +292,17 @@ class Food_model extends CI_Model
         $out = $this->db->get('orders');
         return $out->result_array();
     }
+
+    public function get_stats_admin()
+    {
+        $this->db->select('users.name AS Resto, foods.name AS Food Name, price');
+        $this->db->select_sum('jumlah');
+        $this->db->join('foods', 'foods.id = orders.food_id');
+        $this->db->join('users', 'users.id = orders.restaurant_id');
+        $this->db->group_by('restaurant_id');
+        $out = $this->db->get('orders');
+        return $out->result_array();
+    }
     /* END Statistik */
 
     /*Cari foods category*/

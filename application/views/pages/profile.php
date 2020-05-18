@@ -4,7 +4,7 @@
 
 
 <div class="container pt-5 pr-5 pb-5 bg-light mt-3 mb-3 w3-animate-zoom">
-    <div class="row content">
+    <div class="row">
         <div class="col-lg-4 order-lg-1 text-center">
             <div class = "mx-auto img-fluid img-circle d-block" alt="avatar">
             <?php
