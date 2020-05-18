@@ -91,7 +91,6 @@
         'email'    => $this->input->post('email'),
         'password' => $encrypt_password,
         'type'     => true,
-        'vegan'    => $this->input->post('vegan'),
         'status'   => 1,
       ];
 

@@ -104,7 +104,6 @@
           $this->form_validation->set_rules('email', 'Email', 'required');
           $this->form_validation->set_rules('password', 'Password', 'required');
           $this->form_validation->set_rules('password2', 'Confirm Password', 'matches[password]');
-          $this->form_validation->set_rules('vegan', 'vegan', 'required');
 
           if ($this->form_validation->run() === false) {
               $this->load->view('templates/header');
@@ -414,7 +413,7 @@
             $this->load->view('templates/header');
             $this->load->view('pages/view_cv', $data);
             $this->load->view('templates/footer');
-            
+
             }
         else{
             redirect(base_url());
