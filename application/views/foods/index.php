@@ -70,7 +70,7 @@ if ($this->session->userdata('user_type') != null) {
 				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
 					<div class="qty">
               <span class="minus bg-dark qty-minus">-</span>
-              <input class="count" type="number" value="1" name="qty" style="border: 0;width: 2%;">
+              <input class="count" type="number" value="1" name="qty" style="border: 0;width: 2%;" readonly>
               <span class="plus bg-dark qty-plus">+</span>
           </div>
 					<hr>
