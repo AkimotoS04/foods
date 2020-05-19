@@ -563,31 +563,6 @@ class Foods extends CI_Controller
 
                 $data['foods'] = $this->food_model->get_history($user_id);
 
-                // Extracting name of foods
-                $data['fname'] = [];
-                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
-                    $name = $this->food_model->get_food_name($data['foods'][$x]['food_id']);
-                    array_push($data['fname'], $name);
-                }
-
-                // Extracting name of restaurants
-                $data['rname'] = [];
-                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
-                    $name = $this->food_model->get_restaurant_name($data['foods'][$x]['restaurant_id']);
-                    array_push($data['rname'], $name);
-                }
-
-                $data['jumlah'] = [];
-                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
-                    $name = $this->food_model->get_jumlah($data['foods'][$x]['id']);
-                    array_push($data['jumlah'], $name);
-                }
-
-                $data['price'] = [];
-                for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
-                    $name = $this->food_model->get_price_cart($data['foods'][$x]['food_id']);
-                    array_push($data['price'], $name);
-                }
 
                 $this->load->view('templates/header', $data);
                 $this->load->view('foods/view_history', $data);

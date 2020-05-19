@@ -110,12 +110,15 @@ class Food_model extends CI_Model
     }
     public function get_history($user_id)
     {
-        $query = $this->db->where('people_id', $user_id);
+        $this->db->select('orders.id AS id, users.name AS Resto, foods.name AS Makanan, orders.rating as Rate, jumlah, foods.price as Price');
+        $this->db->where('people_id', $user_id);
+        $this->db->join('foods', 'foods.id = orders.food_id');
+        $this->db->join('users', 'users.id = orders.restaurant_id');
         $result = $this->db->get('orders');
+
 
         return $result->result_array();
     }
-
     /**
      * Extracting emails.
      **/
