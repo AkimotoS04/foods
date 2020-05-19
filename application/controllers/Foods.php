@@ -33,13 +33,7 @@ class Foods extends CI_Controller
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
 
-                $data['stat'] = $this->food_model->get_stats_admin();
                 $data['new'] = $this->food_model->get_request();
-
-            }elseif ($this->session->userdata('user_type') == 0) {
-                $user_id = $this->session->userdata('user_id');
-
-                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
 
             }
         }
@@ -82,14 +76,8 @@ class Foods extends CI_Controller
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
 
-                $data['stat'] = $this->food_model->get_stats_admin();
                 $data['new'] = $this->food_model->get_request();
 
-
-            }elseif ($this->session->userdata('user_type') == 0) {
-                $user_id = $this->session->userdata('user_id');
-
-                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
 
             }
         }
@@ -119,14 +107,8 @@ class Foods extends CI_Controller
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
 
-                $data['stat'] = $this->food_model->get_stats_admin();
                 $data['new'] = $this->food_model->get_request();
 
-
-            }elseif ($this->session->userdata('user_type') == 0) {
-                $user_id = $this->session->userdata('user_id');
-
-                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
 
             }
         }
@@ -563,12 +545,6 @@ class Foods extends CI_Controller
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
 
                 $data['new'] = $this->food_model->get_request();
-                $data['stat'] = $this->food_model->get_stats_admin();
-
-            }elseif ($this->session->userdata('user_type') == 0) {
-                $user_id = $this->session->userdata('user_id');
-
-                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
 
             }
         }
@@ -642,7 +618,6 @@ class Foods extends CI_Controller
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
 
                 $data['new'] = $this->food_model->get_request();
-                $data['stat'] = $this->food_model->get_stats_admin();
 
                 $this->load->view('templates/header', $data);
                 $this->load->view('foods/statistik', $data);
@@ -682,13 +657,7 @@ class Foods extends CI_Controller
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
 
-                $data['stat'] = $this->food_model->get_stats_admin();
                 $data['new'] = $this->food_model->get_request();
-
-            }elseif ($this->session->userdata('user_type') == 0) {
-                $user_id = $this->session->userdata('user_id');
-
-                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
 
             }
         }

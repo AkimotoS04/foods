@@ -1,20 +1,3 @@
-
-<?php
-
-if ($this->session->userdata('user_type') != null) {
-	$dataPoints = array();
-	if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
-		foreach ($stat as $v){
-			array_push($dataPoints, array("label"=> $v['Resto'], "y"=> ($v['jumlah']*$v['price'])));
-		};
-	}elseif ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0) {
-		foreach ($stat as $v){
-			array_push($dataPoints, array("label"=> $v['name'], "y"=> ($v['jumlah']*$v['price'])));
-		};
-	}
-}
-?>
-
 <div class="kepala row">
 	<h2 class="col-sm-12"><?= $title ?></h2>
 	<div class="col-sm-4">
@@ -83,14 +66,6 @@ if ($this->session->userdata('user_type') != null) {
 <?php endforeach; ?>
 </div>
 
-<?php if ($this->session->userdata('user_type') != null) : ?>
-	<?php if ($this->session->userdata('user_type') == 0) : ?>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-			Statistik
-		</button>
-	<?php endif; ?>
-<?php endif; ?>
-
 <div class="modal fade bd-example-modal-lg" style="width: 100%;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -111,26 +86,6 @@ if ($this->session->userdata('user_type') != null) {
     </div>
   </div>
 </div>
-
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<script>
-	window.onload = function () {
-		var chart = new CanvasJS.Chart("chartContainer", {
-			animationEnabled: true,
-			exportEnabled: true,
-			data: [{
-				type: "pie",
-				showInLegend: "true",
-				legendText: "{label}",
-				indexLabelFontSize: 16,
-				indexLabel: "{label} - #percent%",
-				yValueFormatString: "Rp###,###.00",
-				dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-			}]
-		});
-		chart.render();
-	}
-</script>
 
 <script>
     $(document).on('click', '.qty-plus', function () {
