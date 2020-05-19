@@ -366,9 +366,10 @@
                 $this->user_model->acc_user_req($id, $values);
 
                 $data['users'] = $this->user_model->get_user_req();
+                $data['new'] = $this->food_model->get_request();
                 $data['title'] = 'New Admin';
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('pages/new_admin', $data);
                 $this->load->view('templates/footer');
 
@@ -394,9 +395,10 @@
                 $this->user_model->delete($id);
 
                 $data['users'] = $this->user_model->get_user_req();
+                $data['new'] = $this->food_model->get_request();
                 $data['title'] = 'New Admin';
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('pages/new_admin', $data);
                 $this->load->view('templates/footer');
 
@@ -418,8 +420,9 @@
             $id = $_GET['id'];
             $data['admin'] = $this->user_model->user_info($id);
             $data['title'] = "New CV ".$data['admin'][0]['name'];
+            $data['new'] = $this->food_model->get_request();
 
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('pages/view_cv', $data);
             $this->load->view('templates/footer');
 
