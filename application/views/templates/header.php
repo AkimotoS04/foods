@@ -255,7 +255,7 @@
             <?php if($this->session->userdata('user_type') == 0) : ?>
             <?php if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) : ?>
               <li class="nav-item">
-                <a style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin</a>
+                <a style = "margin-right:10px;" href="<?php echo base_url(); ?>users/new_admin">New Admin <span> <?php foreach($new as $c){ echo '('.$c['Req'].')'; } ?> <span> </a>
               </li>
             <?php endif; ?>
             <?php endif; ?>

@@ -32,9 +32,9 @@ class Foods extends CI_Controller
 
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
-                $user_id = $this->session->userdata('user_id');
 
                 $data['stat'] = $this->food_model->get_stats_admin();
+                $data['new'] = $this->food_model->get_request();
 
             }elseif ($this->session->userdata('user_type') == 0) {
                 $user_id = $this->session->userdata('user_id');
@@ -43,6 +43,7 @@ class Foods extends CI_Controller
 
             }
         }
+
         // Extracting name of restaurants for corresponding foods
         $data['rnames'] = [];
         for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
@@ -55,7 +56,7 @@ class Foods extends CI_Controller
             array_push($data['rating'], $name);
         }
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
 
@@ -80,9 +81,10 @@ class Foods extends CI_Controller
 
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
-                $user_id = $this->session->userdata('user_id');
 
                 $data['stat'] = $this->food_model->get_stats_admin();
+                $data['new'] = $this->food_model->get_request();
+
 
             }elseif ($this->session->userdata('user_type') == 0) {
                 $user_id = $this->session->userdata('user_id');
@@ -92,7 +94,7 @@ class Foods extends CI_Controller
             }
         }
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }
@@ -116,9 +118,10 @@ class Foods extends CI_Controller
 
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
-                $user_id = $this->session->userdata('user_id');
 
                 $data['stat'] = $this->food_model->get_stats_admin();
+                $data['new'] = $this->food_model->get_request();
+
 
             }elseif ($this->session->userdata('user_type') == 0) {
                 $user_id = $this->session->userdata('user_id');
@@ -128,7 +131,7 @@ class Foods extends CI_Controller
             }
         }
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }
@@ -151,7 +154,7 @@ class Foods extends CI_Controller
         redirect(base_url());
     }
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/restaurant_menu', $data);
         $this->load->view('templates/footer');
 
@@ -170,7 +173,7 @@ class Foods extends CI_Controller
                 $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
                 array_push($data['rnames'], $name);
         }
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/restaurant_menu', $data);
         $this->load->view('templates/footer');
 
@@ -235,7 +238,7 @@ class Foods extends CI_Controller
             }
         }
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/update_menu', $data);
         $this->load->view('templates/footer');
     }else{
@@ -261,7 +264,7 @@ class Foods extends CI_Controller
                 $this->form_validation->set_rules('price', 'Price', 'required');
 
                 if ($this->form_validation->run() === false) {
-                    $this->load->view('templates/header');
+                    $this->load->view('templates/header', $data);
                     $this->load->view('foods/add_menu', $data);
                     $this->load->view('templates/footer');
                 } else {
@@ -452,7 +455,7 @@ class Foods extends CI_Controller
                     array_push($data['price'], $name);
                 }
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('foods/view_cart', $data);
                 $this->load->view('templates/footer');
             } else {
@@ -502,7 +505,7 @@ class Foods extends CI_Controller
                     array_push($data['jumlah'], $name);
                 }
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('foods/view_orders', $data);
                 $this->load->view('templates/footer');
             } else {
@@ -534,8 +537,8 @@ class Foods extends CI_Controller
         }
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
-                $user_id = $this->session->userdata('user_id');
 
+                $data['new'] = $this->food_model->get_request();
                 $data['stat'] = $this->food_model->get_stats_admin();
 
             }elseif ($this->session->userdata('user_type') == 0) {
@@ -545,7 +548,7 @@ class Foods extends CI_Controller
 
             }
         }
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }
@@ -586,7 +589,7 @@ class Foods extends CI_Controller
                     array_push($data['price'], $name);
                 }
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('foods/view_history', $data);
                 $this->load->view('templates/footer');
             } else {
@@ -613,11 +616,11 @@ class Foods extends CI_Controller
         // Backend validation to check only restaurant should access view_orders section.
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
-                $user_id = $this->session->userdata('user_id');
 
+                $data['new'] = $this->food_model->get_request();
                 $data['stat'] = $this->food_model->get_stats_admin();
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('foods/statistik', $data);
                 $this->load->view('templates/footer');
             }elseif ($this->session->userdata('user_type') == 0) {
@@ -625,7 +628,7 @@ class Foods extends CI_Controller
 
                 $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('foods/statistik', $data);
                 $this->load->view('templates/footer');
             }else {
@@ -654,9 +657,9 @@ class Foods extends CI_Controller
 
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
-                $user_id = $this->session->userdata('user_id');
 
                 $data['stat'] = $this->food_model->get_stats_admin();
+                $data['new'] = $this->food_model->get_request();
 
             }elseif ($this->session->userdata('user_type') == 0) {
                 $user_id = $this->session->userdata('user_id');
@@ -666,7 +669,7 @@ class Foods extends CI_Controller
             }
         }
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }

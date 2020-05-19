@@ -339,4 +339,11 @@ class Food_model extends CI_Model
             return false;
         }
     }
+
+    public function get_request(){
+        $this->db->select('count(*) AS Req');
+        $this->db->where('status', 0);
+        $out = $this->db->get('users');
+        return $out->result_array();
+    }
 }

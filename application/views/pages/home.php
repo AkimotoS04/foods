@@ -1,4 +1,3 @@
-<?php echo $navbar; ?>
 <div class="jumbotron container text-center w3-animate-zoom" style="margin-top:5%; color:white; background-color: rgba(255, 255, 255, 0); padding-top: 10%;">
   <h2 class="display-4 text-center"> Welcome to <span class="fs-home-logo">Foodies</span> <br> Meals That Matter.</h2>
   <br/><br/>
