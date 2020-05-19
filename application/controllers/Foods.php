@@ -29,7 +29,20 @@ class Foods extends CI_Controller
     {
         $data['title'] = 'All Foods Available';
         $data['foods'] = $this->food_model->get_foods();
-        $data['stat'] = $this->food_model->get_stats_admin();
+
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats_admin();
+
+            }elseif ($this->session->userdata('user_type') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
+
+            }
+        }
         // Extracting name of restaurants for corresponding foods
         $data['rnames'] = [];
         for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
@@ -65,6 +78,20 @@ class Foods extends CI_Controller
             array_push($data['rating'], $name);
         }
 
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats_admin();
+
+            }elseif ($this->session->userdata('user_type') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
+
+            }
+        }
+
         $this->load->view('templates/header');
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
@@ -85,6 +112,20 @@ class Foods extends CI_Controller
         for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
             $name = $this->food_model->get_rating($data['foods'][$x]['id']);
             array_push($data['rating'], $name);
+        }
+
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats_admin();
+
+            }elseif ($this->session->userdata('user_type') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
+
+            }
         }
 
         $this->load->view('templates/header');
@@ -491,6 +532,19 @@ class Foods extends CI_Controller
             }
 
         }
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats_admin();
+
+            }elseif ($this->session->userdata('user_type') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
+
+            }
+        }
         $this->load->view('templates/header');
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
@@ -596,6 +650,20 @@ class Foods extends CI_Controller
         for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
             $name = $this->food_model->get_rating($data['foods'][$x]['id']);
             array_push($data['rating'], $name);
+        }
+
+        if ($this->session->userdata('user_type') != null) {
+            if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats_admin();
+
+            }elseif ($this->session->userdata('user_type') == 0) {
+                $user_id = $this->session->userdata('user_id');
+
+                $data['stat'] = $this->food_model->get_stats($this->session->userdata('user_id'));
+
+            }
         }
 
         $this->load->view('templates/header');
