@@ -75,6 +75,9 @@
             redirect('users/login');
         }else{
             $this->session->set_userdata($user_data);
+            if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0){
+                redirect('foods/restaurant_menu');
+            }
             redirect('foods/index');
         }  
               } else {
