@@ -55,23 +55,17 @@ if ($this->session->userdata('user_type') != null) {
 				<h4 class="card-title" style="padding-top:15px;"> <?php echo $food['name']; ?> </h4>
 				<span ><?php echo ("Rp. ").$food['price']; ?> </span> -
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
-				<br>
-				<br>
 				<div style="font-size:25px">
 				<?php
-				for($x=0;$x<floor($rating[$key]);$x++)
-				{
-					echo'<span class="fa fa-star checked fa-lg"></span>';
-					echo" ";
-				}
-				for($j=$x;$j<5;$j++)
-				{
-					echo'<span class="fa fa-star fa-lg"></span>';
-					echo" ";
-				}
+					for($x=0;$x<floor($rating[$key]);$x++){
+						echo'<span class="fa fa-star checked"></span>';
+						echo" ";
+					}
+					for($j=$x;$j<5;$j++){
+						echo'<span class="fa fa-star"></span>';
+						echo" ";
+					}
 				?>
-				<br>
-				<br>
 			</div>
 				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
 					<div class="qty">
