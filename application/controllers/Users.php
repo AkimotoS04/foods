@@ -23,7 +23,7 @@
 
             }
         }
-        
+
         $this->load->view('templates/header', $data);
 		$this->load->view('pages/home.php',$data);
 	}
@@ -333,9 +333,10 @@
             if(strcmp($this->session->userdata('email'),'superadmin@gmail.com') == 0){
 
                 $data['users'] = $this->user_model->get_user_req();
+                $data['new'] = $this->food_model->get_request();
                 $data['title'] = 'New Admin';
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header', $data);
                 $this->load->view('pages/new_admin', $data);
                 $this->load->view('templates/footer');
 
