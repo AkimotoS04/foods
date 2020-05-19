@@ -150,6 +150,12 @@ class Foods extends CI_Controller
                 array_push($data['rnames'], $name);
         }
 
+        $data['rating'] = [];
+        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+            $name = $this->food_model->get_rating($data['foods'][$x]['id']);
+            array_push($data['rating'], $name);
+        }
+
     }else{
         redirect(base_url());
     }
@@ -299,6 +305,9 @@ class Foods extends CI_Controller
 
 
                 if($upd['stock'] > 0){
+                    
+                    if($jumlah < $upd['stock'])
+                    {
                 $people_id = $this->session->userdata('user_id');
 
                 $restaurant_id = $this->food_model->get_restaurant_id($food_id);
@@ -310,6 +319,11 @@ class Foods extends CI_Controller
                 $this->session->set_flashdata('added_to_cart', 'Food added to cart' );
 
                 redirect('foods/index');
+                    }else{
+                        $this->session->set_flashdata('exceed_limit', 'The restaurant cant prepare that amount of order at the moment' );
+
+                        redirect('foods/index');
+                    }
                 }
                 else{
                     $this->session->set_flashdata('cart_failed','Sorry this food is unavailable at current moment');
@@ -337,6 +351,8 @@ class Foods extends CI_Controller
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 1) {
 
+                
+
                 $cart_id = $_GET['id'];
 
                 $cart['cart'] = $this->food_model->get_cart($cart_id);
@@ -346,13 +362,16 @@ class Foods extends CI_Controller
                 $food_id = $cart['cart'][0]['food_id'];
                 $jumlah = $cart['cart'][0]['jumlah'];
 
-                $this->food_model->order_food($restaurant_id, $people_id, $food_id, $jumlah);
-                $this->food_model->delete_cart($cart_id);
-
                 $data['foods'] = $this->food_model->get_stock($food_id);
                 foreach($data['foods'] as $upd){
                     $upd['stock'] = $upd['stock'] - $jumlah;
                 }
+
+                if($data['foods'][0]['stock'] > $jumlah)
+                {
+
+                $this->food_model->order_food($restaurant_id, $people_id, $food_id, $jumlah);
+                $this->food_model->delete_cart($cart_id);
 
                 $this->food_model->minus_stock($food_id,$upd);
 
@@ -360,6 +379,11 @@ class Foods extends CI_Controller
                 $this->session->set_flashdata('food_ordered', 'Your food is ordered.');
 
                 redirect('foods/index');
+                }else{
+                    $this->session->set_flashdata('add_cart_failed', 'Sorry, only user may add to cart.');
+
+                redirect('foods/index');
+                }
             } else {
                 redirect('foods/index');
             }

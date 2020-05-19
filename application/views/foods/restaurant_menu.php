@@ -19,6 +19,18 @@
 					<h4 class="card-title" style="padding-top:15px;"> <?php echo $food['name']; ?> </h4>
 					<span ><?php echo ("Rp. ").$food['price']; ?> </span> -
 					<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
+					<div style="font-size:25px">
+				<?php
+					for($x=0;$x<floor($rating[$key]);$x++){
+						echo'<span class="fa fa-star checked"></span>';
+						echo" ";
+					}
+					for($j=$x;$j<5;$j++){
+						echo'<span class="fa fa-star"></span>';
+						echo" ";
+					}
+				?>
+			</div>
 					<hr>
 					<a class="btn btn-dark fs-food-page" role="button" href="<?php echo base_url("foods/delete_menu?id=$id"); ?>"> Delete </a>
 					<a class="btn btn-success fs-food-page" role="button" href="<?php echo base_url("foods/update_menu?id=$id"); ?>"> Update </a>
