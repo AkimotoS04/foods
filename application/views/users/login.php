@@ -1,12 +1,12 @@
 
 <?php echo form_open('users/login'); ?>
 
-<div class="container w3-animate-zoom" style="margin-top:120px; color:white">
+<div class="container w3-animate-zoom" style="margin-top:5%; color:white">
   <div class="row">
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
-      <h2 class="text-center"> <?= $title; ?><p><span class="fs-home-logo">Foodies</span><p></h2>
+      <h2 class="text-center"> <span><?= $title; ?> </span><p><span class="fs-home-logo">Foodies</span><p></h2>
       <div class="form-group <?=form_error("email") ? "has-error" : null?>">
         <label>Email address</label>
         <input name="email" type="email" value="<?php echo set_value('email'); ?>" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" autofocus>
