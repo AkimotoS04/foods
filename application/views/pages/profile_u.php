@@ -49,7 +49,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-                                    <span class="monospace"><strong>Tahun Berdiri</strong></span>
+                                    <span class="monospace"><strong>Tanggal Lahir</strong></span>
                                 </div>
                                 <div class="col-md-8">
                                     <span class="monospace">: <?php  echo $pro['Birth']; ?></span>
