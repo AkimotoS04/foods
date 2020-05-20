@@ -40,6 +40,8 @@
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 				<div style="font-size:25px">
 				<?php
+				if($rating[$key]!=0)
+				{
 					for($x=0;$x<floor($rating[$key]);$x++){
 						echo'<span class="fa fa-star checked"></span>';
 						echo" ";
@@ -48,6 +50,12 @@
 						echo'<span class="fa fa-star"></span>';
 						echo" ";
 					}
+				}else{
+					for($x=0;$x<5;$x++){
+						echo'<span class="fa fa-star checked"></span>';
+						echo" ";
+					}
+				}
 				?>
 				</div>
 				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
