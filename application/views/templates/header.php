@@ -335,6 +335,10 @@
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('exceed_limit').'</p>'; ?>
       <?php endif; ?>
 
+      <?php if ($this->session->flashdata('rating_success')): ?>
+        <?php echo '<p class="alert alert-success">'.$this->session->flashdata('rating_success').'</p>'; ?>
+      <?php endif; ?>
+
       <div class="loader-wrapper">
       <span class="loader"><span class="loader-inner"></span></span>
     </div>
