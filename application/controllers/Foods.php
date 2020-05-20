@@ -593,7 +593,11 @@ class Foods extends CI_Controller
         if($this->session->userdata('user_id') != $id_now['data'][0]['user_id']){
 
         $this->food_model->give_rating($order_id, $rating);
+
+        $this->session->set_flashdata('rating_success','Thank you for your rating');
         redirect('foods/index');
+
+       
 
         }else{
             redirect(base_url());
