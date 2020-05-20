@@ -147,41 +147,11 @@ class Foods extends CI_Controller
         $this->load->view('templates/footer');
 
     }
-    public function delete_menu(){
-        if($this->session->userdata('user_id')){
-            if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0){
-        $id   = $_GET['id'];
-        $this->food_model->delete_menu($id);
-        $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
-        $data['foods'] = $this->food_model->get_foods_restaurant($this->session->userdata('user_id'));
-
-        // Extracting name of restaurants for corresponding foods
-        $data['rnames'] = [];
-        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
-                $name = $this->food_model->get_name($data['foods'][$x]['user_id']);
-                array_push($data['rnames'], $name);
-        }
-        $data['rating'] = [];
-        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
-            $name = $this->food_model->get_rating($data['foods'][$x]['id']);
-            array_push($data['rating'], $name);
-        }
-        $this->load->view('templates/header', $data);
-        $this->load->view('foods/restaurant_menu', $data);
-        $this->load->view('templates/footer');
-
-        }
-        else{
-            redirect(base_url());
-        }
-    }
-        else{
-            redirect(base_url());
-        }
 
 
 
-    }
+
+    
     public function update_menu(){
         if($this->session->userdata('user_id')){
             if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0){
@@ -242,6 +212,30 @@ class Foods extends CI_Controller
         redirect(base_url());
     }
 
+    }
+
+    public function delete_menu()
+    {
+        if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0)
+        {
+            $id = $_GET['id'];
+            $data['data'] = $this->food_model->get_user_acceptance($id);
+
+            if($data['data'][0]['user_id'] == $this->session->userdata('user_id'))
+            {
+                $value = array(
+                    'status' => 0
+                );
+                $this->food_model->delete_menu($id, $value);
+
+                redirect('foods/restaurant_menu');
+            }else{
+                redirect('foods/index');
+            }
+            
+        }else{
+            redirect('foods/index');
+        }
     }
 
     public function add_menu()
@@ -337,8 +331,6 @@ class Foods extends CI_Controller
     // Validation to check only users should order food from cart.
         if ($this->session->userdata('user_type') != null) {
             if ($this->session->userdata('user_type') == 1) {
-
-                
 
                 $cart_id = $_GET['id'];
 
@@ -663,5 +655,7 @@ class Foods extends CI_Controller
         $this->load->view('foods/index', $data);
         $this->load->view('templates/footer');
     }
+
+
 }
 ?>

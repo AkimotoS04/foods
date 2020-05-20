@@ -22,6 +22,7 @@ class Food_model extends CI_Model
       'price'   => $this->input->post('price'),
       'user_id' => $this->session->userdata('user_id'),
       'veg'     => $this->input->post('veg'),
+      'status'  => 1,
       'image'   => "assets/images/".$_FILES['image']['name']
     ];
 
@@ -35,6 +36,7 @@ class Food_model extends CI_Model
             'price'   => $this->input->post('price'),
             'user_id' => $this->session->userdata('user_id'),
             'veg'     => $this->input->post('veg'),
+            'status'  => 1,
             'image'   => "assets/images/default.png"
           ];
           
@@ -69,9 +71,9 @@ class Food_model extends CI_Model
         $this->db->limit(1);
         $this->db->delete('cart');
     }
-    public function delete_menu($food_id){
-        $this->db->where('id', $food_id);
-        $this->db->delete('foods');
+    public function delete_menu($id, $value){
+        $this->db->where('id', $id);
+        $this->db->update('foods', $value);
    
     }
  
@@ -186,9 +188,10 @@ class Food_model extends CI_Model
      **/
     public function get_foods()
     {
-        $query = $this->db->get('foods');
+        $query = $this->db->where('status',1);
+        $result = $this->db->get('foods');
 
-        return $query->result_array();
+        return $result->result_array();
     }
 
     /**
@@ -196,13 +199,13 @@ class Food_model extends CI_Model
      */
     public function search_foods($cari)
     {
-        $query = $this->db->query("SELECT * FROM foods WHERE name like "."'%"."$cari"."%'");
+        $query = $this->db->query("SELECT * FROM foods WHERE status = 1 and name like "."'%"."$cari"."%'");
  		return $query->result_array();
     }
 
     public function get_foods_restaurant($restaurant_id)
     {
-        $query = $this->db->query("SELECT * FROM foods WHERE user_id = "."'"."$restaurant_id"."'");
+        $query = $this->db->query("SELECT * FROM foods WHERE status = 1 and user_id = "."'"."$restaurant_id"."'");
  			return $query->result_array();
   
     }
@@ -210,7 +213,7 @@ class Food_model extends CI_Model
      * Sorting price..
      */
     public function sort_food(){
-        $query = $this->db->query("SELECT * FROM foods Order by price");
+        $query = $this->db->query("SELECT * FROM foods where status = 1 Order by price");
  		return $query->result_array();
     }
 
@@ -313,7 +316,7 @@ class Food_model extends CI_Model
     /*Cari foods category*/
     public function filter_food()
     {
-        $query = $this->db->query("SELECT * FROM foods WHERE veg = 1");
+        $query = $this->db->query("SELECT * FROM foods WHERE veg = 1 and status = 1");
         return $query->result_array();
     }
 
@@ -321,7 +324,7 @@ class Food_model extends CI_Model
     /*Cari drinks category */
     public function filter_drink()
     {
-        $query = $this->db->query("SELECT * FROM foods WHERE veg = 0");
+        $query = $this->db->query("SELECT * FROM foods WHERE veg = 0 and status = 1");
         return $query->result_array();
     }
 
@@ -355,6 +358,14 @@ class Food_model extends CI_Model
     public function get_id_order($order_id){
         $query = $this->db->where('id',$order_id);
         $result = $this->db->get('orders');
+
+        return $result->result_array();
+    }
+
+    public function get_user_acceptance($id)
+    {
+        $query = $this->db->where('id',$id);
+        $result = $this->db->get('foods');
 
         return $result->result_array();
     }

@@ -32,8 +32,9 @@
 				?>
 			</div>
 					<hr>
-				
+					<a class="btn btn-danger fs-food-page" role="button" href="<?php echo base_url("foods/delete_menu?id=$id"); ?>"> Delete </a>
 					<a class="btn btn-success fs-food-page" role="button" href="<?php echo base_url("foods/update_menu?id=$id"); ?>"> Update </a>
+
 				</div>
 			</div>
 		</div>
