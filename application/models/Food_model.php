@@ -351,4 +351,11 @@ class Food_model extends CI_Model
         $out = $this->db->get('users');
         return $out->result_array();
     }
+
+    public function get_id_order($order_id){
+        $query = $this->db->where('id',$order_id);
+        $result = $this->db->get('orders');
+
+        return $result->result_array();
+    }
 }

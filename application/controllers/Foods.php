@@ -581,17 +581,24 @@ class Foods extends CI_Controller
     }
 
     public function rating(){
-        if($this->session->userdata('null'))
+        if($this->session->userdata('null') || $this->session->userdata('user_type')==0)
         {
+            redirect('foods/index');
+        }else{
         $rating =  $this->input->get('rating');
         $order_id = $this->input->get('id');
 
+        $id_now['data'] = $this->food_model->get_id_order($order_id);
 
+        if($this->session->userdata('user_id') != $id_now['data'][0]['user_id']){
 
         $this->food_model->give_rating($order_id, $rating);
         redirect('foods/index');
+
         }else{
-            redirect('foods/index');
+            redirect(base_url());
+        }
+            
         }
     }
 
