@@ -152,6 +152,7 @@ class Foods extends CI_Controller
             if($this->session->userdata('user_type')==0 && strcmp($this->session->userdata('email'),'superadmin@gmail.com') != 0){
         $id   = $_GET['id'];
         $this->food_model->delete_menu($id);
+        $this->food_model->delete_order($id);
         $data['title'] = $this->food_model->get_restaurant_name($this->session->userdata('user_id'));
         $data['foods'] = $this->food_model->get_foods_restaurant($this->session->userdata('user_id'));
 

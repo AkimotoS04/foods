@@ -72,6 +72,11 @@ class Food_model extends CI_Model
     public function delete_menu($food_id){
         $this->db->where('id', $food_id);
         $this->db->delete('foods');
+   
+    }
+    public function delete_order($food_id){
+        $this->db->where('food_id', $food_id);
+        $this->db->delete('orders');
     }
     public function update_menu($food_id,$values){
         $this->db->where('id',$food_id['id']);
