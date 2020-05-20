@@ -24,6 +24,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
+
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > span:hover:before,
+
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   color:rgb(236,216,52);
+}
+
   .body-loader {
   margin: 0;
   padding: 0;
