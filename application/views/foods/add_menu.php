@@ -1,7 +1,7 @@
 <?php echo validation_errors(); ?>
 
 <?php echo form_open_multipart('foods/add_menu'); ?>
-<div class="row" style="color:white; margin-top:60px">
+<div class="row" style="color:white;">
   <div class="col-md-3">
   </div>
   <div class="col-md-6">

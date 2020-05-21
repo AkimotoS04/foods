@@ -1,4 +1,4 @@
-<div class="jumbotron" style="margin-top:5%;">
+<div class="jumbotron">
 <h1 class="text-center fs-home-logo"><?= $title ?></h1>
 <hr>
 <?php foreach ($foods as $key => $food) : ?>

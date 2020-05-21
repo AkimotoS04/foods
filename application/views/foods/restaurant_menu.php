@@ -1,4 +1,4 @@
-<div class="jumbotron" style="margin-top:5%;">
+<div class="jumbotron">
 	<h1 class="text-center fs-home-logo"><?= $title ?></h1>
 	<hr>
 
@@ -20,16 +20,24 @@
 					<span ><?php echo ("Rp. ").$food['price']; ?> </span> -
 					<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 					<div style="font-size:25px">
-				<?php
-					for($x=0;$x<floor($rating[$key]);$x++){
-						echo'<span class="fa fa-star checked"></span>';
-						echo" ";
-					}
-					for($j=$x;$j<5;$j++){
-						echo'<span class="fa fa-star"></span>';
-						echo" ";
-					}
-				?>
+					<?php
+						if($rating[$key]!=0)
+						{
+							for($x=0;$x<floor($rating[$key]);$x++){
+								echo'<span class="fa fa-star checked"></span>';
+								echo" ";
+							}
+							for($j=$x;$j<5;$j++){
+								echo'<span class="fa fa-star"></span>';
+								echo" ";
+							}
+						}else{
+							for($x=0;$x<5;$x++){
+								echo'<span class="fa fa-star checked"></span>';
+								echo" ";
+							}
+						}
+					?>
 			</div>
 					<hr>
 					<a class="btn btn-danger fs-food-page" role="button" href="<?php echo base_url("foods/delete_menu?id=$id"); ?>"> Delete </a>
