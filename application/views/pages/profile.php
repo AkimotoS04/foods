@@ -27,7 +27,7 @@
             </ul>
             <div class="tab-content py-4 px-4 bg-light">
                 <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3 fs-home-logo" style="font-size:50px">User Profile</h5>
+                    <h5 class="mb-3 fs-home-logo" style="font-size:50px">Restaurant Profile</h5>
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
@@ -75,6 +75,13 @@
                             <div class="col-md-9">
                                 <input name="name" type="text" class="form-control monospace" value="<?php echo $pro['name']; ?>" placeholder="Enter name of food.">
                                 <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
+                            </div>
+                        </div>
+                        <div class="form-group row <?=form_error("password") ? "has-error" : null?>">
+                            <h5 class="col-lg-3 col-form-label form-control-label monospace">Password</h5>
+                            <div class="col-md-9">
+                                <input name="password" type="text" class="form-control monospace" placeholder="Enter New Password">
+                                <span class='help-block' style='color:red'><?php echo form_error('password'); ?></span>
                             </div>
                         </div>
 

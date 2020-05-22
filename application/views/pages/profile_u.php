@@ -77,6 +77,13 @@
                                 <span class='help-block' style='color:red'><?php echo form_error('name'); ?></span>
                             </div>
                         </div>
+                        <div class="form-group row <?=form_error("password") ? "has-error" : null?>">
+                            <h5 class="col-lg-3 col-form-label form-control-label monospace">Password</h5>
+                            <div class="col-md-9">
+                                <input name="password" type="text" class="form-control monospace" placeholder="Enter New Password">
+                                <span class='help-block' style='color:red'><?php echo form_error('password'); ?></span>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <h5 class="col-lg-3 col-form-label form-control-label monospace">Image</h5>
