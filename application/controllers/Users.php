@@ -244,7 +244,6 @@
             $values = array(
                 
                 'name' => $this->input->post('name'),
-                'password' => md5($this->input->post('password')),
            
                 'image'   => "assets/images/".$_FILES['image']['name']
 
@@ -332,7 +331,6 @@
             $values = array(
                 
                 'name' => $this->input->post('name'),
-                'password' => md5($this->input->post('password')),
            
                 'image'   => "assets/images/".$_FILES['image']['name']
 
@@ -376,7 +374,7 @@
             $values = array(
               
                 'name' => $this->input->post('name'),
-                'password' => md5($this->input->post('pass')),
+                'password' => md5($this->input->post('pass'))
   
             );
 
