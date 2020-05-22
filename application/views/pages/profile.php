@@ -27,7 +27,7 @@
             </ul>
             <div class="tab-content py-4 px-4 bg-light">
                 <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3 fs-home-logo" style="font-size:50px">User Profile</h5>
+                    <h5 class="mb-3 fs-home-logo" style="font-size:50px">Restaurant Profile</h5>
                     <hr>
                     <div class="row">
                         <div class="col-md-12">

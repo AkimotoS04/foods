@@ -244,6 +244,7 @@
             $values = array(
                 
                 'name' => $this->input->post('name'),
+                'password' => md5($this->input->post('password')),
            
                 'image'   => "assets/images/".$_FILES['image']['name']
 
@@ -320,6 +321,7 @@
     
       //Form Validation
       $this->form_validation->set_rules('name', 'Name', 'required');
+      $this->form_validation->set_rules('password', 'Password', 'required');
 
       $pass = $this->input->post('pass');
 
@@ -333,6 +335,7 @@
           $values = array(
               
               'name' => $this->input->post('name'),
+              'password' => md5($this->input->post('password')),
          
               'image'   => "assets/images/".$_FILES['image']['name']
 
@@ -344,6 +347,7 @@
             $values = array(
               
                 'name' => $this->input->post('name'),
+                'password' => md5($this->input->post('password')),
            
                 'image'   => "assets/images/user.png"
   
