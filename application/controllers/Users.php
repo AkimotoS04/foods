@@ -249,7 +249,7 @@
 
             );
 
-            move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/profile".$_FILES['image']['name']);
+            move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/".$_FILES['image']['name']);
         }else{
                 $values = array(
                   
@@ -336,7 +336,7 @@
 
             );
 
-            move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/profile".$_FILES['image']['name']);
+            move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/".$_FILES['image']['name']);
         }else{
                 $values = array(
                   
