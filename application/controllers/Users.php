@@ -315,53 +315,53 @@
     
     public function update_user_u()
     {
-      if($this->session->userdata('user_id')){
-          if($this->session->userdata('user_type')==1){
-      $id   = $_GET['id'];
-    
-      //Form Validation
-      $this->form_validation->set_rules('name', 'Name', 'required');
-      $this->form_validation->set_rules('password', 'Password', 'required');
+        if($this->session->userdata('user_id')){
+            if($this->session->userdata('user_type')==1){
+                
+        $id   = $_GET['id'];
+      
+        //Form Validation
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        $pass = $this->input->post('pass');
 
-      $pass = $this->input->post('pass');
+        if($this->form_validation->run() != FALSE && $pass == null){
+            $where = array(
+                'id' => $this->input->post('id'),
+            );        
 
-      if($this->form_validation->run() != FALSE && $pass == null){
-          $where = array(
-              'id' => $this->input->post('id'),
-          );
+            if($_FILES['image']['name']!=null){
 
-          if($_FILES['image']['name']!=null){
-
-          $values = array(
-              
-              'name' => $this->input->post('name'),
-              'password' => md5($this->input->post('password')),
-         
-              'image'   => "assets/images/".$_FILES['image']['name']
-
-          );
-
-          move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/".$_FILES['image']['name']);
-        }
-        else{
             $values = array(
-              
+                
                 'name' => $this->input->post('name'),
                 'password' => md5($this->input->post('password')),
            
-                'image'   => "assets/images/user.png"
-  
-            );
-        }
+                'image'   => "assets/images/".$_FILES['image']['name']
 
-          $this->user_model->update_user($where,$values);
-          redirect('users/profile_u');
-      }else if($this->form_validation->run() != FALSE && $pass != null)
-      {
+            );
+
+            move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/profile".$_FILES['image']['name']);
+        }else{
+                $values = array(
+                  
+                    'name' => $this->input->post('name'),
+                    'image'   => "assets/images/user.png"
+      
+                );
+
+            }
+    
+
+            $this->user_model->update_user($where,$values);
+            redirect('users/profile_u');
+        
+        
+    }else if($this->form_validation->run() != FALSE && $pass != null)
+    {
 
         $where = array(
             'id' => $this->input->post('id'),
-        );
+        );        
 
         if($_FILES['image']['name']!=null){
 
@@ -374,35 +374,35 @@
         );
 
         move_uploaded_file($_FILES['image']['tmp_name'], "assets/images/".$_FILES['image']['name']);
-      }
-      else{
-          $values = array(
-            
-              'name' => $this->input->post('name'),
-              'password' => md5($this->input->post('pass')),
-              'image'   => "assets/images/user.png"
+    }else{
+            $values = array(
+              
+                'name' => $this->input->post('name'),
+                'password' => md5($this->input->post('pass')),
+                'image'   => "assets/images/user.png"
+  
+            );
 
-          );
-      }
+        }
+
 
         $this->user_model->update_user($where,$values);
         redirect('users/profile_u');
 
+    }
+            $this->load->view('templates/header');
+            $this->load->view('pages/profile_u', $data);
+            $this->load->view('templates/footer');
+        }else{
+            redirect(base_url());
+        }
 
-      }
-  
-          $this->load->view('templates/header');
-          $this->load->view('pages/profile_u');
-          $this->load->view('templates/footer');
-      }else{
-          redirect(base_url());
-      }
+        }else{
+            redirect(base_url());
+        }
 
-      }else{
-          redirect(base_url());
-      }
+    }
 
-  }
 
   public function new_admin()
   {
