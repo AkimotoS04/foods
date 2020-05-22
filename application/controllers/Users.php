@@ -255,7 +255,6 @@
                 $values = array(
                   
                     'name' => $this->input->post('name'),
-                    'image'   => "assets/images/user.png"
       
                 );
 
@@ -288,8 +287,7 @@
             $values = array(
               
                 'name' => $this->input->post('name'),
-                'password' => md5($this->input->post('pass')),
-                'image'   => "assets/images/user.png"
+                'password' => md5($this->input->post('pass'))
   
             );
 
@@ -345,7 +343,7 @@
                 $values = array(
                   
                     'name' => $this->input->post('name'),
-                    'image'   => "assets/images/user.png"
+
       
                 );
 
@@ -379,7 +377,6 @@
               
                 'name' => $this->input->post('name'),
                 'password' => md5($this->input->post('pass')),
-                'image'   => "assets/images/user.png"
   
             );
 
