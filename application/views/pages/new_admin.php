@@ -4,7 +4,7 @@
 <br>
     <?php 
     foreach($users as $u){
-        echo'<a class="btn btn-primary fs-food-page" role="button" href="/foods/users/view_cv/?id=';echo($u['id']);echo '">'; 
+        echo'<a class="btn btn-primary fs-food-page" role="button" href="'.base_url("/users/view_cv/?id=".$u["id"]).'">'; 
         echo'View Details';
         echo '</a>';
         echo "<h4>"; 

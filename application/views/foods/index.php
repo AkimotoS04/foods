@@ -2,13 +2,13 @@
 	<h2 class="col-sm-12"><?= $title ?></h2>
 	<div class="col-sm-4">
 		<h3>Categories :</h3>
-		<a class="btn btn-warning m-1 w3-button" role="button" href="/foods/foods/filter">Foods</a>
-		<a class="btn btn-warning m-1" role="button" href="/foods/foods/filterdrink">Drinks</a>
+		<a class="btn btn-warning m-1 w3-button" role="button" href="<?php echo base_url("/foods/filter")?>">Foods</a>
+		<a class="btn btn-warning m-1" role="button" href="<?php echo base_url("/foods/filterdrink")?>">Drinks</a>
 	</div>
 	<div class="col-sm-4">
 		<h3>Sort by:</h3>
 		<form action="<?php echo base_url().'foods/sort' ?>" method="post">
-			<button class="btn btn-warning" role="button" href="/foods/foods/sort_price">Cheapest</button>
+			<button class="btn btn-warning" role="button" href="<?php echo base_url("/foods/sort_price")?>">Cheapest</button>
 		</form>
 	</div>
 	<div class="col-sm-4">
@@ -58,7 +58,7 @@
 				}
 				?>
 				</div>
-				<form method='POST' action='<?php echo base_url('../foods/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
+				<form method='POST' action='<?php echo base_url('/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
 					<div class="qty">
               <span class="minus bg-dark qty-minus">-</span>
               <input class="count" type="number" value="1" name="qty" style="border: 0;width: 2%;" readonly>
@@ -72,27 +72,6 @@
     	</div>
 	</div>
 <?php endforeach; ?>
-</div>
-
-<div class="modal fade bd-example-modal-lg" style="width: 100%;" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sales Statistic</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-		<div class="container">
-			<div id="chartContainer" style="height: 370px; width: auto;"></div>
-		</div>	
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 <script>
