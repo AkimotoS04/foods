@@ -17,11 +17,11 @@
       <?php if($f['Rate'] == null) : ?>
         <div class="rating">
     
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/foods/rating?rating=5&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/foods/rating?rating=4&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/foods/rating?rating=3&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/foods/rating?rating=2&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/foods/ratng?rating=1&id='.$f['id'].''); ?>';">☆</span>
+    <span role="button" onclick="window.location.href='<?php echo base_url('/foods/rating?rating=5&id='.$f['id'].''); ?>';">☆</span>
+    <span role="button" onclick="window.location.href='<?php echo base_url('/foods/rating?rating=4&id='.$f['id'].''); ?>';">☆</span>
+    <span role="button" onclick="window.location.href='<?php echo base_url('/foods/rating?rating=3&id='.$f['id'].''); ?>';">☆</span>
+    <span role="button" onclick="window.location.href='<?php echo base_url('/foods/rating?rating=2&id='.$f['id'].''); ?>';">☆</span>
+    <span role="button" onclick="window.location.href='<?php echo base_url('/foods/ratng?rating=1&id='.$f['id'].''); ?>';">☆</span>
     </div>
         <?php else : ?>
 

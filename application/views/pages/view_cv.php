@@ -8,7 +8,7 @@
 <?php echo'<iframe src="'.base_url().$admin[0]['cv'].'" type="application/pdf" width="100%" height="600px" />'; ?></iframe>
 <br/>
 <br/>
-<a class="btn btn-success fs-food-page" role="button" href="/foods/users/accept_admin/?id=<?php echo($admin[0]['id']); ?>"> Accept </a>
-<a class="btn btn-danger fs-food-page" role="button" href="/foods/users/delete_user/?id=<?php echo($admin[0]['id']); ?>">Reject</a>
+<a class="btn btn-success fs-food-page" role="button" href="<?php echo base_url("/users/accept_admin/?id=".($admin[0]['id']))?>"> Accept </a>
+<a class="btn btn-danger fs-food-page" role="button" href="<?php echo base_url("/users/delete_user/?id".($admin[0]['id']))?>">Reject</a>
 <br/>
 </div>
