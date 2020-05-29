@@ -163,6 +163,7 @@ class Foods extends CI_Controller
         $this->form_validation->set_rules('name', 'Name', 'required');
         $this->form_validation->set_rules('stock','Stock','required');
         $this->form_validation->set_rules('price', 'Price', 'required');
+        $this->form_validation->set_rules('description', 'Description', 'required');
 
         if($this->form_validation->run() != FALSE){
             $where = array(
@@ -177,6 +178,7 @@ class Foods extends CI_Controller
                 'veg' => $this->input->post('veg'),
                 'price' => $this->input->post('price'),
                 'stock' => $this->input->post('stock'),
+                'description' => $this->input->post('description'),
                 'image'   => "assets/images/".$_FILES['image']['name']
 
             );
@@ -192,7 +194,8 @@ class Foods extends CI_Controller
                     'name' => $this->input->post('name'),
                     'veg' => $this->input->post('veg'),
                     'price' => $this->input->post('price'),
-                    'stock' => $this->input->post('stock')
+                    'stock' => $this->input->post('stock'),
+                    'description' => $this->input->post('description')
 
                 );
 
@@ -249,6 +252,7 @@ class Foods extends CI_Controller
                 $this->form_validation->set_rules('name', 'Name', 'required');
                 $this->form_validation->set_rules('stock','Stock','required');
                 $this->form_validation->set_rules('price', 'Price', 'required');
+                $this->form_validation->set_rules('description', 'Description', 'required');
 
                 if ($this->form_validation->run() === false) {
                     $this->load->view('templates/header', $data);
@@ -320,6 +324,10 @@ class Foods extends CI_Controller
         } else {
             redirect('users/login');
         }
+    }
+
+    public function food_detail(){
+        $food_id = $this->input->post('id');
     }
 
     /**

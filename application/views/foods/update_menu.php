@@ -35,6 +35,11 @@
     <input name="stock"  value="<?php echo $upd['stock']; ?>" type="number" class="form-control" placeholder="Enter stock.">
     <span class='help-block' style='color:red'><?php echo form_error('stock'); ?></span>
   </div>
+  <div class="form-group <?=form_error("description") ? "has-error" : null?>">
+    <label>Description</label>
+    <input name="description"  value="<?php echo $upd['description']; ?>" type="text" class="form-control" placeholder="Enter stock.">
+    <span class='help-block' style='color:red'><?php echo form_error('description'); ?></span>
+  </div>
   <div class="form-group">
     <label>Image</label>
     <input type="file" name="image" />
