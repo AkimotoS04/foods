@@ -292,7 +292,7 @@
       <?php endif; ?>
     </nav>
 
-    <div class="banner">
+    <div class="banner" style="background-image:url(/foodies/assets/images/banner.jpg);">
     <div class="container">
       <!-- Flash Messages -->
       <?php if ($this->session->flashdata('user_registered')): ?>
