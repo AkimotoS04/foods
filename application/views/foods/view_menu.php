@@ -1,51 +1,67 @@
 <?php
 	foreach($foods as $pro){
 ?>
-
 <div class="container pt-5 pr-5 pb-5 bg-light mt-3 mb-3 w3-animate-zoom">
-    
-        <h3>View Description</h3>
-    
-        <table class ="table table-hover table-striped">
-            <td>
+    <h1 class="text-center fs-home-logo">Food Description</h1>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
                 <?php
-            if ($pro['image'] !== null) {
-                echo "<img class='zoom' width = '200' height = '200' src='".base_url().$pro['image']."'>";
-            }else{
-                echo "<img class='zoom' width = '200' height = '200' src='".base_url().'assets/images/default.png'."'>";
-            }
-            ?>
-            </td>
-            <td>
-            <tbody>
-                            <tr>
-                                <td>Nama</td>
-                                <td><?php  echo $pro['name']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Harga</td>
-                                <td><?php  echo $pro['price']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Deskripsi</td>
-                                <td><?php  echo $pro['description']; ?></td>
-                            </tr>
-                        </tbody>
-                    </td>
-        </table>
-        
-        
-        <div class="container">
-            <div class="row">
-              <div class="col">
-                <a href=<?php echo base_url('foods/index');?> class="previous bg-black">&#8249; Back</a>
-              </div>
-           
+                    if ($pro['image'] !== null) {
+                        echo "<img class='img-fluid' src='".base_url().$pro['image']."'>";
+                    }else{
+                        echo "<img class='img-fluid' src='".base_url().'assets/images/default.png'."'>";
+                    }
+                ?>
             </div>
+            <div class="col-md-8">
+                <table class ="table table-hover table-striped">
+                    <tbody>
+                        <tr>
+                            <td>Nama</td>
+                            <td><?php  echo $pro['name']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Harga</td>
+                            <td><?php  echo $pro['price']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Deskripsi</td>
+                            <td><?php  echo $pro['description']; ?></td>
+                        </tr>
+                        <tr>
+                            <td>Rating</td>
+                            <td>RATING CUK</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form method='POST' action='<?php echo base_url('/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
+                    <h3>Buy 
+                    <span class="qty">
+                        <span class="minus bg-dark qty-minus">-</span>
+                        <input class="count" type="number" value="1" name="qty" style="border: 0;width: 2%;" readonly>
+                        <span class="plus bg-dark qty-plus">+</span>
+                    </span>
+                    ?</h3>
+                    
+                    <input type='hidden' name='id' value="<?php echo $pro['id'] ?>">
+                    <br>
+                    <button type='submit' name='submit' class='btn btn-success float-right'>Add to Cart</button>
+                    <a href="<?php echo base_url("/foods");?>" class='btn btn-secondary float-right mx-2'>No, Thanks</a>
+                </form>
+            <div>
         </div>
-        
+    <?php } ?>
     </div>
+</div>
 
 
-
-<?php } ?>
+<script>
+    $(document).on('click', '.qty-plus', function () {
+		$(this).prev().val(+$(this).prev().val() + 1);
+	});
+	$(document).on('click', '.qty-minus', function () {
+		if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+	});
+</script>
