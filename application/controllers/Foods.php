@@ -326,9 +326,6 @@ class Foods extends CI_Controller
         }
     }
 
-    public function food_detail(){
-        $food_id = $this->input->post('id');
-    }
 
     /**
      * Order food from cart.
