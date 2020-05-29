@@ -249,6 +249,7 @@ class Foods extends CI_Controller
                 $this->form_validation->set_rules('name', 'Name', 'required');
                 $this->form_validation->set_rules('stock','Stock','required');
                 $this->form_validation->set_rules('price', 'Price', 'required');
+                $this->form_validation->set_rules('description', 'Description', 'required');
 
                 if ($this->form_validation->run() === false) {
                     $this->load->view('templates/header', $data);
@@ -320,6 +321,10 @@ class Foods extends CI_Controller
         } else {
             redirect('users/login');
         }
+    }
+
+    public function food_detail(){
+        $food_id = $this->input->post('id');
     }
 
     /**
