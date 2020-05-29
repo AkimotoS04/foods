@@ -68,6 +68,7 @@
 					<input type='hidden' name='id' value="<?php echo $food['id'] ?>">
 					<button type='submit' name='submit' class='btn btn-success fs-food-page'>Add to Cart</button>
 				</form>
+				<a class='btn btn-success fs-food-page' href="<?php echo base_url().'foods/details?id='.$food['id'] ?>">View Details</a>
 			</div>
     	</div>
 	</div>
