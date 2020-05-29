@@ -4,7 +4,30 @@
 <?php foreach ($foods as $key => $food) : ?>
   <h4><?php echo $jumlah[$key]; ?> x <?php echo $fname[$key]; ?> -
   <small><?php echo $rname[$key]; ?> </small>
-  <a class="btn btn-dark fs-food-page" role="button" href="<?php echo base_url("/foods/order_cart?id=".$foods[$key]['id'])?>"> Order </a>
+  <button class="btn btn-dark fs-food-page" data-toggle="modal" data-target="#myModal" data-backdrop='static' data-keyboard='false'> Order </button>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header ">
+        <h4 class="col-md-12 modal-title text-center" id="myModal">Please Rate Our Food</h4>
+      </div>
+      <div class="modal-body">
+      <div class="rating">
+    
+    <span role="button" class="fs-home-logo" onclick="window.location.href='<?php echo base_url('/foods/order_cart?rating=5&id='.$foods[$key]['id'].''); ?>';">☆</span>
+    <span role="button" class="fs-home-logo" onclick="window.location.href='<?php echo base_url('/foods/order_cart?rating=4&id='.$foods[$key]['id'].''); ?>';">☆</span>
+    <span role="button" class="fs-home-logo" onclick="window.location.href='<?php echo base_url('/foods/order_cart?rating=3&id='.$foods[$key]['id'].''); ?>';">☆</span>
+    <span role="button" class="fs-home-logo" onclick="window.location.href='<?php echo base_url('/foods/order_cart?rating=2&id='.$foods[$key]['id'].''); ?>';">☆</span>
+    <span role="button" class="fs-home-logo" onclick="window.location.href='<?php echo base_url('/foods/order_cart?rating=1&id='.$foods[$key]['id'].''); ?>';">☆</span>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+      
   <a class="btn btn-danger fs-food-page" role="button" href="<?php echo base_url("/foods/delete_cart?id=".$foods[$key]['id'])?>"> Cancel </a>
   <br>
   <div class="my-2">
@@ -14,3 +37,5 @@
 </h4>
 <?php endforeach; ?>
 </div>
+
+

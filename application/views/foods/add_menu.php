@@ -30,7 +30,7 @@
     </div>
     <div class="form-group <?=form_error("description") ? "has-error" : null?>">
       <label>Description</label>
-      <input name="description"  value="<?php echo set_value('description'); ?>" type="text" class="form-control" placeholder="Enter Description.">
+      <textarea name="description"  value="<?php echo set_value('description'); ?>" type="text" class="form-control" placeholder="Enter Description."></textarea>
       <span class='help-block' style='color:red'><?php echo form_error('description'); ?></span>
     </div>
     <div class="form-group">

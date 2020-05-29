@@ -326,9 +326,6 @@ class Foods extends CI_Controller
         }
     }
 
-    public function food_detail(){
-        $food_id = $this->input->post('id');
-    }
 
     /**
      * Order food from cart.
@@ -341,6 +338,7 @@ class Foods extends CI_Controller
             if ($this->session->userdata('user_type') == 1) {
 
                 $cart_id = $_GET['id'];
+                $rating = $_GET['rating'];
 
                 $cart['cart'] = $this->food_model->get_cart($cart_id);
 
@@ -357,7 +355,7 @@ class Foods extends CI_Controller
                 if($data['foods'][0]['stock'] > $jumlah)
                 {
 
-                $this->food_model->order_food($restaurant_id, $people_id, $food_id, $jumlah);
+                $this->food_model->order_food($restaurant_id, $people_id, $food_id, $jumlah, $rating);
                 $this->food_model->delete_cart($cart_id);
 
                 $this->food_model->minus_stock($food_id,$upd);
