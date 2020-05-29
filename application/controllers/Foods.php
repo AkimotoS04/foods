@@ -666,6 +666,11 @@ class Foods extends CI_Controller
         $id = $_GET['id'];
 
         $data['foods'] = $this->food_model->view_details($id);
+        $data['rating'] = [];
+        for ($x = 0; $x <= count($data['foods']) - 1; $x++) {
+            $name = $this->food_model->get_rating($data['foods'][$x]['id']);
+            array_push($data['rating'], $name);
+        }
 
         $this->load->view('templates/header', $data);
         $this->load->view('foods/view_menu', $data);

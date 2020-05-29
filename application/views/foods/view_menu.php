@@ -32,7 +32,26 @@
                         </tr>
                         <tr>
                             <td>Rating</td>
-                            <td>RATING CUK</td>
+                            <td><div style="font-size:25px">
+					<?php
+					if($rating[0]!=0)
+					{
+						for($x=0;$x<floor($rating[0]);$x++){
+							echo'<span class="fa fa-star checked"></span>';
+							echo" ";
+						}
+						for($j=$x;$j<5;$j++){
+							echo'<span class="fa fa-star"></span>';
+							echo" ";
+						}
+					}else{
+						for($x=0;$x<5;$x++){
+							echo'<span class="fa fa-star checked"></span>';
+							echo" ";
+						}
+					}
+					?>
+				</div></td>
                         </tr>
                     </tbody>
                 </table>
