@@ -7,9 +7,9 @@
   <button class="btn btn-dark fs-food-page" data-toggle="modal" data-target="#myModal" data-backdrop='static' data-keyboard='false'> Order </button>
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title" id="myModal">Please Rate Our Food</h4>
+    <div class="modal-content text-center">
+      <div class="modal-header ">
+        <h4 class="col-md-12 modal-title text-center" id="myModal">Please Rate Our Food</h4>
       </div>
       <div class="modal-body">
       <div class="rating">
