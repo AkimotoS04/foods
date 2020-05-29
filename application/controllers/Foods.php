@@ -664,6 +664,16 @@ class Foods extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function details(){
+        $id = $_GET['id'];
+
+        $data['foods'] = $this->food_model->view_details($id);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('foods/view_menu', $data);
+        $this->load->view('templates/footer');
+    }
+
 
 }
 ?>

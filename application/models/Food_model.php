@@ -371,4 +371,12 @@ class Food_model extends CI_Model
 
         return $result->result_array();
     }
+
+    public function view_details($id)
+    {
+        $query = $this->db->where('id',$id);
+        $result = $this->db->get('foods');
+
+        return $result->result_array();
+    }
 }
