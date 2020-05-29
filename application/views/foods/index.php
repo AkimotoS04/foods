@@ -39,41 +39,36 @@
 				<span ><?php echo ("Rp. ").$food['price']; ?> </span> -
 				<span class="font-weight-bold"><?php echo $rnames[$key]; ?> </span>
 				<div style="font-size:25px">
-				<?php
-				if($rating[$key]!=0)
-				{
-					for($x=0;$x<floor($rating[$key]);$x++){
-						echo'<span class="fa fa-star checked"></span>';
-						echo" ";
+					<?php
+					if($rating[$key]!=0)
+					{
+						for($x=0;$x<floor($rating[$key]);$x++){
+							echo'<span class="fa fa-star checked"></span>';
+							echo" ";
+						}
+						for($j=$x;$j<5;$j++){
+							echo'<span class="fa fa-star"></span>';
+							echo" ";
+						}
+					}else{
+						for($x=0;$x<5;$x++){
+							echo'<span class="fa fa-star checked"></span>';
+							echo" ";
+						}
 					}
-					for($j=$x;$j<5;$j++){
-						echo'<span class="fa fa-star"></span>';
-						echo" ";
-					}
-				}else{
-					for($x=0;$x<5;$x++){
-						echo'<span class="fa fa-star checked"></span>';
-						echo" ";
-					}
-				}
-				?>
+					?>
 				</div>
 				<form method='POST' action='<?php echo base_url('/foods/add_to_cart'); ?>' enctype='multipart/form-data'>
-					<div class="qty">
-              <span class="minus bg-dark qty-minus">-</span>
-              <input class="count" type="number" value="1" name="qty" style="border: 0;width: 2%;" readonly>
-              <span class="plus bg-dark qty-plus">+</span>
-          </div>
+				<div class="qty">
+					<span class="minus bg-dark qty-minus">-</span>
+					<input class="count" type="number" value="1" name="qty" style="border: 0;width: 2%;" readonly>
+					<span class="plus bg-dark qty-plus">+</span>
+				</div>
 					<hr>
 					<input type='hidden' name='id' value="<?php echo $food['id'] ?>">
 					<button type='submit' name='submit' class='btn btn-success fs-food-page'>Add to Cart</button>
-			
 				</form>
-				<form method='POST' action='<?php echo base_url('/foods/food_detail'); ?>' enctype='multipart/form-data'>
-				<input type='hidden' name='id' value="<?php echo $food['id'] ?>">
-				<button type='submit' name='submit' class='btn btn-success fs-food-page'>Food's Detail</button>
-				</form>
-				<a class='btn btn-success fs-food-page' href="<?php echo base_url().'foods/details?id='.$food['id'] ?>">View Details</a>
+				<a class='btn btn-primary fs-food-page' href="<?php echo base_url().'foods/details?id='.$food['id'] ?>">View Details</a>
 			</div>
     	</div>
 	</div>
