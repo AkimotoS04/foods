@@ -14,10 +14,18 @@ if ($this->session->userdata('user_type') == 0 && strcmp($this->session->userdat
 	};
 }
 
+$total = 0;
+
+foreach($stat as $s){
+	$total = $total + ($s['jumlah']*$s['price']);
+}
+
 
 ?>
 
 <hr>
+<h4>Pendapatan Total: <i>Rp <?php echo $total; ?></i></h4>
+<h4>Pendapatan dari penjualan tiap menu:</h4>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
