@@ -14,32 +14,32 @@
       <div class="input-group-prepend">
       </div>
       <div class="qty mx-3">
-      <?php if($f['Rate'] == null) : ?>
-        <div class="rating">
-    
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/rating?rating=5&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/rating?rating=4&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/rating?rating=3&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/rating?rating=2&id='.$f['id'].''); ?>';">☆</span>
-    <span role="button" onclick="window.location.href='<?php echo base_url('../foods/rating?rating=1&id='.$f['id'].''); ?>';">☆</span>
-    </div>
-        <?php else : ?>
-
-        <?php endif; ?>
-        
-
-      </div>
-      <div class="input-group-prepend">
-      <?php if($f['Rate'] == null) : ?>
-        <?php else : ?>
-          <button type='submit' name='submit' class='btn btn-success font-weight-bold rounded fs-food-page' disabled>Rated</button>
-          <?php endif; ?>
-      </div>
+      <div style="font-size:25px">
+				<?php
+				if($f['Rate']!=0)
+				{
+					for($x=0;$x<floor($f['Rate']);$x++){
+						echo'<span class="fa fa-star checked"></span>';
+						echo" ";
+					}
+					for($j=$x;$j<5;$j++){
+						echo'<span class="fa fa-star"></span>';
+						echo" ";
+					}
+				}else{
+					for($x=0;$x<5;$x++){
+						echo'<span class="fa fa-star checked"></span>';
+						echo" ";
+					}
+				}
+				?>
+				</div>
     </div>
 		<hr>
 	</form>
 </div>
 </h4>
+<hr>
 <?php endforeach; ?>
 </div>
 <script>
