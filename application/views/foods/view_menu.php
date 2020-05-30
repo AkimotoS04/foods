@@ -23,6 +23,16 @@
                             <td><?php  echo $pro['name']; ?></td>
                         </tr>
                         <tr>
+                            <td>Jenis Makanan</td>
+                        <td><?php
+                            if($pro['veg'] == 1){
+                                echo "Food";
+                            }else{
+                                echo "Drinks";
+                            }
+                        ?></td>
+                        </tr>
+                        <tr>
                             <td>Harga</td>
                             <td><?php  echo $pro['price']; ?></td>
                         </tr>
