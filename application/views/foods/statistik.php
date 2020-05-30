@@ -20,11 +20,18 @@ foreach($stat as $s){
 	$total = $total + ($s['jumlah']*$s['price']);
 }
 
+function rupiah($angka){
+	
+	$hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+	return $hasil_rupiah;
+ 
+}
 
+$resultz = rupiah($total);
 ?>
 
 <hr>
-<h4>Pendapatan Total: <i>Rp <?php echo $total; ?></i></h4>
+<h4>Pendapatan Total: <i><?php echo $resultz; ?></i></h4>
 <h4>Pendapatan dari penjualan tiap menu:</h4>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
