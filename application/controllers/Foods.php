@@ -513,6 +513,11 @@ class Foods extends CI_Controller
                     $name = $this->food_model->get_jumlah($data['orders'][$x]['id']);
                     array_push($data['jumlah'], $name);
                 }
+                $data['rating'] = [];
+                for ($x = 0; $x <= count($data['orders']) - 1; $x++) {
+                    $name = $this->food_model->get_rating($data['orders'][$x]['id']);
+                    array_push($data['rating'], $name);
+                }
 
                 $this->load->view('templates/header', $data);
                 $this->load->view('foods/view_orders', $data);
