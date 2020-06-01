@@ -201,8 +201,12 @@ class Food_model extends CI_Model
      */
     public function search_foods($cari)
     {
-        $query = $this->db->query("SELECT * FROM foods WHERE status = 1 and name like "."'%"."$cari"."%'");
- 		return $query->result_array();
+        $this->db->select('*');
+        $this->db->from('foods');
+        $this->db->like('name',$cari);
+        $query = $this->db->get();
+
+        return $query->result_array();
     }
 
     public function get_foods_restaurant($restaurant_id)
