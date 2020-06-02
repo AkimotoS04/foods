@@ -1,5 +1,3 @@
-<?php echo validation_errors(); ?>
-
 <?php echo form_open_multipart('foods/add_menu'); ?>
 <div class="row" style="color:white;">
   <div class="col-md-3">
