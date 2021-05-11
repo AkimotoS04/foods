@@ -82,7 +82,6 @@
         }  
               } else {
                   $this->session->set_flashdata('login_failed', 'Email/Password is wrong.');
-
                   redirect('users/login');
               }
           }

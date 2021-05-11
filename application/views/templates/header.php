@@ -297,46 +297,90 @@
       <!-- Flash Messages -->
       <?php if ($this->session->flashdata('user_registered')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_registered').'</p>'; ?>
+        <?php if(isset($_SESSION['user_registered'])){
+                unset($_SESSION['user_registered']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('login_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+        <?php if(isset($_SESSION['login_failed'])){
+                unset($_SESSION['login_failed']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('food_ordered')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('food_ordered').'</p>'; ?>
+        <?php if(isset($_SESSION['food_ordered'])){
+                unset($_SESSION['food_ordered']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('added_to_cart')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('added_to_cart').'</p>'; ?>
+        <?php if(isset($_SESSION['added_to_cart'])){
+                unset($_SESSION['added_to_cart']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('add_cart_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('add_cart_failed').'</p>'; ?>
+        <?php if(isset($_SESSION['add_cart_failed'])){
+                unset($_SESSION['add_cart_failed']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('order_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('order_failed').'</p>'; ?>
+        <?php if(isset($_SESSION['order_failed'])){
+                unset($_SESSION['order_failed']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('double_email')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('double_email').'</p>'; ?>
+        <?php if(isset($_SESSION['double_email'])){
+                unset($_SESSION['double_email']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('cart_failed')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('cart_failed').'</p>'; ?>
+        <?php if(isset($_SESSION['cart_failed'])){
+                unset($_SESSION['cart_failed']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('not_accepted')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('not_accepted').'</p>'; ?>
+        <?php if(isset($_SESSION['not_accepted'])){
+                unset($_SESSION['not_accepted']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('exceed_limit')): ?>
         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('exceed_limit').'</p>'; ?>
+        <?php if(isset($_SESSION['exceed_limit'])){
+                unset($_SESSION['exceed_limit']);
+            }
+        ?>
       <?php endif; ?>
 
       <?php if ($this->session->flashdata('rating_success')): ?>
         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('rating_success').'</p>'; ?>
+        <?php if(isset($_SESSION['rating_success'])){
+                unset($_SESSION['rating_success']);
+            }
+        ?>
       <?php endif; ?>
 
       <div class="loader-wrapper">
